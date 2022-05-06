@@ -13,12 +13,24 @@ export function Home(){
     }
     return(
         <HomePage>
-            <h1>
-                HOME
-            </h1>
-            <button onClick={handleLogout}>
-                Logout
-            </button>
+            <div className="aviso">
+                <div className="title">
+                    <h1>
+                        Atenção
+                    </h1>
+                </div>
+                <div className="conteiner">
+                    <h2>
+                        Esse sitema está em desenvolvimento, portanto ainda
+                        ainda não funciona corretamente em dispositivos moveis.
+                    </h2>
+                </div>
+                <div className="escolha">
+                    <button className="exit" onClick={handleLogout}>
+                        Sair
+                    </button>
+                </div>
+            </div>
         </HomePage>
     )
 }
