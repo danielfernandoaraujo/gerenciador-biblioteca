@@ -15,13 +15,13 @@ de livros que estão em andamento.
 
 ## Stack utilizada
 
-**Front-end:** React, Styled-Components
+**Front-end:** React e Styled-Components;
 
-**Database:** Firebase
+**Database:** Firebase;
 
 
 
     
-## Apêndice
+## 🚧 Projeto em produção 🚧
 
-🚧 Projeto em produção 🚧
+
