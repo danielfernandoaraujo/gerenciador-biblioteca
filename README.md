@@ -25,6 +25,7 @@ de livros que estão em andamento.
 ## 🚧 Projeto em produção 🚧
 
 - [x] Login e Autenticação.
+- [ ] Pagina inicial
 - [ ] Adicionar alunos.
 - [ ] Adicionar livros.
 - [ ] Adicionar emprestimos de livros.
