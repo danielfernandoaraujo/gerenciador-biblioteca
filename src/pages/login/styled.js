@@ -44,13 +44,10 @@ export const LoginPage = styled.div`
             border-radius: 8px ;
             background-color: white ;
             box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.57);
-            background: rgba( 255, 255, 255, 0.85 );
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 20px );
-            -webkit-backdrop-filter: blur( 20px );
-            border-radius: 10px;
             border: 1px solid rgba( 255, 255, 255, 0.18 );
-            padding: 0px 20px ;
+            padding: 0px 50px ;
             .title{
                 display: flex ;
                 justify-content: center ;
@@ -85,21 +82,22 @@ export const LoginPage = styled.div`
                     color:#41414b;
                 }
                 input{
-                    border-radius: 8px;
-                    padding-left: 5px ;
+                    /* padding-left: 5px ; */
                     margin-right: 10px ;
-                    border: 1px solid #cbcbd2 ;
+                    border: none ;
+                    border-bottom: 2px solid #cbcbd2 ;
                     background-color:none;
                     text-align: left;
                     width: 97%;
-                    height: 6.1vh;
+                    height: 4vh;
                     ::placeholder{
                         
                     }
                     &:focus{
                         outline: 0;
-                        border: 1px solid #149ed4;
-                        box-shadow: 0px 0px 0px 3px  #a4e0f7;
+                        border: none ;
+                        border-bottom: 2px solid #149ed4;
+                        //box-shadow: 0px 0px 0px 3px  #a4e0f7;
                         background-color: white;
                         transition: .7s;
                     }

@@ -10,7 +10,6 @@ export function Home(){
     function handleLogout(){
 
         dispatch({type:"LOGOUT"})
-        
     }
     return(
         <HomePage>
