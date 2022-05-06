@@ -21,6 +21,7 @@ export const HomePage = styled.div`
             border-radius: 8px ;
                 .title{
                     color: red;
+                    font-size: 20px ;
                 }
                 .conteiner{
                     color:#333337;
@@ -29,6 +30,7 @@ export const HomePage = styled.div`
                     width: 50vw ;
                     height: 6vh ;
                     border-radius: 4px ;
+                    font-weight: bold ;
                     border: none ;
                     color: white ;
                     background-color: red ;

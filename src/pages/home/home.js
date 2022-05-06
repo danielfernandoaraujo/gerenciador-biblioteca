@@ -16,13 +16,13 @@ export function Home(){
             <div className="aviso">
                 <div className="title">
                     <h1>
-                        Atenção
+                    Atenção
                     </h1>
                 </div>
                 <div className="conteiner">
                     <h2>
                         Esse sitema está em desenvolvimento, portanto ainda
-                        ainda não funciona corretamente em dispositivos moveis.
+                        ainda não funciona corretamente em dispositivos móveis. 😅
                     </h2>
                 </div>
                 <div className="escolha">
