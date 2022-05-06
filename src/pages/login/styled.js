@@ -14,6 +14,7 @@ export const LoginPage = styled.div`
         flex-direction: column ;
         height: 69.2vh ;
         width: 30vw ;
+        margin-bottom: 35px ;
 
         .logo{
             flex: 1 ;
@@ -47,7 +48,7 @@ export const LoginPage = styled.div`
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 20px );
             border: 1px solid rgba( 255, 255, 255, 0.18 );
-            padding: 0px 50px ;
+            //padding: 0px 50px ;
             .title{
                 display: flex ;
                 justify-content: center ;
@@ -76,7 +77,7 @@ export const LoginPage = styled.div`
                 flex-direction: column ;
                 align-items: left ;
                 justify-content: center ;
-                width: 100% ;
+                width: 70% ;
                 margin-bottom: 10px ;
                 label{
                     color:#41414b;
@@ -109,7 +110,7 @@ export const LoginPage = styled.div`
                 align-items: center ;
                 flex-direction: column ;
                 justify-content: center ;
-                width: 100% ;
+                width: 70% ;
                     button{
                     width: 100%;
                     height: 6.5vh;
