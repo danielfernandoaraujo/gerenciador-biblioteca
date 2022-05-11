@@ -1,7 +1,9 @@
-import { HomePage } from "./styled";
+import { Aviso, HomePage } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { auth } from "../../services/fire";
+import { Sidebar } from "../../Components/navigate";
+
 
 export function Home(){
 
@@ -13,23 +15,33 @@ export function Home(){
     }
     return(
         <HomePage>
-            <div className="aviso">
-                <div className="title">
-                    <h1>
-                    Atenção
-                    </h1>
+            <Aviso>
+                    <div className="main">
+
+                    
+                    <div className="title">
+                        <h1>
+                        Atenção
+                        </h1>
+                    </div>
+                    <div className="conteiner">
+                        <h2>
+                            Esse sitema está em desenvolvimento, portanto ainda
+                            ainda não funciona corretamente em dispositivos móveis. 😅
+                        </h2>
+                    </div>
+                    <div className="escolha">
+                        <button className="exit" onClick={handleLogout}>
+                            Sair
+                        </button>
+                    </div>
                 </div>
-                <div className="conteiner">
-                    <h2>
-                        Esse sitema está em desenvolvimento, portanto ainda
-                        ainda não funciona corretamente em dispositivos móveis. 😅
-                    </h2>
-                </div>
-                <div className="escolha">
-                    <button className="exit" onClick={handleLogout}>
-                        Sair
-                    </button>
-                </div>
+            </Aviso>
+            <Sidebar>
+                
+            </Sidebar>
+            <div className="main">
+
             </div>
         </HomePage>
     )

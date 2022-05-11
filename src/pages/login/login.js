@@ -49,20 +49,20 @@ export function Login(){
                         </div>
                     <div className="inputs">
                             <div className="input">
-                                    <label>
+                                    {/* <label>
                                     Email de acesso
-                                        </label>
+                                        </label> */}
                                     <input type="email" 
-                                    // placeholder={"Digite o email de acesso..."}
+                                    placeholder={"Digite o email"}
                                     onChange={(e)=>setemail(e.target.value)}
                                     />
                                 </div>
                             <div className="input">
-                                    <label className="label">
+                                    {/* <label className="label">
                                     Senha de acesso
-                                        </label>
+                                        </label> */}
                                         <input type="password" 
-                                        // placeholder=" Digite a senha de acesso..."
+                                         placeholder="Digite a senha"
                                         onChange={(e)=>setpassword(e.target.value)}
                                         />
                                 </div>

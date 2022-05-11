@@ -68,16 +68,14 @@ export const LoginPage = styled.div`
                 display: flex ;
                 flex-wrap: wrap;
                 justify-content: center;
-                align-items: flex-end;
+                align-items: center;
                 flex: 3 ;
                 width: 100% ;
             }
             .input{
                 display: flex ;
                 flex-direction: column ;
-                align-items: left ;
-                justify-content: center ;
-                width: 70% ;
+                width: 80% ;
                 margin-bottom: 10px ;
                 label{
                     color:#41414b;
@@ -89,10 +87,10 @@ export const LoginPage = styled.div`
                     border-bottom: 2px solid #cbcbd2 ;
                     background-color:none;
                     text-align: left;
-                    width: 97%;
+                    width: 100%;
                     height: 4vh;
                     ::placeholder{
-                        
+                        font-size: 15px ;
                     }
                     &:focus{
                         outline: 0;
@@ -101,6 +99,10 @@ export const LoginPage = styled.div`
                         //box-shadow: 0px 0px 0px 3px  #a4e0f7;
                         background-color: white;
                         transition: .7s;
+                        ::placeholder{
+                            color: white ;
+                            transition: .9s ;
+                        }
                     }
                 }
             }
@@ -110,7 +112,7 @@ export const LoginPage = styled.div`
                 align-items: center ;
                 flex-direction: column ;
                 justify-content: center ;
-                width: 70% ;
+                width: 80% ;
                     button{
                     width: 100%;
                     height: 6.5vh;
