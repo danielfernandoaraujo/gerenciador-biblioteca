@@ -73,24 +73,92 @@ export const Main = styled.div`
             flex-direction: column ;
             align-items: center ;
             //border-top: 2px solid #093ca4;
-            margin-bottom: 4px ;
+            margin-bottom: 6px ;
             width: 100% ;
             .logout-btn{
                 color: #FFF ;
-                border-radius: 25%;
-                width: 5vw ;
-                background-color: #093ca4 ;
+                border-radius: 15px 0 0 15px;
+                width: 100% ;
+                //background-color: #093ca4 ;
+                padding-left: 10px ;
                 font-size: 18px ;
                 display: flex ;
                 font-weight: bold ;
-                justify-content: center ;
-                height: 10vh ;
+                //justify-content: center ;
+                height: 8.5vh ;
                 align-items: center ;
+                p{
+                    font-size: 18px ;
+                    margin-left: 6px ;
+                }
                 :hover{
-                    background-color: #ce0c4b;  
+                    background-color:  #093ca6;  
                     transition: .5s all ;
                 }
             }
 
+        }
+`
+export const Modal = styled.div`
+            height: 100vh ;
+            width: 100vw ;
+            position: absolute ;
+            //background: hsla(221, 89%, 43%, 1);
+            //box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3px );
+            
+            .main{
+                position: absolute;
+                display: flex ;
+                flex-direction: column ;
+                align-items: center ;
+                justify-content: space-between ;
+                width: 35vw ;
+                height: 35vh ;
+                top: 25vh;
+                left: 75.5vw;    
+                background-color: white ;
+                box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.57);
+                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                border-radius: 8px ;
+                    .title{
+                        margin: 45px 15px ;
+                        font-size: 20px ;
+                        color:#245dd2;
+                    }
+                    .conteiner{
+                        color:#333337;
+                        margin: 0px 10px ;
+                    }
+                    .escolha{
+                        display: flex ;
+                        justify-content: space-around ;
+                        width: 100% ;
+                        margin-bottom: 20px ;
+                        .exit{
+                        width: 15vw ;
+                        height: 7vh ;
+                        font-size: 20px ;
+                        border-radius: 4px ;
+                        font-weight: bold ;
+                        border: none ;
+                        color: white ;
+                        background-color: #ce0c4b ;
+                        cursor: pointer;
+                            :hover{
+                                background-color: #f2135b ;
+                                transition: .7s all;
+                            }
+                        }
+                        .skip{
+                            background-color: #245dd2;
+                            :hover{
+                                background-color: #396dd6;
+                                transition: .7s all;
+                            }
+                            }
+                    }
+                    
+               
         }
 `

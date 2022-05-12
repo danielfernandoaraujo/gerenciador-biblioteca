@@ -15,7 +15,7 @@ export const LoginPage = styled.div`
         display: flex ;
         flex-direction: column ;
         height: 69.2vh ;
-        width: 30vw ;
+        width: 28vw ;
         margin-bottom: 35px ;
 
         .logo{
@@ -151,7 +151,7 @@ export const LoginPage = styled.div`
         width: 55vw ;
   }
         @media(max-width: 425px) {
-        width: 75vw ;
+        width: 85vw ;
   }
     }
 `

@@ -1,7 +1,7 @@
 import { Logo } from "../logo";
-import { Main } from "./styled";
+import { Main, Modal } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import atheneu from "../../images/atheneu.svg"
 import {IoPersonAddSharp} from "react-icons/io5"
 import {FaBookMedical} from "react-icons/fa"
@@ -15,13 +15,35 @@ export function Sidebar(props){
 
     const {dispatch} = useContext(AuthContext)
 
+    const [Desconectar, setDesconectar] = useState(false)
+
     function handleLogout(){
 
         dispatch({type:"LOGOUT"})
+
     }
 
     return(
         <Main>
+            { Desconectar == true &&
+            <Modal>
+                <div className="main">
+                    <div className="title">
+                        <h2>
+                            Tem certeza que deseja desconectar?
+                        </h2>
+                    </div>
+                    <div className="escolha">
+                        <button className="exit"  onClick={() => setDesconectar(false)}>
+                            Cancelar
+                        </button>
+                        <button className="exit skip" onClick={handleLogout}>
+                            Confirmar
+                        </button>
+                        
+                </div>
+                </div>
+            </Modal>}
             <Link to={"/"} className="logo">
                         <img src={atheneu} />
                         <h1>Biblioteca<br/><span>+</span>Atheneu</h1>
@@ -49,10 +71,12 @@ export function Sidebar(props){
                     </Link>
             </div>
             <div className="logout">
-                    <Link to={"/"} title="Desconectar" onClick={handleLogout} className="option logout-btn">
+                    <Link to={"/"} onClick={() => setDesconectar(true)} className="option logout-btn">
                         <IoMdExit size={25} color="#FFF"/>
+                        <p>Desconectar</p>
                     </Link>
             </div>
+            
         </Main>
     )
 }
