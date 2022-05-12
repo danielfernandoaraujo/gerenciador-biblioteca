@@ -23,7 +23,7 @@ export const Aviso = styled.div`
             height: 100vh ;
             width: 100vw ;
             position: absolute ;
-            background: hsla(221, 89%, 43%, 1);
+            background: linear-gradient(0deg, hsla(214, 78%, 52%, 1) 0%, hsla(197, 85%, 51%, 1) 54%);
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 2px );
             
@@ -61,7 +61,6 @@ export const Aviso = styled.div`
         }
         @media(min-width: 768px) {
                     display: none ;
-                    
                     
         }
 `

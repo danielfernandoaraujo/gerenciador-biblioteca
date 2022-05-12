@@ -1,11 +1,14 @@
-import { Login }  from "./pages/login/login";
-import { Home } from "./pages/home/home";
+import { Login }  from "./pages/login";
+import { Home } from "./pages/home";
 import { Erro404 } from "./pages/erro";
 import { Router, Routes, Route, Navigate } from "react-router-dom";
 
 import './App.css'
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
+import { Alunos } from "./pages/add_alunos";
+import { Livros } from "./pages/add_livros";
+import { Emprestimos } from "./pages/emprestimos";
 
 function App() {
   const {currentUser} = useContext(AuthContext)
@@ -21,6 +24,18 @@ function App() {
         <Route path="/" element={
           <RequireAuth>
             <Home />
+          </RequireAuth>} />
+          <Route path="/alunos" element={
+          <RequireAuth>
+            <Alunos />
+          </RequireAuth>} />
+          <Route path="/livros" element={
+          <RequireAuth>
+            <Livros />
+          </RequireAuth>} />
+          <Route path="/emprestimos" element={
+          <RequireAuth>
+            <Emprestimos />
           </RequireAuth>} />
         <Route path="*" element={<Erro404 />} />
       </Routes>

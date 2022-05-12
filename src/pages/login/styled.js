@@ -7,8 +7,10 @@ export const LoginPage = styled.div`
     margin: 0 ;
     width: 100vw ;
     height: 100vh ;
-    background: linear-gradient(0deg, hsla(214, 78%, 52%, 1) 
-    0%, hsla(197, 85%, 51%, 1) 54%);
+    background: hsla(221, 89%, 43%, 1);
+
+    //background: linear-gradient(180deg, hsla(221, 89%, 43%, 1) 76%, hsla(220, 71%, 48%, 1) 100%);
+
     .conteiner{
         display: flex ;
         flex-direction: column ;
@@ -55,7 +57,7 @@ export const LoginPage = styled.div`
                 align-items: center ;
                 flex: 2 ;;
                 text-align: center ;
-                color:#149ed4;
+                color:#245dd2;
                 font-size: 2rem ;
                 @media(max-width: 900px) {
                     font-size: 1.8rem ;
@@ -116,7 +118,7 @@ export const LoginPage = styled.div`
                     button{
                     width: 100%;
                     height: 6.5vh;
-                    background-color: #17b0ec;
+                    background-color: #245dd2;
                     border-radius: 4px;
                     border:none;
                     font-size: 1.2rem;
@@ -124,7 +126,7 @@ export const LoginPage = styled.div`
                     cursor: pointer;
                     
                     &:hover{
-                        background-color: #149ed4;
+                        background-color: #396dd6;
                         transition: .7s all;
                     }
                 }

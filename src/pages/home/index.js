@@ -2,11 +2,13 @@ import { Aviso, HomePage } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { auth } from "../../services/fire";
-import { Sidebar } from "../../Components/navigate";
+import { Sidebar } from "../../Components/slidebar";
 
 
 export function Home(){
 
+    const page = "home";
+    
     const {dispatch} = useContext(AuthContext)
 
     function handleLogout(){
@@ -37,9 +39,7 @@ export function Home(){
                     </div>
                 </div>
             </Aviso>
-            <Sidebar>
-                
-            </Sidebar>
+            <Sidebar page={page}/>
             <div className="main">
 
             </div>
