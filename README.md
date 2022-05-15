@@ -2,7 +2,7 @@
 # Gerenciador de biblioteca
 Esse projeto está sendo desenvolvido para o Centro de
 Excelência Atheneu Sergipense, com o objetivo de aulxiliar
-do gerenciamento da biblioteca, possibilitando a visualização
+o gerenciamento da biblioteca, possibilitando a visualização
 dos livros em estoque, alunos cadastrados e  dos emprestimos
 de livros que estão em andamento.
 ## Funcionalidades
