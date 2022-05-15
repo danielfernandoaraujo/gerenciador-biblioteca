@@ -38,7 +38,9 @@ export function Header(props){
     return(
         <Main>
             <div className="welcome">
+                { localStorage.getItem('nome') != null &&
                 <Welcome/>
+                }
             </div>
         </Main>
     )
