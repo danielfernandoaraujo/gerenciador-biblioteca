@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
+import { Header } from "../../Components/header";
 
 
 export function Home(){
@@ -29,7 +30,7 @@ export function Home(){
                     <div className="conteiner">
                         <h2>
                             Esse sitema está em desenvolvimento, portanto ainda
-                            ainda não funciona corretamente em dispositivos móveis. 😅
+                            não funciona corretamente em dispositivos móveis. 😅
                         </h2>
                     </div>
                     <div className="escolha">
@@ -39,9 +40,13 @@ export function Home(){
                     </div>
                 </div>
             </Aviso>
+
             <Sidebar page={page}/>
             <div className="main">
+                <Header user="Daniel"/>
+                <div className="content">
 
+                </div>
             </div>
         </HomePage>
     )

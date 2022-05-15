@@ -71,10 +71,10 @@ export function Sidebar(props){
                     </Link>
             </div>
             <div className="logout">
-                    <Link to={"/"} onClick={() => setDesconectar(true)} className="option logout-btn">
+                    <a onClick={() => setDesconectar(true)} className="option logout-btn">
                         <IoMdExit size={25} color="#FFF"/>
                         <p>Desconectar</p>
-                    </Link>
+                    </a>
             </div>
             
         </Main>

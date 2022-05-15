@@ -8,14 +8,14 @@ export const HomePage = styled.div`
     height: 100vh ;
     background-color: #17b0ec ;
         
-    .sidebar{
-        flex:1 ;
-        background-color: blue ;
-
-    }
     .main{
         flex: 6 ;
         background-color: white ;
+        display: flex ;
+        flex-direction: column ;
+        .content{
+            flex: 10 ;
+        }
     }
    
 `

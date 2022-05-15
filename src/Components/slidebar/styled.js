@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Main = styled.div`
     display: flex ;
     flex: 1 ;
-    background-color: #0c4bce ;
+    background-color: #2154be ;
     align-items: center ;
     justify-content: space-between ;
     flex-direction: column ;
@@ -36,7 +36,8 @@ export const Main = styled.div`
             display: flex ;
             flex-direction: column ;
             width: 100% ;
-            
+            margin-left: 8px ;
+            margin-bottom: 10px ;
             .option{
                 display: flex ;
                 color: white ;
@@ -73,7 +74,8 @@ export const Main = styled.div`
             flex-direction: column ;
             align-items: center ;
             //border-top: 2px solid #093ca4;
-            margin-bottom: 6px ;
+            margin-left: 12px ;
+            margin-bottom: 20px ;
             width: 100% ;
             .logout-btn{
                 color: #FFF ;
@@ -81,12 +83,14 @@ export const Main = styled.div`
                 width: 100% ;
                 //background-color: #093ca4 ;
                 padding-left: 10px ;
+                margin-left: 5px ;
                 font-size: 18px ;
                 display: flex ;
                 font-weight: bold ;
                 //justify-content: center ;
                 height: 8.5vh ;
                 align-items: center ;
+                cursor: pointer ;
                 p{
                     font-size: 18px ;
                     margin-left: 6px ;

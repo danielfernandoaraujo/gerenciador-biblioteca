@@ -8,6 +8,8 @@ export const LoginPage = styled.div`
     width: 100vw ;
     height: 100vh ;
     background: hsla(221, 89%, 43%, 1);
+    background: linear-gradient(180deg, hsla(221, 89%, 43%, 1) 0%, hsla(204, 98%, 46%, 1) 100%);
+
 
     //background: linear-gradient(180deg, hsla(221, 89%, 43%, 1) 76%, hsla(220, 71%, 48%, 1) 100%);
 

@@ -8,14 +8,14 @@ export const HomePage = styled.div`
     height: 100vh ;
     background-color: #17b0ec ;
         
-    .sidebar{
-        flex:1 ;
-        background-color: blue ;
-
-    }
     .main{
         flex: 6 ;
         background-color: white ;
+        display: flex ;
+        flex-direction: column ;
+        .content{
+            flex: 10 ;
+        }
     }
    
 `
@@ -23,7 +23,7 @@ export const Aviso = styled.div`
             height: 100vh ;
             width: 100vw ;
             position: absolute ;
-            background: linear-gradient(0deg, hsla(214, 78%, 52%, 1) 0%, hsla(197, 85%, 51%, 1) 54%);
+            background: hsla(221, 89%, 43%, 1);
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 2px );
             
