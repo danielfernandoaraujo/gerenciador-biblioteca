@@ -4,12 +4,13 @@ import { RiSunFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri"; 
 import {IoMdExit} from "react-icons/io"
 import { Main } from "./styled";
+import Relogio from "../relogio";
+import { ModalUser } from "../slidebar/styled";
 
 
 export function Header(props){
-    //const user = null;
     const data = new Date();
-    const hora = 7 ;//data.getHours()
+    const hora = data.getHours();
     const user = props.user;
 
     function Welcome(){
@@ -18,7 +19,8 @@ export function Header(props){
         }
         if(hora >= 12 && hora <= 18){
             return <BoaTarde/>
-        } else {
+        }
+        if(hora >= 18 && hora <= 23){
             return <BoaNoite/>
         }
     

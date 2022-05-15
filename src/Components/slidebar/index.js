@@ -1,5 +1,5 @@
 import { Logo } from "../logo";
-import { Main, Modal } from "./styled";
+import { Main, ModalUser, ModalDesconectar } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useState } from "react";
 import atheneu from "../../images/atheneu.svg"
@@ -9,6 +9,7 @@ import {IoMdExit} from "react-icons/io"
 import {ImHome} from "react-icons/im"
 import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
+import { Header } from "../header";
 
 
 export function Sidebar(props){
@@ -17,16 +18,43 @@ export function Sidebar(props){
 
     const [Desconectar, setDesconectar] = useState(false)
 
+    const [User, setUser] = useState("")
+
+    const armazenarLocalStorage=(chave,valor)=>{
+        JSON.stringify(localStorage.setItem(chave, valor)) 
+        
+    }
+
     function handleLogout(){
 
         dispatch({type:"LOGOUT"})
-
+        
     }
 
     return(
         <Main>
+            { localStorage.getItem('nome') == null &&
+            <ModalUser>
+                <form className="main">
+                        <div className="title">
+                            <p>Seja bem vindo a biblioteca!</p>
+                        </div>
+                        <div className="input">
+                            <input placeholder="Qual é o seu nome?" 
+                            onChange={(e)=>setUser(e.target.value)} 
+                            />
+                        </div>
+                    <div className="escolha">
+                        <button className="exit skip" type="submit" onClick={()=>armazenarLocalStorage('nome', User)}>
+                            Confirmar
+                        </button>
+                        
+                </div>
+                </form>
+            </ModalUser>}
+            
             { Desconectar == true &&
-            <Modal>
+            <ModalDesconectar>
                 <div className="main">
                     <div className="title">
                         <h2>
@@ -43,7 +71,7 @@ export function Sidebar(props){
                         
                 </div>
                 </div>
-            </Modal>}
+            </ModalDesconectar>}
             <Link to={"/"} className="logo">
                         <img src={atheneu} />
                         <h1>Biblioteca<br/><span>+</span>Atheneu</h1>
@@ -76,7 +104,6 @@ export function Sidebar(props){
                         <p>Desconectar</p>
                     </a>
             </div>
-            
         </Main>
     )
 }

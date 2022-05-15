@@ -1,14 +1,18 @@
 import { Aviso, HomePage } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
 import { Header } from "../../Components/header";
+import { Modal } from "./styled";
+import { ModalUser } from "../../Components/slidebar/styled";
 
 
 export function Home(){
 
     const page = "home";
+
+    const user = localStorage.getItem('nome')
     
     const {dispatch} = useContext(AuthContext)
 
@@ -42,8 +46,9 @@ export function Home(){
             </Aviso>
 
             <Sidebar page={page}/>
+
             <div className="main">
-                <Header user="Daniel"/>
+                <Header user={user}/>
                 <div className="content">
 
                 </div>
