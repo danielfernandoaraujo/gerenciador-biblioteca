@@ -1,33 +1,11 @@
 import styled from "styled-components"
 
-export const HomeStyled = styled.div`
-    box-sizing: border-box ;
-    display: flex ;
-    text-align: center ;
-    margin: 0 ;
-    height: 100vh ;
-    background-color: #17b0ec ;
-        
-    .main{
-        flex: 6 ;
-        background-color: white ;
-        display: flex ;
-        flex-direction: column ;
-        .content{
-            flex: 10 ;
-            display: flex ;
-            .widget{
-                display: flex ;
-            }
-        }
-    }
-   
-`
-export const Aviso = styled.div`
+export const AvisoStyled = styled.div`
             height: 100vh ;
             width: 100vw ;
             position: absolute ;
             background: hsla(221, 89%, 43%, 1);
+            background: linear-gradient(180deg, hsla(221, 89%, 43%, 1) 0%, hsla(204, 98%, 46%, 1) 100%);
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 2px );
             
@@ -65,7 +43,6 @@ export const Aviso = styled.div`
         }
         @media(min-width: 768px) {
                     display: none ;
-                    
                     
         }
 `

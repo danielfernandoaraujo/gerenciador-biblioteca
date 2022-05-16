@@ -1,17 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { RiSunFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri"; 
 import {IoMdExit} from "react-icons/io"
-import { Main } from "./styled";
+import { Main, ProfileStyle } from "./styled";
 import Relogio from "../relogio";
 import { ModalUser } from "../slidebar/styled";
+import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export function Header(props){
     const data = new Date();
     const hora = data.getHours();
     const user = props.user;
+
+    const [ProfileModal, setProfileModal] = useState(false)
+
+    const {dispatch} = useContext(AuthContext)
+
+    function handleLogout(){
+
+        dispatch({type:"LOGOUT"})
+        
+    }
 
     function Welcome(){
         if(hora >= 0 && hora <= 12){
@@ -34,13 +47,35 @@ export function Header(props){
     function BoaNoite(){
         return <div className="msg"><p>Boa noite, {user}</p> <BsFillMoonStarsFill size={16}/></div>
     }
+    function Profile(){
+        return(
+            <ProfileStyle>
+                <Link to={"/"} className="changeUser">Alterar nome</Link>
+                <hr/>
+                <a className="exit" onClick={handleLogout}>Sair</a>
+            </ProfileStyle>
+        )
+    }
+    function OpenModal(){
+        if(ProfileModal == true){
+            setProfileModal(false)
+        } else{
+            setProfileModal(true)
+        }
+    }
 
     return(
         <Main>
+                { ProfileModal == true && <Profile/>}
             <div className="welcome">
                 { localStorage.getItem('nome') != null &&
                 <Welcome/>
                 }
+            </div>
+            <div className="profile">
+                <a onClick={OpenModal}>
+                    <CgProfile size={27} color={"gray"}/>
+                </a>
             </div>
         </Main>
     )

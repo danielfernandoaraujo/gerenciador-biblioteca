@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const HomePage = styled.div`
+export const LivrosStyled = styled.div`
     box-sizing: border-box ;
     display: flex ;
     text-align: center ;

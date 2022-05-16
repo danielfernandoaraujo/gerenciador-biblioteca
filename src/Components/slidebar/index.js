@@ -72,10 +72,12 @@ export function Sidebar(props){
                 </div>
                 </div>
             </ModalDesconectar>}
+
             <Link to={"/"} className="logo">
                         <img src={atheneu} />
                         <h1>Biblioteca<br/><span>+</span>Atheneu</h1>
                 </Link>
+
             <div className="options">
                     <Link to={"/"} className="option" id={
                         props.page === "home" ? "home": null}>
@@ -98,6 +100,7 @@ export function Sidebar(props){
                         <p>Emprestimos</p>
                     </Link>
             </div>
+            
             <div className="logout">
                     <a onClick={() => setDesconectar(true)} className="option logout-btn">
                         <IoMdExit size={25} color="#FFF"/>
