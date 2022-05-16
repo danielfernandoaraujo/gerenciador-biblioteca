@@ -21,6 +21,13 @@ de livros que estão em andamento.
 
 
 
+## Acesso
+
+```bash
+Email: admin@admin.com
+Senha: 123456
+```
+
     
 ## 🚧 Projeto em produção 🚧
 
