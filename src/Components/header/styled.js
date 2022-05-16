@@ -30,6 +30,10 @@ export const Main = styled.div`
             justify-content: center ;
             margin-right: 32px ;
             cursor: pointer;
+            :hover{
+                transform:scale(1.1) ;
+                transition: .4s ;
+            }
         }
 `
 export const ProfileStyle = styled.div`
@@ -56,6 +60,8 @@ export const ProfileStyle = styled.div`
         flex: 1 ;
         align-items: center ;
         justify-content: center ;
+        color: #6a6a6a;
+        border-radius: 8px 8px 0  0 ;
         :hover{
             background-color:#f4f4f4;
             transition: .7s ;
@@ -72,7 +78,7 @@ export const ProfileStyle = styled.div`
         //font-size: 18px ;
         :hover{
             //color: white ;
-            background-color: #f9dde7;
+            background-color:#f4f4f4;
             transition: .7s ;
         }
         

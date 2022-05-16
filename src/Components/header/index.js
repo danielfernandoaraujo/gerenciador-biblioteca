@@ -50,7 +50,7 @@ export function Header(props){
     function Profile(){
         return(
             <ProfileStyle>
-                <Link to={"/"} className="changeUser">Alterar nome</Link>
+                <Link to={"/"} className="changeUser">Alterar usuário</Link>
                 <hr/>
                 <a className="exit" onClick={handleLogout}>Sair</a>
             </ProfileStyle>
