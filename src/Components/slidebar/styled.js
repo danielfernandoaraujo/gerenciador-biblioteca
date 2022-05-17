@@ -76,8 +76,8 @@ export const Main = styled.div`
             flex-direction: column ;
             align-items: center ;
             //border-top: 2px solid #093ca4;
-            margin-left: 12px ;
-            margin-bottom: 20px ;
+            /* margin-left: 12px ;
+            margin-bottom: 20px ; */
             width: 100% ;
             .logout-btn{
                 color: #FFF ;

@@ -3,10 +3,10 @@ import styled from "styled-components"
 export const WidgetStyled = styled.div`
     display: flex ;
     justify-content: space-between ;
-    height: 20vh;
-    width: 35vh ;
+    max-height: 20vh;
+    -width: 20vw ;
     
-    margin: 30px 20px 0 30px ;
+    margin: 1em ;
     border-radius: 8px ;
     -webkit-box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15); 
     box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15);

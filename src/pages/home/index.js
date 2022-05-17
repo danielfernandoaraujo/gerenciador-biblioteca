@@ -27,12 +27,16 @@ export function Home(){
             <div className="main">
                 <Header user={user}/>
                 <div className="content">
-                    {/* <div className="widget">
-                    <Widget/>
-                    <Widget/>
-                    <Widget/>
-                    <Widget/>
-                    </div> */}
+                    
+                        <div className="widget">
+                            <Widget/>
+                            <Widget/>
+                            <Widget/> 
+                            <Widget/>
+                        </div>
+                        <div className="info">
+
+                        </div>
                     
                 </div>
             </div>
