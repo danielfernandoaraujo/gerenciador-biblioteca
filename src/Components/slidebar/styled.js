@@ -2,7 +2,6 @@ import styled from "styled-components"
 
 export const Main = styled.div`
     display: flex ;
-    flex: 1 ;
     background-color: #2154be ;
     align-items: center ;
     justify-content: space-between ;
@@ -12,9 +11,9 @@ export const Main = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding-bottom: 10px ;
-                margin-left: 5px ;
-                margin-right: 5px ;
+                padding: 10px ;
+                /* margin-left: 5px ;
+                margin-right: 5px ; */
                 width: 100% ;
                 
 
@@ -24,7 +23,7 @@ export const Main = styled.div`
                     margin-right: 1rem;
                 }
                 h1{
-                    font-size: 1.5em;
+                    font-size: 1.4em;
                     color: white;
                     span{
                         color: #F7B731;
@@ -44,7 +43,7 @@ export const Main = styled.div`
                 font-weight: bold ;
                 height: 8.5vh ;
                 align-items: center ;
-                padding-left: 10px ;
+                padding-left: 10px ; 
                 margin-top: 5px;
                 margin-bottom: 8px ;
                 border-radius: 15px 0 0px 15px ;
@@ -85,7 +84,7 @@ export const Main = styled.div`
                 width: 100% ;
                 //background-color: #093ca4 ;
                 padding-left: 10px ;
-                margin-left: 5px ;
+                /* margin-left: 5px ; */
                 font-size: 18px ;
                 display: flex ;
                 font-weight: bold ;

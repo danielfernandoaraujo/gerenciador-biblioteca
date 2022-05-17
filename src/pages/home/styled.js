@@ -3,9 +3,7 @@ import styled from "styled-components"
 export const HomeStyled = styled.div`
     box-sizing: border-box ;
     display: flex ;
-    
     text-align: center ;
-    margin: 0 ;
     height: 100vh ;
     width: 100vw ;
     background-color: #17b0ec ;
