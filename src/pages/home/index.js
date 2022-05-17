@@ -29,10 +29,10 @@ export function Home(){
                 <div className="content">
                     
                         <div className="widget">
-                            <Widget/>
-                            <Widget/>
-                            <Widget/> 
-                            <Widget/>
+                            <Widget type={"alunos"}/>
+                            <Widget type={"livros"}/>
+                            <Widget type={"emprestimos"}/> 
+                            <Widget type={"pendentes"}/>
                         </div>
                         <div className="info">
 

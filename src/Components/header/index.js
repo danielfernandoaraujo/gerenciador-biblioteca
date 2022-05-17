@@ -21,10 +21,10 @@ export function Header(props){
 
 
     function Welcome(){
-        if(hora >= 0 && hora <= 12){
+        if(hora >= 0 && hora < 12){
             return <Bomdia/>
         }
-        if(hora >= 12 && hora <= 18){
+        if(hora >= 12 && hora < 18){
             return <BoaTarde/>
         }
         if(hora >= 18 && hora <= 23){

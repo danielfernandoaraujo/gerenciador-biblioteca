@@ -4,8 +4,9 @@ export const WidgetStyled = styled.div`
     display: flex ;
     justify-content: space-between ;
     max-height: 20vh;
-    -width: 20vw ;
-    
+    width: 18vw ;
+    max-width: 17vw ;
+
     margin: 1em ;
     border-radius: 8px ;
     -webkit-box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15); 
@@ -40,13 +41,10 @@ export const WidgetStyled = styled.div`
         justify-content: flex-end ;
         padding: 10px ;
         .icon{
-            display: flex ;
-            align-items: center ;
-            justify-content: center ;
-            width: 2.3vw ;
-            height: 4vh ;
-            border-radius: 4px ;
+            padding: 5px ;
+            border-radius: 5px ;
             background-color: gray ;
+            align-self: flex-end;
         }
     }
 `

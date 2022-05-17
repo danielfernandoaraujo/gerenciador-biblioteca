@@ -16,14 +16,15 @@ export const HomeStyled = styled.div`
         .content{
             flex: 10 ;
             display: flex ;
+            flex-direction: column ;
             .widget{
-                flex: 1 ;
+                flex: 3 ;
                 justify-content: center ;
                 display: flex ;
             
             }
             .info{
-                
+                flex: 7 ;
             }
         }
     }
