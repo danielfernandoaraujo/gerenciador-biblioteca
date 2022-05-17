@@ -75,6 +75,7 @@ export const Main = styled.div`
             flex-direction: column ;
             align-items: center ;
             //border-top: 2px solid #093ca4;
+            
             /* margin-left: 12px ;
             margin-bottom: 20px ; */
             width: 100% ;
@@ -84,7 +85,7 @@ export const Main = styled.div`
                 width: 100% ;
                 //background-color: #093ca4 ;
                 padding-left: 10px ;
-                /* margin-left: 5px ; */
+                margin-left: 18px ;
                 font-size: 18px ;
                 display: flex ;
                 font-weight: bold ;
