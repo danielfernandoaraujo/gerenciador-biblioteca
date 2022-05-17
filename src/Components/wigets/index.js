@@ -74,7 +74,7 @@ export function Widget({type}){
             <div className="left">
                 <div className="title"><p>{data.title}</p></div>
                 <div className="number"><p>{num}</p></div>
-                <Link to={data.togit} className="link">{data.link}</Link>
+                <Link to={data.to} className="link">{data.link}</Link>
             </div>
             <div className="right">
                     {data.icon}
