@@ -1,5 +1,4 @@
-import { Logo } from "../logo";
-import { Main, ModalDesconectar, ModalDesconectarStyled } from "./styled";
+import { Main} from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useState } from "react";
 import atheneu from "../../images/atheneu.svg"
@@ -9,8 +8,6 @@ import {IoMdExit} from "react-icons/io"
 import {ImHome} from "react-icons/im"
 import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
-import { Header } from "../header";
-import { ModalUser } from "../modalUser";
 
 
 export function Sidebar(props){

@@ -2,12 +2,7 @@ import { useContext, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { RiSunFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri"; 
-import {IoMdExit} from "react-icons/io"
 import { Main, ProfileStyle } from "./styled";
-import Relogio from "../relogio";
-import { ModalUser } from "../slidebar/styled";
-import { CgProfile } from "react-icons/cg";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 
