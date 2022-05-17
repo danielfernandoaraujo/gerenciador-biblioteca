@@ -1,13 +1,14 @@
 import styled from "styled-components"
 
 export const AvisoStyled = styled.div`
-            height: 100vh ;
-            width: 100vw ;
+            height: 100% ;
+            width: 100% ;
             position: absolute ;
             background: hsla(221, 89%, 43%, 1);
             background: linear-gradient(180deg, hsla(221, 89%, 43%, 1) 0%, hsla(204, 98%, 46%, 1) 100%);
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
             backdrop-filter: blur( 2px );
+            
             
             .main{
                 position: absolute;

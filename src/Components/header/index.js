@@ -16,8 +16,6 @@ export function Header(props){
     const hora = data.getHours();
     const user = props.user;
 
-    const [ProfileModal, setProfileModal] = useState(false)
-
     const {dispatch} = useContext(AuthContext)
 
     function handleLogout(){
@@ -25,6 +23,7 @@ export function Header(props){
         dispatch({type:"LOGOUT"})
         
     }
+
 
     function Welcome(){
         if(hora >= 0 && hora <= 12){
@@ -39,43 +38,22 @@ export function Header(props){
     
     }
     function Bomdia(){
-        return <div className="msg"><p>Bom dia, {user}</p> <RiSunFill size={25}/></div>
+        return <div className="msg"><p>Bom dia {user}</p> <RiSunFill size={25}/></div>
     }
     function BoaTarde(){
-        return <div className="msg"><p>Boa tarde, {user}</p> <RiSunFoggyFill size={25}/></div>
+        return <div className="msg"><p>Boa tarde {user}</p> <RiSunFoggyFill size={25}/></div>
     }
     function BoaNoite(){
-        return <div className="msg"><p>Boa noite, {user}</p> <BsFillMoonStarsFill size={16}/></div>
+        return <div className="msg"><p>Boa noite {user}</p> <BsFillMoonStarsFill size={16}/></div>
     }
-    function Profile(){
-        return(
-            <ProfileStyle>
-                <Link to={"/"} className="changeUser">Alterar usuário</Link>
-                <hr/>
-                <a className="exit" onClick={handleLogout}>Sair</a>
-            </ProfileStyle>
-        )
-    }
-    function OpenModal(){
-        if(ProfileModal == true){
-            setProfileModal(false)
-        } else{
-            setProfileModal(true)
-        }
-    }
+    
 
     return(
-        <Main>
-                { ProfileModal == true && <Profile/>}
+        <Main >
             <div className="welcome">
-                { localStorage.getItem('nome') != null &&
+                
                 <Welcome/>
-                }
-            </div>
-            <div className="profile">
-                <a onClick={OpenModal}>
-                    <CgProfile size={27} color={"gray"}/>
-                </a>
+                
             </div>
         </Main>
     )

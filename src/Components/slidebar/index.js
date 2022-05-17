@@ -1,5 +1,5 @@
 import { Logo } from "../logo";
-import { Main, ModalUser, ModalDesconectar } from "./styled";
+import { Main, ModalDesconectar, ModalDesconectarStyled } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useState } from "react";
 import atheneu from "../../images/atheneu.svg"
@@ -10,6 +10,7 @@ import {ImHome} from "react-icons/im"
 import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
 import { Header } from "../header";
+import { ModalUser } from "../modalUser";
 
 
 export function Sidebar(props){
@@ -18,12 +19,7 @@ export function Sidebar(props){
 
     const [Desconectar, setDesconectar] = useState(false)
 
-    const [User, setUser] = useState("")
-
-    const armazenarLocalStorage=(chave,valor)=>{
-        JSON.stringify(localStorage.setItem(chave, valor)) 
-        
-    }
+    
 
     function handleLogout(){
 
@@ -33,45 +29,9 @@ export function Sidebar(props){
 
     return(
         <Main>
-            { localStorage.getItem('nome') == null &&
-            <ModalUser>
-                <form className="main">
-                        <div className="title">
-                            <p>Seja bem vindo a biblioteca!</p>
-                        </div>
-                        <div className="input">
-                            <input placeholder="Qual é o seu nome?" 
-                            onChange={(e)=>setUser(e.target.value)} 
-                            />
-                        </div>
-                    <div className="escolha">
-                        <button className="exit skip" type="submit" onClick={()=>armazenarLocalStorage('nome', User)}>
-                            Confirmar
-                        </button>
-                        
-                </div>
-                </form>
-            </ModalUser>}
-            
-            { Desconectar == true &&
-            <ModalDesconectar>
-                <div className="main">
-                    <div className="title">
-                        <h2>
-                            Tem certeza que deseja desconectar?
-                        </h2>
-                    </div>
-                    <div className="escolha">
-                        <button className="exit"  onClick={() => setDesconectar(false)}>
-                            Cancelar
-                        </button>
-                        <button className="exit skip" onClick={handleLogout}>
-                            Confirmar
-                        </button>
-                        
-                </div>
-                </div>
-            </ModalDesconectar>}
+            {/* { localStorage.getItem('nome') == null &&
+            <ModalUser/>
+            } */}
 
             <Link to={"/"} className="logo">
                         <img src={atheneu} />
@@ -102,7 +62,7 @@ export function Sidebar(props){
             </div>
             
             <div className="logout">
-                    <a onClick={() => setDesconectar(true)} className="option logout-btn">
+                    <a onClick={handleLogout} className="option logout-btn">
                         <IoMdExit size={25} color="#FFF"/>
                         <p>Desconectar</p>
                     </a>
