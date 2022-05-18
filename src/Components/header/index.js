@@ -4,6 +4,7 @@ import { RiSunFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri"; 
 import { Main, ProfileStyle } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
+import PositionedMenu from "../Perfil";
 
 
 export function Header(props){
@@ -48,8 +49,15 @@ export function Header(props){
             <div className="welcome">
                 
                 <Welcome/>
+
+            </div>
+            <div className="profile">
+            { localStorage.getItem('nome') == null &&
+                <PositionedMenu className="profileBtn"/>
+                }  
                 
             </div>
+
         </Main>
     )
 }

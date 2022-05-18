@@ -1,10 +1,9 @@
-import {IoPersonAddSharp} from "react-icons/io5"
+import {MdPersonAddAlt} from "react-icons/md"
 import { Link } from "react-router-dom";
 import { WidgetStyled } from "./styled";
-import {FaBook} from "react-icons/fa"
-import {IoMdExit} from "react-icons/io"
-import {SiBookstack} from "react-icons/si"
-import {GiOpenBook} from "react-icons/gi"
+import {RiBook2Line} from "react-icons/ri"
+import {MdOutlineLibraryBooks} from "react-icons/md"
+import {GoBook} from "react-icons/go"
 
 
 export function Widget({type}){
@@ -17,12 +16,12 @@ export function Widget({type}){
         case "alunos":
             data={
                 title:"ALUNOS",
-                link:"Ver todos os alunos",
+                link:"Ver alunos",
                 to:"/alunos",
                 icon: (
-                    <IoPersonAddSharp className="icon" size={20} style={{
-                        color:"white", 
-                        backgroundColor:"black"}
+                    <MdPersonAddAlt className="icon" size={20} style={{
+                        color:"green", 
+                        backgroundColor:"#99cc99"}
                     }/>
                 )
             }
@@ -30,12 +29,12 @@ export function Widget({type}){
         case "livros":
             data={
                 title:"LIVROS",
-                link:"Ver todos os livros",
+                link:"Ver livros",
                 to:"/livros",
                 icon: (
-                    <FaBook size={20} className="icon" style={{
-                        color:"white", 
-                        backgroundColor:"black"}
+                    <RiBook2Line size={20} className="icon" style={{
+                        color:"#8c198c", 
+                        backgroundColor:"#d1a3d1"}
                     }/>
                 )
             }
@@ -43,12 +42,12 @@ export function Widget({type}){
         case "emprestimos":
             data={
                 title:"EMPRESTIMOS",
-                link:"Ver todos os emprestimos",
+                link:"Ver empréstimos",
                 to:"/emprestimos",
                 icon: (
-                    <GiOpenBook size={20} className="icon" style={{
-                        color:"white", 
-                        backgroundColor:"black"}
+                    <GoBook size={20} className="icon" style={{
+                        color:"#007fff", 
+                        backgroundColor:"#99cbff"}
                     }/>
                 )
             }
@@ -56,12 +55,12 @@ export function Widget({type}){
         case "pendentes":
             data={
                 title:"PENDENTES",
-                link:"Ver todos os pendentes",
+                link:"Ver pendentes",
                 to:"/emprestimos",
                 icon: (
-                    <SiBookstack size={20} className="icon" style={{
-                        color:"white", 
-                        backgroundColor:"black"}
+                    <MdOutlineLibraryBooks size={20} className="icon" style={{
+                        color:"#e50000", 
+                        backgroundColor:"#ff9999"}
                     }/>
                 )
             }
@@ -74,7 +73,7 @@ export function Widget({type}){
             <div className="left">
                 <div className="title"><p>{data.title}</p></div>
                 <div className="number"><p>{num}</p></div>
-                <Link to={data.togit} className="link">{data.link}</Link>
+                <Link to={data.to} className="link">{data.link}</Link>
             </div>
             <div className="right">
                     {data.icon}

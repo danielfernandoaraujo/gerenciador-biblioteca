@@ -32,66 +32,8 @@ export const Main = styled.div`
             margin-right: 32px ;
             cursor: pointer;
             :hover{
-                transform:scale(1.1) ;
+                transform:scale(1.03) ;
                 transition: .4s ;
             }
         }
-`
-export const ProfileStyle = styled.div`
-        position: absolute ;
-        width: 84vw ;
-        height:190vh ;
-
-        .profileModal{
-            position:absolute ;
-            display: flex ;
-            flex-direction: column ;
-            justify-content: space-around ;
-            background-color: white ;
-            width: 10vw ;
-            height: 13vh ;
-            top: 49.5vw ;
-            right: 2vw ;
-            border-radius: 8px 0px 8px 8px ;
-            -webkit-box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15); 
-            box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15);
-            
-            animation: flipInX ;
-            animation-duration: .7s;
-        hr{
-            display: flex ;
-            border: none ;
-            height: 1px;
-            background-color: rgb(128, 128, 128, 0.3);
-        }
-        .changeUser{
-            display: flex ;
-            flex: 1 ;
-            align-items: center ;
-            justify-content: center ;
-            color: #6a6a6a;
-            border-radius: 8px 8px 0  0 ;
-            :hover{
-                background-color:#f4f4f4;
-                transition: .7s ;
-            }
-        }
-        .exit{
-            display: flex ;
-            flex: 1 ;
-            align-items: center ;
-            justify-content: center ;
-            border-radius: 0  0 8px 8px ;
-            color: #ce0c4b ;
-            cursor: pointer;
-            //font-size: 18px ;
-            :hover{
-                //color: white ;
-                background-color:#f4f4f4;
-                transition: .7s ;
-            }
-            
-        }
-    }
-
 `

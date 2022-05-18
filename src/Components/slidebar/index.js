@@ -10,13 +10,10 @@ import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
 
 
+
 export function Sidebar(props){
 
     const {dispatch} = useContext(AuthContext)
-
-    const [Desconectar, setDesconectar] = useState(false)
-
-    
 
     function handleLogout(){
 
@@ -28,7 +25,9 @@ export function Sidebar(props){
         <Main>
             {/* { localStorage.getItem('nome') == null &&
             <ModalUser/>
-            } */}
+            }  */}
+            
+            
 
             <Link to={"/"} className="logo">
                         <img src={atheneu} />
@@ -54,7 +53,7 @@ export function Sidebar(props){
                     <Link to={"/emprestimos"} className="option" id={
                         props.page === "emprestimos" ? "emprestimos": null}>
                         <GiOpenBook size={25} color="#FFF"/>
-                        <p>Emprestimos</p>
+                        <p>Empréstimos</p>
                     </Link>
             </div>
             
@@ -63,7 +62,7 @@ export function Sidebar(props){
                         <IoMdExit size={25} color="#FFF"/>
                         <p>Desconectar</p>
                     </a>
-            </div>
+            </div> 
         </Main>
     )
 }

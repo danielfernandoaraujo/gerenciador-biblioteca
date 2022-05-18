@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/fire";
 import { useNavigate } from "react-router-dom";
-
 import {LoginPage } from "./styled";
 import atheneu from "../../images/atheneu.svg"
 import { AuthContext } from "../../context/AuthContext";
+import Alert from '@mui/material/Alert';
+import 'animate.css'
 
 export function Login(){
 
@@ -73,12 +74,14 @@ export function Login(){
                             Entrar
                         </button>
                         <div className="msg-error">
-                        { error && <p>Email ou  senha incorreto!</p>}
+                            { error && <Alert severity="error" className="alert">Email ou senha estão incorretos!</Alert>}
                         </div>
                         </div>    
                     </div>
+                    
             </div>
             </form>
+            
     </LoginPage>
     )
 }

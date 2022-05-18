@@ -133,15 +133,14 @@ export const LoginPage = styled.div`
                     }
                 }
                     .msg-error{
+                        position: absolute ;
                         height: 12px ;
-                        p{
-                            font-size: 12px ;
-                            margin-top: 7px ;
-                            margin-bottom: 5px ;
-                            color:red;
-                            box-shadow: 0px 1px red;
+                        top: 105% ;
+
+                        .alert{
+                        animation: flipInX ;
+                        animation-duration: .7s ;
                         }
-                        
                     }
             }
         }

@@ -7,11 +7,11 @@ export const Main = styled.div`
     justify-content: space-between ;
     flex-direction: column ;
         .logo{
-                flex: 1 ;
+                flex: 0.8 ;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 10px ;
+                padding: 5px ;
                 /* margin-left: 5px ;
                 margin-right: 5px ; */
                 width: 100% ;
@@ -20,7 +20,7 @@ export const Main = styled.div`
         //********LOGO DO ATHENEU**********//
                 img{
                     width: 2.7em;
-                    margin-right: 1rem;
+                    margin-right: 0.5rem;
                 }
                 h1{
                     font-size: 1.4em;
@@ -36,6 +36,7 @@ export const Main = styled.div`
             flex-direction: column ;
             width: 100% ;
             margin-left: 8px ;
+            margin-top: 10px ;
             margin-bottom: 10px ;
             .option{
                 display: flex ;
@@ -76,8 +77,8 @@ export const Main = styled.div`
             align-items: center ;
             //border-top: 2px solid #093ca4;
             
-            /* margin-left: 12px ;
-            margin-bottom: 20px ; */
+            margin-left: 12px ;
+            margin-bottom: 20px ; 
             width: 100% ;
             .logout-btn{
                 color: #FFF ;
