@@ -31,9 +31,9 @@ export const Main = styled.div`
             justify-content: center ;
             margin-right: 32px ;
             cursor: pointer;
-            :hover{
+            /* :hover{
                 transform:scale(1.03) ;
                 transition: .4s ;
-            }
+            } */
         }
 `

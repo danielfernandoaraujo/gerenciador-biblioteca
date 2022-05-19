@@ -6,6 +6,7 @@ import {LoginPage } from "./styled";
 import atheneu from "../../images/atheneu.svg"
 import { AuthContext } from "../../context/AuthContext";
 import Alert from '@mui/material/Alert';
+import TextField from '@mui/material/TextField';
 import 'animate.css'
 
 export function Login(){
@@ -38,7 +39,7 @@ export function Login(){
 
     return(
     <LoginPage>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} autoComplete="off">
             <div className="conteiner">
                 <div className="logo">
                         <img src={atheneu} />
@@ -53,19 +54,47 @@ export function Login(){
                                     {/* <label>
                                     Email de acesso
                                         </label> */}
-                                    <input type="email" 
+                                    {/* <input type="email" 
                                     placeholder={"Digite o email"}
                                     onChange={(e)=>setemail(e.target.value)}
-                                    />
+                                    /> */}
+                                    { error ? 
+                                        <TextField
+                                            error
+                                            id="standard-error"
+                                            label="Email"
+                                            variant="standard"
+                                            type={'email'}
+                                            onChange={(e)=>setemail(e.target.value)}/> 
+                                            : <TextField 
+                                            id="standard-basic" 
+                                            label="Email" 
+                                            variant="standard"
+                                            type={'email'}
+                                        onChange={(e)=>setemail(e.target.value)} />}
                                 </div>
                             <div className="input">
                                     {/* <label className="label">
                                     Senha de acesso
                                         </label> */}
-                                        <input type="password" 
-                                         placeholder="Digite a senha"
-                                        onChange={(e)=>setpassword(e.target.value)}
-                                        />
+                                    {/* <input type="password" 
+                                        placeholder="Digite a senha"
+                                    onChange={(e)=>setpassword(e.target.value)}
+                                    /> */}
+                                    { error ? 
+                                        <TextField
+                                            error
+                                            id="standard-error"
+                                            label="Senha"
+                                            variant="standard"
+                                            type={'password'}
+                                            onChange={(e)=>setpassword(e.target.value)}/> 
+                                            : <TextField 
+                                            id="standard-basic" 
+                                            label="Senha" 
+                                            variant="standard"
+                                            type={'password'}
+                                        onChange={(e)=>setpassword(e.target.value)} />}
                                 </div>
                         </div>
                         

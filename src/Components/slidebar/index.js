@@ -2,12 +2,13 @@ import { Main} from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import { useContext, useState } from "react";
 import atheneu from "../../images/atheneu.svg"
-import {IoPersonAddSharp} from "react-icons/io5"
-import {FaBookMedical} from "react-icons/fa"
+import {BsFillPersonFill} from "react-icons/bs"
+import {ImBook} from "react-icons/im"
 import {IoMdExit} from "react-icons/io"
 import {ImHome} from "react-icons/im"
 import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
+import FormDialog from "../modalUser";
 
 
 
@@ -23,9 +24,9 @@ export function Sidebar(props){
 
     return(
         <Main>
-            {/* { localStorage.getItem('nome') == null &&
-            <ModalUser/>
-            }  */}
+            { localStorage.getItem('nome') == null &&
+            <FormDialog/>
+             }
             
             
 
@@ -42,12 +43,12 @@ export function Sidebar(props){
                     </Link>
                     <Link to={"/alunos"} className="option" id={
                         props.page === "alunos" ? "alunos": null}>
-                        <IoPersonAddSharp size={25} color="#FFF"/>
+                        <BsFillPersonFill size={25} color="#FFF"/>
                         <p>Alunos</p>
                     </Link>
                     <Link to={"/livros"} className="option" id={
                         props.page === "livros" ? "livros": null}>
-                        <FaBookMedical size={25} color="#FFF"/>
+                        <ImBook size={25} color="#FFF"/>
                         <p>Livros</p>
                     </Link>
                     <Link to={"/emprestimos"} className="option" id={

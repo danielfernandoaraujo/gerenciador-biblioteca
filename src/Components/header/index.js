@@ -5,6 +5,7 @@ import { RiSunFoggyFill } from "react-icons/ri";
 import { Main, ProfileStyle } from "./styled";
 import { AuthContext } from "../../context/AuthContext";
 import PositionedMenu from "../Perfil";
+import AccountMenu from "../Perfil";
 
 
 export function Header(props){
@@ -52,9 +53,8 @@ export function Header(props){
 
             </div>
             <div className="profile">
-            { localStorage.getItem('nome') == null &&
-                <PositionedMenu className="profileBtn"/>
-                }  
+    
+                <AccountMenu/>
                 
             </div>
 
