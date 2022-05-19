@@ -11,6 +11,7 @@ import { reload } from 'firebase/auth';
 export default function FormDialog() {
   const [open, setOpen] = React.useState(true);
   const [User, setUser] = React.useState('')
+  const [Error, setError] = React.useState(true)
  
   const handleClickOpen = () => {
     setOpen(true);
@@ -21,34 +22,52 @@ export default function FormDialog() {
   }
 
   const handleClose = () => {
-    setOpen(false)
-    window.location.reload()
-    armazenar('nome' , User)
+    if( User == ''){
+        setError(false)
+    } else{
+      setOpen(false)
+      window.location.reload()
+      armazenar('nome' , User)
+    }
   };
 
   return (
-    <div>
-      <Dialog open={open} onClose={handleClose}  style={{textAlign:"center"}}>
-        <DialogTitle style={{ fontWeight: 'bold' ,fontSize: '25px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
-        <DialogContent>
-          <DialogContentText style={{fontSize: '20px', }}>
+    <form >
+      <Dialog open={open} onClose={handleClose} style={{textAlign:"center"}}>
+        <DialogTitle style={{ fontWeight: 'bold' ,fontSize: '30px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
+        <DialogContent  >
+          <DialogContentText style={{fontSize: '20px', padding:"10px"}}>
             É um prazer imenso em te receber, espero que esse sistema possa te ajudar bastante!
           </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Qual seu nome?"
-            type="email"
-            fullWidth
-            variant="standard"
-            onChange={(e) => setUser(e.target.value)}
-          />
+            {Error ?
+            <TextField style={{width: "80%"}}
+              autoFocus
+              autoComplete='off'
+              margin="dense"
+              id="name"
+              label="Qual seu nome?"
+              type="email"
+              fullWidth
+              variant="standard"
+              onChange={(e) => setUser(e.target.value)} />
+              : 
+              <TextField style={{width: "80%"}}
+              autoFocus
+              error
+              autoComplete='off'
+              margin="dense"
+              id="name"
+              label="Qual seu nome?"
+              type="email"
+              fullWidth
+              variant="standard"
+              onChange={(e) => setUser(e.target.value)} />
+            }
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Enviar</Button>
+        <DialogActions style={{display: "flex" ,alignItems:"center", justifyContent: "center" }}>
+          <Button variant="contained"  disableElevation size="large" onClick={handleClose}>Confirmar</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </form>
   );
 }
