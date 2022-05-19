@@ -36,8 +36,8 @@ export default function FormDialog() {
       <Dialog open={open} onClose={handleClose} style={{textAlign:"center"}}>
         <DialogTitle style={{ fontWeight: 'bold' ,fontSize: '30px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
         <DialogContent  >
-          <DialogContentText style={{fontSize: '20px', padding:"10px"}}>
-            É um prazer imenso em te receber, espero que esse sistema possa te ajudar bastante!
+          <DialogContentText style={{fontSize: '20px', padding:"6px"}}>
+            É um prazer imenso em te receber, espero que esse sistema possa te ajudar!
           </DialogContentText>
             {Error ?
             <TextField style={{width: "80%"}}
@@ -45,7 +45,7 @@ export default function FormDialog() {
               autoComplete='off'
               margin="dense"
               id="name"
-              label="Qual seu nome?"
+              label="Qual é o seu nome?"
               type="email"
               fullWidth
               variant="standard"
@@ -57,7 +57,7 @@ export default function FormDialog() {
               autoComplete='off'
               margin="dense"
               id="name"
-              label="Qual seu nome?"
+              label="Qual é o seu nome?"
               type="email"
               fullWidth
               variant="standard"
@@ -65,7 +65,7 @@ export default function FormDialog() {
             }
         </DialogContent>
         <DialogActions style={{display: "flex" ,alignItems:"center", justifyContent: "center" }}>
-          <Button variant="contained"  disableElevation size="large" onClick={handleClose}>Confirmar</Button>
+          <Button variant="contained"  disableElevation size="large" onClick={handleClose} style={{ margin:"10px"}}>Confirmar</Button>
         </DialogActions>
       </Dialog>
     </form>
