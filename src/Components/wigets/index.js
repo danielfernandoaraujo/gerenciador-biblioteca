@@ -10,7 +10,7 @@ export function Widget({type}){
     
     let data;
 
-    const num = 200;
+    const num = 0;
 
     switch(type){
         case "alunos":
