@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/fire";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {LoginPage } from "./styled";
 import atheneu from "../../images/atheneu.svg"
 import { AuthContext } from "../../context/AuthContext";
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
-import 'animate.css'
+import {AiOutlineGithub} from 'react-icons/ai';
+import {AiOutlineInstagram} from 'react-icons/ai';
+import {AiOutlineLinkedin} from 'react-icons/ai';
+import 'animate.css';
 
 export function Login(){
 
@@ -110,6 +113,14 @@ export function Login(){
                     
             </div>
             </form>
+            <div className="creditos">
+                <div className="icons">
+                   <a className="icon" href="https://github.com/danielfernandoaraujo"><AiOutlineGithub size={25}/></a>
+                   <a className="icon" href="https://www.linkedin.com/in/daniel-fernando-6609b31b9/"><AiOutlineLinkedin size={25}/></a>
+                   <a className="icon" href="https://www.instagram.com/danielferna_/"><AiOutlineInstagram size={25}/></a>
+                </div>
+                <p>Desenvolvido por ©Daniel Fernando</p>
+            </div>
             
     </LoginPage>
     )

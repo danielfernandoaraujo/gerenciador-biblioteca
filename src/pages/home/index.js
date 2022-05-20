@@ -15,7 +15,7 @@ export function Home(){
     const page = "home";
 
     const user = localStorage.getItem('nome')
-    
+    const userSub = localStorage.getItem('subNome');
     
     return(
         <HomeStyled>
@@ -25,7 +25,7 @@ export function Home(){
             <Sidebar page={page}/>
 
             <div className="main">
-                <Header user={user}/>
+                <Header user={user} userSub={userSub}/>
                 <div className="content">
                     
                         <div className="widget">

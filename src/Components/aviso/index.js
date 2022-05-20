@@ -23,8 +23,8 @@ export function Aviso(){
                 </div>
                 <div className="conteiner">
                     <h2>
-                        Esse sitema está em desenvolvimento, portanto ainda
-                        não funciona corretamente em dispositivos móveis. 😅
+                        Esse sitema está em desenvolvimento, portanto ainda não tem
+                        suporte para dispositivos móveis.
                     </h2>
                 </div>
                 <div className="escolha">

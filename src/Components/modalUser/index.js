@@ -8,7 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { reload } from 'firebase/auth';
 
-export default function FormDialog() {
+export function ModalUser() {
   const [open, setOpen] = React.useState(true);
   const [User, setUser] = React.useState('')
   const [Error, setError] = React.useState(true)
@@ -27,12 +27,13 @@ export default function FormDialog() {
     } else{
       setOpen(false)
       window.location.reload()
+      armazenar('subNome' , User.substr(0,1))
       armazenar('nome' , User)
     }
   };
 
   return (
-    <form >
+    <form>
       <Dialog open={open} onClose={handleClose} style={{textAlign:"center"}}>
         <DialogTitle style={{ fontWeight: 'bold' ,fontSize: '30px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
         <DialogContent  >
@@ -65,7 +66,13 @@ export default function FormDialog() {
             }
         </DialogContent>
         <DialogActions style={{display: "flex" ,alignItems:"center", justifyContent: "center" }}>
-          <Button variant="contained"  disableElevation size="large" onClick={handleClose} style={{ margin:"10px"}}>Confirmar</Button>
+          <Button
+          variant="contained"  
+          disableElevation size="large" 
+          onClick={handleClose} 
+          style={{ margin:"10px"}}>
+            Confirmar
+          </Button>
         </DialogActions>
       </Dialog>
     </form>

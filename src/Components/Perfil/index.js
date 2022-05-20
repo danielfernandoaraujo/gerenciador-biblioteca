@@ -14,7 +14,7 @@ import Logout from '@mui/icons-material/Logout';
 import { AuthContext } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 
-export default function AccountMenu() {
+export default function AccountMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -23,7 +23,9 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
+
+  const user = props.user;
+
   const {dispatch} = React.useContext(AuthContext)
 
   function handleLogout(){
@@ -44,7 +46,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+            <Avatar sx={{ width: 32, height: 32}}>{user}</Avatar>
           </IconButton>
         </Tooltip>
       </Box>

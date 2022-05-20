@@ -12,6 +12,7 @@ export function Header(props){
     const data = new Date();
     const hora = data.getHours();
     const user = props.user;
+    const userSub = props.userSub;
 
     const {dispatch} = useContext(AuthContext)
 
@@ -54,7 +55,7 @@ export function Header(props){
             </div>
             <div className="profile">
     
-                <AccountMenu/>
+                <AccountMenu user={userSub}/>
                 
             </div>
 

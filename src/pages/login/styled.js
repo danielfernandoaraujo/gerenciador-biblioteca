@@ -3,7 +3,8 @@ import styled from "styled-components"
 export const LoginPage = styled.div`
     display: flex ;
     align-items: center ;
-    justify-content: center ;
+    justify-content: space-between ;
+    flex-direction: column ;
     margin: 0 ;
     width: 100vw ;
     height: 100vh ;
@@ -18,6 +19,7 @@ export const LoginPage = styled.div`
         flex-direction: column ;
         height: 69.2vh ;
         width: 28vw ;
+        margin-top: 5em ;
         margin-bottom: 35px ;
 
         .logo{
@@ -154,5 +156,29 @@ export const LoginPage = styled.div`
         @media(max-width: 425px) {
         width: 85vw ;
   }
+    }
+    .creditos{
+        display: flex ;
+        flex-direction: column ;
+        color: #e9e9e9 ;
+        font-size: 15px ;
+        padding: 5px ;
+        .icons{
+            display: flex ;
+            align-items: center ;
+            justify-content: center ;
+            
+            .icon{
+                color: #e9e9e9;
+                margin: 4px ;
+                cursor: pointer;
+                text-decoration: none;
+                :hover{
+                    color: #d6d6d6 ;
+                    transition: .4s all ;
+                }
+            }
+        }
+        
     }
 `

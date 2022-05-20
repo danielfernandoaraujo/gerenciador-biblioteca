@@ -8,7 +8,7 @@ import {IoMdExit} from "react-icons/io"
 import {ImHome} from "react-icons/im"
 import {GiOpenBook} from "react-icons/gi"
 import { Link } from "react-router-dom";
-import FormDialog from "../modalUser";
+import {ModalUser} from "../modalUser";
 
 
 
@@ -25,7 +25,7 @@ export function Sidebar(props){
     return(
         <Main>
             { localStorage.getItem('nome') == null &&
-            <FormDialog/>
+            <ModalUser/>
              }
             
             
