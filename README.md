@@ -32,7 +32,6 @@ Senha: 123456
 ## 🚧 Projeto em produção 🚧
 
 - [x] Login e Autenticação.
-![Print da tela de login](/src/images/Tela de Login.png)
 - [ ] Pagina inicial
 - [ ] Adicionar alunos.
 - [ ] Adicionar livros.
