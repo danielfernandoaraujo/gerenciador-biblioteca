@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
 import { Aviso } from "../../Components/aviso";
+import { Boxtable } from "../../Components/boxtable";
 
 
 export function Livros(){
@@ -22,9 +23,9 @@ export function Livros(){
             <Aviso/>
                     
             <Sidebar page={page}/>
-            <div className="main">
 
-            </div>
+            <Boxtable title={'Livros'}/>
+
         </LivrosStyled>
     )
 }

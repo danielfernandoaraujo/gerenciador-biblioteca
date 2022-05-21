@@ -6,9 +6,9 @@ import { Router, Routes, Route, Navigate } from "react-router-dom";
 import './App.css'
 import { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
-import { Alunos } from "./pages/add_alunos";
-import { Livros } from "./pages/add_livros";
-import { Emprestimos } from "./pages/emprestimos";
+import { Alunos } from "./pages/lista_alunos";
+import { Livros } from "./pages/lista_livros";
+import { Emprestimos } from "./pages/lista_emprestimos";
 
 function App() {
   const {currentUser} = useContext(AuthContext)

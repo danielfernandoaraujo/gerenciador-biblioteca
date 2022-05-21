@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
 import { Aviso } from "../../Components/aviso";
+import {DataTable} from "../../Components/datatable";
+import { Boxtable } from "../../Components/boxtable";
 
 
 export function Alunos(){
@@ -17,14 +19,14 @@ export function Alunos(){
         dispatch({type:"LOGOUT"})
     }
     return(
-        <AlunosStyled>
+        <AlunosStyled >
             
             <Aviso/>
 
             <Sidebar page={page}/>
-            <div className="main">
-
-            </div>
+            
+            <Boxtable title={'Alunos'}/>
+                
         </AlunosStyled>
     )
 }

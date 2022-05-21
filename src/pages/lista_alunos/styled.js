@@ -9,12 +9,11 @@ export const AlunosStyled = styled.div`
     background-color: #17b0ec ;
     .main{
         flex: 6 ;
+        flex-direction: column ;
+        align-items: center ;
         background-color: white ;
         display: flex ;
-        flex-direction: column ;
-        .content{
-            flex: 10 ;
-        }
+        
     }
    
 `

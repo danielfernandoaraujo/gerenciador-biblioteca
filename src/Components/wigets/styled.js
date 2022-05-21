@@ -9,8 +9,8 @@ export const WidgetStyled = styled.div`
 
     margin: 1em ;
     border-radius: 8px ;
-    -webkit-box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15); 
-    box-shadow: 0px 10px 20px 1px rgba(79,79,79,0.15);
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47); 
+    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
     .left{
         display: flex ;
         flex-direction: column ;
