@@ -7,6 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { reload } from 'firebase/auth';
+import { ModalStyled } from './styled';
 
 export function ModalUser() {
   const [open, setOpen] = React.useState(true);
@@ -33,15 +34,15 @@ export function ModalUser() {
   };
 
   return (
-    <form>
-      <Dialog open={open} onClose={handleClose} style={{textAlign:"center"}}>
-        <DialogTitle style={{ fontWeight: 'bold' ,fontSize: '30px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
-        <DialogContent  >
-          <DialogContentText style={{fontSize: '20px', padding:"6px"}}>
+    <ModalStyled>
+      <Dialog open={open} onClose={handleClose} style={{textAlign:"left"}}>
+        <DialogTitle style={{ fontWeight: 'normal' ,fontSize: '30px', color: '#2154bf'}}> Seja bem vindo a biblioteca!</DialogTitle>
+        <DialogContent >
+          <DialogContentText style={{fontSize: '18px', width:'100%'}}>
             É um prazer imenso em te receber, espero que esse sistema possa te ajudar!
           </DialogContentText>
             {Error ?
-            <TextField style={{width: "80%"}}
+            <TextField style={{width: "100%"}}
               autoFocus
               autoComplete='off'
               margin="dense"
@@ -67,14 +68,15 @@ export function ModalUser() {
         </DialogContent>
         <DialogActions style={{display: "flex" ,alignItems:"center", justifyContent: "center" }}>
           <Button
+          className="btn"
           variant="contained"  
           disableElevation size="large" 
           onClick={handleClose} 
-          style={{ margin:"10px"}}>
+          style={{ margin:"10px", width: '100%', backgroundColor:'#2154bf'}}>
             Confirmar
           </Button>
         </DialogActions>
       </Dialog>
-    </form>
+    </ModalStyled>
   );
 }

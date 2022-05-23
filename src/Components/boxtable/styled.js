@@ -9,7 +9,7 @@ export const BoxStyle = styled.div`
     width: 100vw ;
     height: 100vh ;
     .title{
-        flex:1 ;
+        flex: 1 ;
         display: flex ;
         justify-content: space-between;
         align-items: center ;
@@ -22,7 +22,7 @@ export const BoxStyle = styled.div`
         
     }
     .table{
-        flex: 2 ;
+        flex: 8 ;
         display: flex ;
         flex-direction: column ;
         align-items: center ;
@@ -38,6 +38,7 @@ export const BoxStyle = styled.div`
             display: flex ;
             width: 100% ;
             justify-content: space-between ;
+            padding: 10px ;
 
             .btn-add{
                 width: 20% ;
@@ -45,4 +46,12 @@ export const BoxStyle = styled.div`
             }
         }
     }
+`
+
+export const ModalStyled = styled.div`
+
+        .box{
+            color: white ;
+            border-radius: 8px !important;
+        }
 `

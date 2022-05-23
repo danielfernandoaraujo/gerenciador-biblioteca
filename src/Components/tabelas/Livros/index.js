@@ -3,17 +3,16 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'First name', width: 130 },
-  { field: 'lastName', headerName: 'Last name', width: 130 },
+  { field: 'firstName', headerName: 'Nome', width: 130 },
+  { field: 'lastName', headerName: 'Turma', width: 130 },
   {
     field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 90,
+    headerName: 'Telefone',
+    width: 130,
   },
   {
     field: 'fullName',
-    headerName: 'Full name',
+    headerName: 'Email',
     description: 'This column has a value getter and is not sortable.',
     sortable: false,
     width: 160,
@@ -34,7 +33,7 @@ const rows = [
   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
-export function DataTable() {
+export default function LivroTable() {
   return (
     <div style={{ height: 400, width: '100%' }}>
       <DataGrid
