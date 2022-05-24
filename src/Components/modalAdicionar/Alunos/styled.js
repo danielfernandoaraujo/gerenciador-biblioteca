@@ -15,8 +15,19 @@ export  const Content = styled.div`
         display: flex ;
         align-items: center ;
         justify-content: center ;
+        padding: 15px 0 15px 0 ;
+        .right{
+            flex: 1 ;
+            display: flex ;
+            flex-direction: column ;
+            margin-right: 5px ;
+            height: 100% ;
+            width: 80% ;
+            
+        }
         .left{
             display: flex ;
+            flex:1 ;
             flex-direction: column ;
             margin-top: 15px ;
             height: 100% ;

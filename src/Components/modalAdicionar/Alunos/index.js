@@ -78,13 +78,15 @@ export default function AlunoModal(){
                     Adicionar Aluno
                     </Typography>
                     <div className='input'>
-                        <div className='rigth'>
+                        <div className='right'>
                             <TextField            
+                              autoComplete='off'
                               id="standard-basic" 
                               label="Nome" 
                               variant="standard"
                             />
                             <TextField 
+                              autoComplete='off'
                               id="standard-basic" 
                               label="Turma" 
                               variant="standard"
@@ -92,6 +94,7 @@ export default function AlunoModal(){
                         </div>
                         <div className='left'>
                             <Input
+                              autoComplete='off'
                               value={values.textmask}
                               onChange={handleChange}
                               name="textmask"
@@ -100,6 +103,7 @@ export default function AlunoModal(){
                               placeholder="Telefone"
                             />
                             <TextField 
+                              autoComplete='off'
                               id="standard-basic" 
                               label="Email" 
                               variant="standard"
