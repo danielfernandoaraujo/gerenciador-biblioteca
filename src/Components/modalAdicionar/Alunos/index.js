@@ -80,28 +80,30 @@ export default function AlunoModal(){
                     <div className='input'>
                         <div className='rigth'>
                             <TextField            
-                            id="standard-basic" 
-                            label="Nome" 
-                            variant="standard"/>
+                              id="standard-basic" 
+                              label="Nome" 
+                              variant="standard"
+                            />
                             <TextField 
-                            id="standard-basic" 
-                            label="Turma" 
-                            variant="standard"/>
+                              id="standard-basic" 
+                              label="Turma" 
+                              variant="standard"
+                            />
                         </div>
                         <div className='left'>
-                                <Input
-                                value={values.textmask}
-                                onChange={handleChange}
-                                name="textmask"
-                                id="formatted-text-mask-input"
-                                inputComponent={TextMaskCustom}
-                                placeholder="Telefone"
-                                />
+                            <Input
+                              value={values.textmask}
+                              onChange={handleChange}
+                              name="textmask"
+                              id="formatted-text-mask-input"
+                              inputComponent={TextMaskCustom}
+                              placeholder="Telefone"
+                            />
                             <TextField 
-                            id="standard-basic" 
-                            label="Email" 
-                            variant="standard"
-                            type={"email"}
+                              id="standard-basic" 
+                              label="Email" 
+                              variant="standard"
+                              type={"email"}
                             />
                         </div>
                     </div>

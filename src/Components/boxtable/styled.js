@@ -9,11 +9,11 @@ export const BoxStyle = styled.div`
     width: 100vw ;
     height: 100vh ;
     .title{
-        flex: 1 ;
+        flex: 0.1 ;
         display: flex ;
         justify-content: space-between;
         align-items: center ;
-        padding: 10px ;
+        padding: 5px ;
         margin: 20px 20px 0 20px ;
         border-radius: 8px ;
         text-align: left ;
@@ -22,7 +22,7 @@ export const BoxStyle = styled.div`
         
     }
     .table{
-        flex: 8 ;
+        flex: 10 ;
         display: flex ;
         flex-direction: column ;
         align-items: center ;
@@ -38,7 +38,7 @@ export const BoxStyle = styled.div`
             display: flex ;
             width: 100% ;
             justify-content: space-between ;
-            padding: 10px ;
+            padding: 5px ;
 
             .btn-add{
                 width: 20% ;

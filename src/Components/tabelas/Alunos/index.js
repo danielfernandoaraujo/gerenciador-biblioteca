@@ -3,43 +3,39 @@ import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'firstName', headerName: 'Nome', width: 130 },
-  { field: 'lastName', headerName: 'Turma', width: 130 },
+  { field: 'nome', headerName: 'Nome', width: 130 },
+  { field: 'turma', headerName: 'Turma', width: 130 },
   {
-    field: 'age',
+    field: 'telefone',
     headerName: 'Telefone',
     width: 130,
   },
   {
-    field: 'fullName',
+    field: 'email',
     headerName: 'Email',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
     width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
 ];
 
 const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: 56 },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  { id: 1, turma: 'Snow', nome: 'Jon', telefone: 35, email:'exemple@gmail.com'},
+  { id: 2, turma: 'Lannister', nome: 'Cersei', telefone: 42, email:'exemple@gmail.com' },
+  { id: 3, turma: 'Lannister', nome: 'Jaime', telefone: 45 , email:'exemple@gmail.com'},
+  { id: 4, turma: 'Stark', nome: 'Arya', telefone: 16, email:'exemple@gmail.com' },
+  { id: 5, turma: 'Targaryen', nome: 'Daenerys', telefone: 56 , email:'exemple@gmail.com'},
+  { id: 6, turma: 'Melisandre', nome: null, telefone: 150, email:'exemple@gmail.com' },
+  { id: 7, turma: 'Clifford', nome: 'Ferrara', telefone: 44 , email:'exemple@gmail.com'},
+  { id: 8, turma: 'Frances', nome: 'Rossini', telefone: 36 , email:'exemple@gmail.com'},
+  { id: 9, turma: 'Roxie', nome: 'Harvey', telefone: 65 , email:'exemple@gmail.com'},
 ];
 
 export default function AlunoTable() {
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 500, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
