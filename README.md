@@ -27,7 +27,7 @@ de livros que estão em andamento.
 
 ```bash
 Email: admin@admin.com
-Senha: 123456
+Senha: admin123
 ```
 
     
