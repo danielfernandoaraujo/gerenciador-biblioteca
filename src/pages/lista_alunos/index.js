@@ -4,29 +4,24 @@ import { useContext } from "react";
 import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
 import { Aviso } from "../../Components/aviso";
-import {DataTable} from "../../Components/datatable";
-import { Boxtable } from "../../Components/boxtable";
+import { DataTable } from "../../Components/datatable";
+import { Boxtable } from "../../Components/boxtable/Alunos";
 
+export function Alunos() {
+  const page = "alunos";
 
-export function Alunos(){
+  const { dispatch } = useContext(AuthContext);
 
-    const page = "alunos";
-    
-    const {dispatch} = useContext(AuthContext)
+  function handleLogout() {
+    dispatch({ type: "LOGOUT" });
+  }
+  return (
+    <AlunosStyled>
+      <Aviso />
 
-    function handleLogout(){
+      <Sidebar page={page} />
 
-        dispatch({type:"LOGOUT"})
-    }
-    return(
-        <AlunosStyled >
-            
-            <Aviso/>
-
-            <Sidebar page={page}/>
-            
-            <Boxtable title={'Alunos'}/>
-                
-        </AlunosStyled>
-    )
+      <Boxtable />
+    </AlunosStyled>
+  );
 }

@@ -9,37 +9,30 @@ import { ModalUser } from "../../Components/slidebar/styled";
 import { Aviso } from "../../Components/aviso";
 import { Widget } from "../../Components/wigets";
 
+export function Home() {
+  const page = "home";
 
-export function Home(){
+  const user = localStorage.getItem("nome");
+  const userSub = localStorage.getItem("subNome");
 
-    const page = "home";
+  return (
+    <HomeStyled>
+      <Aviso />
 
-    const user = localStorage.getItem('nome')
-    const userSub = localStorage.getItem('subNome');
-    
-    return(
-        <HomeStyled>
+      <Sidebar page={page} />
 
-            <Aviso/>
-
-            <Sidebar page={page}/>
-
-            <div className="main">
-                <Header user={user} userSub={userSub}/>
-                <div className="content">
-                    
-                        <div className="widget">
-                            <Widget type={"alunos"}/>
-                            <Widget type={"livros"}/>
-                            <Widget type={"emprestimos"}/> 
-                            <Widget type={"pendentes"}/>
-                        </div>
-                        <div className="info">
-
-                        </div>
-                    
-                </div>
-            </div>
-        </HomeStyled>
-    )
+      <div className="main">
+        <Header user={user} userSub={userSub} />
+        <div className="content">
+          <div className="widget">
+            <Widget type={"alunos"} />
+            <Widget type={"livros"} />
+            <Widget type={"emprestimos"} />
+            <Widget type={"pendentes"} />
+          </div>
+          <div className="info"></div>
+        </div>
+      </div>
+    </HomeStyled>
+  );
 }

@@ -1,11 +1,11 @@
-import { Button, TextField } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { Content } from './styled'
+import { Button, TextField } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { Content } from "./styled";
 
-export default function EmprestimoModal(){
-    return (
+export default function EmprestimoModal() {
+  return (
     <Content>
-                    {/* <Typography id="modal-modal-title" variant="h5" component="h2" className='title'>
+      {/* <Typography id="modal-modal-title" variant="h5" component="h2" className='title'>
                     Adicionar emprestimo
                     </Typography>
                     <div className='input'>
@@ -42,5 +42,5 @@ export default function EmprestimoModal(){
                         Confirmar
                     </Button> */}
     </Content>
-    )
+  );
 }
