@@ -15,9 +15,11 @@ de livros que estão em andamento.
 
 ## Stack utilizada
 
-**Front-end:** React e Styled-Components;
+**Front-end:** React;
 
-**Database:** Firebase;
+**Back-end:** Node, express;
+
+**Database:** Firebase e MongoDB;
 
 
 
@@ -32,7 +34,7 @@ Senha: 123456
 ## 🚧 Projeto em produção 🚧
 
 - [x] Login e Autenticação.
-- [ ] Pagina inicial
+- [x] Pagina inicial
 - [ ] Adicionar alunos.
 - [ ] Adicionar livros.
 - [ ] Adicionar emprestimos de livros.
