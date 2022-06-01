@@ -1,17 +1,12 @@
 import { BoxStyle } from "../styled";
 import Button from "@mui/material/Button";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { TextField } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { ModalStyled } from "../styled";
 import AlunoTable from "../../tabelas/Alunos/index.js";
-import LivroTable from "../../tabelas/Livros/index.js";
-import EmprestimoTable from "../../tabelas/Emprestimos/index.js";
 import AlunoModal from "../../modalAdicionar/Alunos/index.js";
-import LivroModal from "../../modalAdicionar/Livros";
-import EmprestimoModal from "../../modalAdicionar/Emprestimos";
 
 const style = {
   position: "absolute",
@@ -60,6 +55,10 @@ export function Boxtable() {
             size="medium"
             disableElevation
             onClick={handleOpen}
+            style={{
+              fontWeight: "bold",
+              backgroundColor: "#2154bf",
+            }}
             endIcon={<IoAddCircleOutline size={22} />}
           >
             Adicionar

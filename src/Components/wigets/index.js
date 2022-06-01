@@ -4,16 +4,26 @@ import { WidgetStyled } from "./styled";
 import { RiBook2Line } from "react-icons/ri";
 import { MdOutlineLibraryBooks } from "react-icons/md";
 import { GoBook } from "react-icons/go";
+import { useEffect, useState } from "react";
+import api from "../../services/api";
 
 export function Widget({ type }) {
   let data;
+  const [AlunosArr, setAlunosArr] = useState([])
 
-  const num = 0;
+  useEffect(()=>{
+    async function getNumber(){
+      const response = await api.get('alunos')
+      setAlunosArr(response.data)
+    }
+    getNumber()
+  }, [AlunosArr])
 
   switch (type) {
     case "alunos":
       data = {
         title: "ALUNOS",
+        number: AlunosArr.length,
         link: "Ver alunos",
         to: "/alunos",
         icon: (
@@ -31,6 +41,7 @@ export function Widget({ type }) {
     case "livros":
       data = {
         title: "LIVROS",
+        number: 1,
         link: "Ver livros",
         to: "/livros",
         icon: (
@@ -48,6 +59,7 @@ export function Widget({ type }) {
     case "emprestimos":
       data = {
         title: "EMPRESTIMOS",
+        number: 1,
         link: "Ver empréstimos",
         to: "/emprestimos",
         icon: (
@@ -65,6 +77,7 @@ export function Widget({ type }) {
     case "pendentes":
       data = {
         title: "PENDENTES",
+        number: 1,
         link: "Ver pendentes",
         to: "/emprestimos",
         icon: (
@@ -89,7 +102,7 @@ export function Widget({ type }) {
           <p>{data.title}</p>
         </div>
         <div className="number">
-          <p>{num}</p>
+          <p>{data.number}</p>
         </div>
         <Link to={data.to} className="link">
           {data.link}
