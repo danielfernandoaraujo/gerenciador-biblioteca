@@ -8,10 +8,9 @@ import TextField from "@mui/material/TextField";
 import { TextMaskCustom } from "./mask";
 import api from "../../../services/api";
 
-export default function AlunoModal({ childToParent }) {
-  const open = false;
+export default function AlunoModalUpdate({ parentToChild }) {
+  //const open = false;
 
-  //Firebase Cloud
   //Adicionar um documento
 
   const handleAdd = async (e) => {
@@ -19,13 +18,14 @@ export default function AlunoModal({ childToParent }) {
 
     try {
       if (Nome || Turma || Email !== "") {
-        await api.post('/alunos', {
+        await api.put('/alunos', {
+          _id: idAluno,
           nome: Nome,
           turma: Turma,
           email: Email,
           telefone: Telefone
         })
-        childToParent(open);
+        //childToParent(open);
       } else {
         setErro(true);
       }
@@ -33,13 +33,6 @@ export default function AlunoModal({ childToParent }) {
       alert(err);
     }
   };
-
-  //Valor da mascara do input
-  const [values, setValues] = React.useState({
-    textmask: "(79) 9",
-    numberformat: "1320",
-  });
-
   //Variaveis
 
   const [Erro, setErro] = React.useState(false);
@@ -47,13 +40,23 @@ export default function AlunoModal({ childToParent }) {
   const [Turma, setTurma] = React.useState("");
   const [Email, setEmail] = React.useState("");
   const [Telefone, setTelefone] = React.useState("");
+  const [idAluno, setIdAluno] = React.useState(parentToChild);
 
+
+
+  React.useEffect( () => {
+    
+    async function getUsuario(){
+      var response = await api.get('/alunos.detalhes/' + idAluno );
+      setNome(response.data.nome) ;
+      setTurma(response.data.turma) ;
+      setEmail(response.data.email) ;
+      setTelefone(response.data.telefone) ;
+  }
+     getUsuario();
+  }, [idAluno])
   //Pegar o valor de turma
   const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
     setTelefone(event.target.value);
   };
 
@@ -79,7 +82,7 @@ export default function AlunoModal({ childToParent }) {
         component="h2"
         className="title"
       >
-        Adicionar Aluno
+        Atualizar Aluno
       </Typography>
       <div className="input">
         <div className="right">
@@ -88,6 +91,7 @@ export default function AlunoModal({ childToParent }) {
             autoComplete="off"
             id="standard-basic"
             label="Nome"
+            value={Nome}
             variant="standard"
             onChange={handleAddName}
           />
@@ -118,7 +122,7 @@ export default function AlunoModal({ childToParent }) {
             </InputLabel>
             <Input
               autoComplete="off"
-              value={values.textmask}
+              value={Telefone}
               onChange={handleChange}
               name="textmask"
               id="formatted-text-mask-input"
@@ -129,6 +133,7 @@ export default function AlunoModal({ childToParent }) {
             autoComplete="off"
             id="standard-basic"
             label="Email"
+            value={Email}
             variant="standard"
             type={"email"}
             onChange={handleAddEmail}

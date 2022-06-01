@@ -41,7 +41,7 @@ export function Widget({ type }) {
     case "livros":
       data = {
         title: "LIVROS",
-        number: 1,
+        number: 0,
         link: "Ver livros",
         to: "/livros",
         icon: (
@@ -59,7 +59,7 @@ export function Widget({ type }) {
     case "emprestimos":
       data = {
         title: "EMPRESTIMOS",
-        number: 1,
+        number: 0,
         link: "Ver empréstimos",
         to: "/emprestimos",
         icon: (
@@ -77,7 +77,7 @@ export function Widget({ type }) {
     case "pendentes":
       data = {
         title: "PENDENTES",
-        number: 1,
+        number: 0,
         link: "Ver pendentes",
         to: "/emprestimos",
         icon: (
