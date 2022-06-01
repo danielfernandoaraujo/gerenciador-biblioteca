@@ -15,9 +15,9 @@ de livros que estão em andamento.
 
 ## Stack utilizada
 
-**Front-end:** React;
+**Front-end:** React, Axios, Styled-components;
 
-**Back-end:** Node, express;
+**Back-end:** Node, Express, API Rest;
 
 **Database:** Firebase e MongoDB;
 
