@@ -105,9 +105,9 @@ export default function AlunoModal({ childToParent }) {
               <MenuItem value="">
                 <em>Nenhuma</em>
               </MenuItem>
-              <MenuItem value={"1"}>1º</MenuItem>
-              <MenuItem value={"2"}>2º</MenuItem>
-              <MenuItem value={"3"}>3º</MenuItem>
+              <MenuItem value={"1º"}>1º</MenuItem>
+              <MenuItem value={"2º"}>2º</MenuItem>
+              <MenuItem value={"3º"}>3º</MenuItem>
             </Select>
           </FormControl>
         </div>

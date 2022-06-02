@@ -8,14 +8,13 @@ import TextField from "@mui/material/TextField";
 import { TextMaskCustom } from "./mask";
 import api from "../../../services/api";
 
-export default function AlunoModalUpdate({ parentToChild }) {
-  //const open = false;
+export default function AlunoModalUpdate({ parentToChild, childToParent }) {
+  const data = false;
 
   //Adicionar um documento
 
   const handleAdd = async (e) => {
     e.preventDefault();
-
     try {
       if (Nome || Turma || Email !== "") {
         await api.put('/alunos', {
@@ -25,7 +24,7 @@ export default function AlunoModalUpdate({ parentToChild }) {
           email: Email,
           telefone: Telefone
         })
-        //childToParent(open);
+        childToParent(data)
       } else {
         setErro(true);
       }
@@ -109,9 +108,9 @@ export default function AlunoModalUpdate({ parentToChild }) {
               <MenuItem value="">
                 <em>Nenhuma</em>
               </MenuItem>
-              <MenuItem value={"1"}>1º</MenuItem>
-              <MenuItem value={"2"}>2º</MenuItem>
-              <MenuItem value={"3"}>3º</MenuItem>
+              <MenuItem value={"1º"}>1º</MenuItem>
+              <MenuItem value={"2º"}>2º</MenuItem>
+              <MenuItem value={"3º"}>3º</MenuItem>
             </Select>
           </FormControl>
         </div>

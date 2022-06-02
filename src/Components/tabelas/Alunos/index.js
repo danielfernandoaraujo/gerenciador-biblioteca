@@ -57,7 +57,10 @@ export default function AlunoTable() {
   } ;
   const handleClose = () => setOpen(false);
 
-  
+  const childToParent = (childData) => {
+    setOpen(childData)
+  }
+    
 
   //Criar tema para trocar a cor dos botões
 
@@ -90,6 +93,7 @@ export default function AlunoTable() {
     p: 4,
     borderRadius: "8px",
   };
+
 
   //Coluna de Ações
 
@@ -136,7 +140,7 @@ export default function AlunoTable() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style} className="box">
-              <AlunoModalUpdate parentToChild={data} />
+              <AlunoModalUpdate parentToChild={data} childToParent={childToParent}/>
             </Box>
         </Modal>
       </ModalStyled>
