@@ -97,18 +97,18 @@ export function Widget({ type }) {
   }
   return (
     <WidgetStyled>
-      <div className="left">
-        <div className="title">
-          <p>{data.title}</p>
+        <div className="left">
+          <div className="title">
+            <p>{data.title}</p>
+          </div>
+          <div className="number">
+            <p>{data.number}</p>
+          </div>
+          <Link to={data.to} className="link">
+            {data.link}
+          </Link>
         </div>
-        <div className="number">
-          <p>{data.number}</p>
-        </div>
-        <Link to={data.to} className="link">
-          {data.link}
-        </Link>
-      </div>
-      <div className="right">{data.icon}</div>
+        <div className="right">{data.icon}</div>
     </WidgetStyled>
   );
 }

@@ -11,6 +11,8 @@ export const WidgetStyled = styled.div`
     border-radius: 8px ;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47); 
     box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    animation: flipInX;
+    animation-duration: 0.7s;
     .left{
         display: flex ;
         flex-direction: column ;

@@ -30,6 +30,10 @@ export function Boxtable() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const childToParent = (childdata) => {
+    setOpen(childdata);
+  };
+
   return (
     <BoxStyle>
       <ModalStyled>
@@ -40,7 +44,7 @@ export function Boxtable() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style} className="box">
-            <LivroModal />
+            <LivroModal childToParent={childToParent} />
           </Box>
         </Modal>
       </ModalStyled>
@@ -48,21 +52,28 @@ export function Boxtable() {
         <h1>Livros</h1>
       </div>
       <div className="table">
-        <div className="top">
-          <div></div>
-          <Button
-            className="btn-add"
-            variant="contained"
-            size="medium"
-            disableElevation
-            onClick={handleOpen}
-            endIcon={<IoAddCircleOutline size={22} />}
-          >
-            Adicionar
-          </Button>
-        </div>
+        <div className="box">
+          <div className="top">
+            <div></div>
+            <Button
+              className="btn-add"
+              variant="contained"
+              size="medium"
+              disableElevation
+              onClick={handleOpen}
+              style={{
+                fontWeight: "bold",
+                backgroundColor: "#2154bf",
+              }}
+              endIcon={<IoAddCircleOutline size={22} />}
+            >
+              Adicionar
+            </Button>
+          </div>
+        
 
-        <LivroTable />
+          <LivroTable className="tabela" />
+        </div>
       </div>
     </BoxStyle>
   );

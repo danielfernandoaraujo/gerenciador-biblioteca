@@ -47,25 +47,28 @@ export function Boxtable() {
         <h1>Alunos</h1>
       </div>
       <div className="table">
-        <div className="top">
-          <div></div>
-          <Button
-            className="btn-add"
-            variant="contained"
-            size="medium"
-            disableElevation
-            onClick={handleOpen}
-            style={{
-              fontWeight: "bold",
-              backgroundColor: "#2154bf",
-            }}
-            endIcon={<IoAddCircleOutline size={22} />}
-          >
-            Adicionar
-          </Button>
-        </div>
+        <div className="box">
+          <div className="top">
+            <div></div>
+            <Button
+              className="btn-add"
+              variant="contained"
+              size="medium"
+              disableElevation
+              onClick={handleOpen}
+              style={{
+                fontWeight: "bold",
+                backgroundColor: "#2154bf",
+              }}
+              endIcon={<IoAddCircleOutline size={22} />}
+            >
+              Adicionar
+            </Button>
+          </div>
+        
 
-        <AlunoTable />
+          <AlunoTable className="tabela" />
+        </div>
       </div>
     </BoxStyle>
   );

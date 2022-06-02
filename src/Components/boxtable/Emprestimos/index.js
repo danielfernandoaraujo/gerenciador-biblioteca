@@ -1,16 +1,11 @@
 import { BoxStyle } from "../styled";
 import Button from "@mui/material/Button";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { TextField } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { ModalStyled } from "../styled";
-import AlunoTable from "../../tabelas/Alunos/index.js";
-import LivroTable from "../../tabelas/Livros/index.js";
 import EmprestimoTable from "../../tabelas/Emprestimos/index.js";
-import AlunoModal from "../../modalAdicionar/Alunos/index.js";
-import LivroModal from "../../modalAdicionar/Livros";
 import EmprestimoModal from "../../modalAdicionar/Emprestimos";
 
 const style = {
@@ -30,6 +25,10 @@ export function Boxtable() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const childToParent = (childdata) => {
+    setOpen(childdata);
+  };
+
   return (
     <BoxStyle>
       <ModalStyled>
@@ -40,7 +39,7 @@ export function Boxtable() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style} className="box">
-            <EmprestimoModal />
+            <EmprestimoModal childToParent={childToParent} />
           </Box>
         </Modal>
       </ModalStyled>
@@ -48,21 +47,28 @@ export function Boxtable() {
         <h1>Emprestimos</h1>
       </div>
       <div className="table">
-        <div className="top">
-          <div></div>
-          <Button
-            className="btn-add"
-            variant="contained"
-            size="medium"
-            disableElevation
-            onClick={handleOpen}
-            endIcon={<IoAddCircleOutline size={22} />}
-          >
-            Adicionar
-          </Button>
-        </div>
+        <div className="box">
+          <div className="top">
+            <div></div>
+            <Button
+              className="btn-add"
+              variant="contained"
+              size="medium"
+              disableElevation
+              onClick={handleOpen}
+              style={{
+                fontWeight: "bold",
+                backgroundColor: "#2154bf",
+              }}
+              endIcon={<IoAddCircleOutline size={22} />}
+            >
+              Adicionar
+            </Button>
+          </div>
+        
 
-        <EmprestimoTable />
+          <EmprestimoTable className="tabela" />
+        </div>
       </div>
     </BoxStyle>
   );

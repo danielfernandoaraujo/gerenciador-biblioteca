@@ -13,7 +13,6 @@ export const BoxStyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
     margin: 20px 20px 0 20px;
     border-radius: 8px;
     text-align: left;
@@ -25,25 +24,30 @@ export const BoxStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 8px;
-    text-align: left;
     color: #4d4d4d;
     width: 93%;
-    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-    .top {
-      display: flex;
+    .box{
+      height: auto ;
       width: 100%;
-      justify-content: space-between;
-      padding: 5px;
+      text-align: left;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 20px;
+      box-shadow: 0px 10px 15px -4px rgba(0,0,0,0.1);
+      animation: fadeInUp;
+      animation-duration: .4s ;
+      .top {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
 
-      .btn-add {
-        width: 20%;
-        padding: 8px;
-      }
+        .btn-add {
+          width: 20%;
+          padding: 8px;
+          margin-bottom: 10px ;
+        }
     }
+  }
   }
 `;
 
