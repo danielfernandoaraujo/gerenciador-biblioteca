@@ -11,7 +11,7 @@ export const rows = [
   ];
 
  export const columns = [
-    
+    { field: 'id', headerName: 'ID', width: 20 },
     { field: 'nome', headerName: 'Nome', width: 290 },
     { field: 'turma', headerName: 'Turma', width: 80 },
     {

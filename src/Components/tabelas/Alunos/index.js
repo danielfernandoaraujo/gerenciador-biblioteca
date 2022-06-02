@@ -108,7 +108,7 @@ export default function AlunoTable() {
                 style={{ fontWeight: "bold" }}
                 onClick={() => handleOpen(params.row.id)}
                 >
-                  Atualizar
+                  Editar
                 </Button>
                 <Button 
                 color="secondary" 
