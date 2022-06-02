@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const HomeStyled = styled.div`
-    box-sizing: border-box ;
     display: flex ;
     text-align: center ;
     height: 100vh ;

@@ -33,7 +33,6 @@ export const WidgetStyled = styled.div`
             display: flex ;
             width: max-content ;
             font-size: 14px ;
-            border-bottom: 1px dashed gray;
             color: #2154bf ;
         }
     }
