@@ -5,8 +5,8 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   flex-direction: column;
+  
   .title {
     text-align: left;
     color: #3e3e3e;

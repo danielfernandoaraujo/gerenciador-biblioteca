@@ -11,6 +11,7 @@ export const Main = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column ;
     padding: 5px;
     /* margin-left: 5px ;
                 margin-right: 5px ; */
@@ -18,11 +19,11 @@ export const Main = styled.div`
 
     //********LOGO DO ATHENEU**********//
     img {
-      width: 2.7em;
+      width: 2.3em;
       margin-right: 0.5rem;
     }
     h1 {
-      font-size: 1.4em;
+      font-size: 1.2em;
       color: white;
       span {
         color: #f7b731;
@@ -34,22 +35,26 @@ export const Main = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 8px;
+    align-items: center;
+    //margin-left: 8px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
     .option {
       display: flex;
+      width: 100% ;
+      flex-direction: column ;
       color: white;
       font-weight: bold;
-      height: 8.5vh;
+      height: 12vh;
       align-items: center;
-      padding-left: 10px;
-      margin-top: 5px;
-      margin-bottom: 8px;
-      border-radius: 15px 0 0px 15px;
+      justify-content: center ;
+      //padding-left: 10px;
+      //margin-top: 5px;
+      //margin-bottom: 8px;
+      //border-radius: 1rem;
       p {
-        font-size: 18px;
-        margin-left: 7px;
+        font-size: 15px;
+        //margin-left: 7px;
       }
       :hover {
         background-color: #093ca6;
@@ -72,30 +77,31 @@ export const Main = styled.div`
   .logout {
     flex: 0.5;
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     align-items: center;
     //border-top: 2px solid #093ca4;
-
-    margin-left: 12px;
-    margin-bottom: 20px;
+    //margin-left: 12px;
+    //margin-bottom: 20px;
     width: 100%;
     .logout-btn {
       color: #fff;
-      border-radius: 15px 0 0 15px;
+      //border-radius: 1rem;
       width: 100%;
+      flex-direction: column ;
+      justify-content: center ;
       //background-color: #093ca4 ;
-      padding-left: 10px;
-      margin-left: 18px;
+      //padding-left: 10px;
+      //margin-left: 18px;
       font-size: 18px;
       display: flex;
       font-weight: bold;
       //justify-content: center ;
-      height: 8.5vh;
+      height: 10vh;
       align-items: center;
       cursor: pointer;
       p {
         font-size: 18px;
-        margin-left: 6px;
+        //margin-left: 6px;
       }
       :hover {
         background-color: #093ca6;

@@ -38,7 +38,7 @@ export function Boxtable() {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style} className="box">
+          <Box sx={style}>
             <AlunoModal childToParent={childToParent} />
           </Box>
         </Modal>
@@ -54,7 +54,6 @@ export function Boxtable() {
               className="btn-add"
               variant="contained"
               size="medium"
-              disableElevation
               onClick={handleOpen}
               style={{
                 fontWeight: "bold",

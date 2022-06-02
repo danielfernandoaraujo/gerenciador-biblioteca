@@ -126,7 +126,7 @@ export default function AlunoTable() {
   ];
 
   return (
-    <div style={{ height: 500, width: "100%" }}>
+    <div style={{ height: 500, width: "auto" }}>
   
       <ModalStyled>
           <Modal

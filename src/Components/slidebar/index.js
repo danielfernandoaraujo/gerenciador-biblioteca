@@ -22,7 +22,7 @@ export function Sidebar(props) {
       {localStorage.getItem("nome") == null && <ModalUser />}
 
       <Link to={"/"} className="logo">
-        <img src={atheneu} />
+        {/* <img src={atheneu} /> */}
         <h1>
           Biblioteca
           <br />
@@ -68,7 +68,7 @@ export function Sidebar(props) {
       <div className="logout">
         <a onClick={handleLogout} className="option logout-btn">
           <IoMdExit size={25} color="#FFF" />
-          <p>Desconectar</p>
+          <p>Sair</p>
         </a>
       </div>
     </Main>

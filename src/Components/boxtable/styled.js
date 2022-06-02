@@ -13,7 +13,8 @@ export const BoxStyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 20px 0 20px;
+    margin-left: 2.7rem ;
+    margin-top: 1rem ;
     border-radius: 8px;
     text-align: left;
     color: #4d4d4d;
@@ -28,7 +29,7 @@ export const BoxStyle = styled.div`
     width: 93%;
     .box{
       height: auto ;
-      width: 100%;
+      width: 94%;
       text-align: left;
       border-radius: 8px;
       padding: 10px;
@@ -46,6 +47,9 @@ export const BoxStyle = styled.div`
           padding: 8px;
           margin-bottom: 10px ;
         }
+    }
+    @media (max-width: 1080px) {
+      width: 100% ;
     }
   }
   }

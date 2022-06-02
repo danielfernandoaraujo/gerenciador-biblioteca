@@ -54,7 +54,6 @@ export function Boxtable() {
               className="btn-add"
               variant="contained"
               size="medium"
-              disableElevation
               onClick={handleOpen}
               style={{
                 fontWeight: "bold",

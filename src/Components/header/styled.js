@@ -4,12 +4,7 @@ import "animate.css";
 export const Main = styled.div`
   display: flex;
   flex: 1;
-  background: hsla(0, 0%, 100%, 1);
-  background: radial-gradient(
-    circle,
-    hsla(0, 0%, 100%, 1) 0%,
-    hsla(0, 0%, 95%, 1) 100%
-  );
+
   justify-content: space-between;
   align-items: center;
   .welcome {
