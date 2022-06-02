@@ -13,7 +13,7 @@ export const BoxStyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 2.7rem ;
+    margin-left: 8.5rem ;
     margin-top: 1rem ;
     border-radius: 8px;
     text-align: left;
@@ -26,7 +26,7 @@ export const BoxStyle = styled.div`
     flex-direction: column;
     align-items: center;
     color: #4d4d4d;
-    width: 93%;
+    width: 85%;
     .box{
       height: auto ;
       width: 94%;

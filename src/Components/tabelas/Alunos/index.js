@@ -97,12 +97,12 @@ export default function AlunoTable() {
     {
       field: "actions",
       headerName: "Ações",
-      width: 230,
+      width: 200,
       renderCell: (params) => {
         return (
-          <CellAction>
+          <CellAction >
             <ThemeProvider theme={theme}>
-              <ButtonGroup disableElevation variant="outlined">
+              <ButtonGroup disableElevation variant="outlined" >
                 <Button 
                 color="primary" 
                 style={{ fontWeight: "bold" }}

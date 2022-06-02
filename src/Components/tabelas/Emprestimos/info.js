@@ -10,10 +10,10 @@ export const rows = [
     { id: 9, turma: '1ºB', nome: 'Harvey', telefone: 65 , email:'exemple@gmail.com'},
   ];
 
- export const columns = [
-    { field: 'id', headerName: 'ID', width: 20 },
-    { field: 'nome', headerName: 'Nome', width: 290 },
-    { field: 'turma', headerName: 'Turma', width: 80 },
+  export const columns = [
+    { field: 'id', headerName: 'ID', width: 10 },
+    { field: 'nome', headerName: 'Nome', width: 250 },
+    { field: 'turma', headerName: 'Turma', width: 70, type: 'number' },
     {
       field: 'telefone',
       headerName: 'Telefone',
