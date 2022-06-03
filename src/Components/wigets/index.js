@@ -6,6 +6,7 @@ import { MdOutlineLibraryBooks } from "react-icons/md";
 import { GoBook } from "react-icons/go";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import { CircularProgress } from "@mui/material";
 
 export function Widget({ type }) {
   let data;
@@ -23,7 +24,7 @@ export function Widget({ type }) {
     case "alunos":
       data = {
         title: "ALUNOS",
-        number: AlunosArr.length,
+        number: AlunosArr.length || <CircularProgress />,
         link: "Ver alunos",
         to: "/alunos",
         icon: (
