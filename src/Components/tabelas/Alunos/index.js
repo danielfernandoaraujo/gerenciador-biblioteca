@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { CellAction } from "./styled";
-import { Box, Button, ButtonGroup, CircularProgress, createTheme, Modal, ThemeProvider } from "@mui/material";
+import { Box, Button, ButtonGroup, Skeleton, createTheme, Modal, ThemeProvider, CircularProgress } from "@mui/material";
 import { columns } from "./info.js";
 import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
@@ -10,7 +10,7 @@ import AlunoModalUpdate from "../../modalAtualizar/Alunos";
 
 export default function AlunoTable() {
   const [Alunos, setAlunos] = React.useState([]);
-  const [Rows, setRows] = React.useState("");
+  const [Rows, setRows] = React.useState('');
 
   //Buscar os Arrays na API
 
