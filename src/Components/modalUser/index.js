@@ -62,7 +62,7 @@ export function ModalUser() {
             />
           ) : (
             <TextField
-              style={{ width: "80%" }}
+              style={{ width: "100%" }}
               autoFocus
               error
               autoComplete="off"
