@@ -35,7 +35,7 @@ export function ModalUser() {
 
   return (
     <ModalStyled>
-      <Dialog open={open} onClose={handleClose} style={{ textAlign: "left" }}>
+      <Dialog open={open} onClose={handleClose} style={{ textAlign: "center", borderRadius: '10px',}}>
         <DialogTitle
           style={{ fontWeight: "normal", fontSize: "30px", color: "#2154bf" }}
         >
@@ -44,7 +44,7 @@ export function ModalUser() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText style={{ fontSize: "18px", width: "100%" }}>
-            É um prazer imenso em te receber, espero que esse sistema possa te
+            É um prazer imenso em te receber, espero que esse sistema <br/> possa te
             ajudar!
           </DialogContentText>
           {Error ? (
