@@ -19,11 +19,11 @@ export function Sidebar(props) {
 
   return (
     <Main>
-      {localStorage.getItem("nome") == null && <ModalUser />}
+      {/*localStorage.getItem("nome") == null && <ModalUser />*/}
 
       <Link to={"/"} className="logo">
         {/* <img src={atheneu} /> */}
-        <h1>
+        <h1> 
           Biblioteca
           <br />
           <span>+</span>Atheneu

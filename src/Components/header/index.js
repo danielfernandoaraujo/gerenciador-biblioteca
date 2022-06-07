@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { RiSunFill } from "react-icons/ri";
 import { RiSunFoggyFill } from "react-icons/ri";
@@ -7,11 +7,12 @@ import { AuthContext } from "../../context/AuthContext";
 import PositionedMenu from "../Perfil";
 import AccountMenu from "../Perfil";
 
-export function Header(props) {
+export function Header() {
   const data = new Date();
   const hora = data.getHours();
-  const user = props.user;
-  const userSub = props.userSub;
+
+  const userLocal = useRef(localStorage.getItem("nome"));
+  const userSubLocal = useRef(localStorage.getItem("subNome"));
 
   const { dispatch } = useContext(AuthContext);
 
@@ -20,34 +21,35 @@ export function Header(props) {
   }
 
   function Welcome() {
-    if (hora >= 0 && hora < 12) {
-      return <Bomdia />;
-    }
-    if (hora >= 12 && hora < 18) {
-      return <BoaTarde />;
-    }
-    if (hora >= 18 && hora <= 23) {
-      return <BoaNoite />;
-    }
+      if (hora >= 0 && hora < 12) {
+        return <Bomdia />;
+      }
+      if (hora >= 12 && hora < 18) {
+        return <BoaTarde />;
+      }
+      if (hora >= 18 && hora <= 23) {
+        return <BoaNoite />;
+      }
   }
+  
   function Bomdia() {
     return (
       <div className="msg">
-        <p>Bom dia {user}</p> <RiSunFill size={25} />
+        <p>Bom dia {/*userLocal.current*/}</p> <RiSunFill size={25} />
       </div>
     );
   }
   function BoaTarde() {
     return (
       <div className="msg">
-        <p>Boa tarde {user}</p> <RiSunFoggyFill size={25} />
+        <p>Boa tarde {/*userLocal.current*/}</p> <RiSunFoggyFill size={25} />
       </div>
     );
   }
   function BoaNoite() {
     return (
       <div className="msg">
-        <p>Boa noite {user}</p> <BsFillMoonStarsFill size={16} />
+        <p>Boa noite {/*userLocal.current*/}</p> <BsFillMoonStarsFill size={16} />
       </div>
     );
   }
@@ -58,7 +60,7 @@ export function Header(props) {
         <Welcome />
       </div>
       <div className="profile">
-        <AccountMenu user={userSub} />
+        <AccountMenu /*user={userSubLocal.current}*/ />
       </div>
     </Main>
   );

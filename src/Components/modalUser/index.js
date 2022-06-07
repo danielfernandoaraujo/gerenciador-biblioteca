@@ -23,15 +23,10 @@ export function ModalUser() {
   };
 
   const handleClose = () => {
-    if (User == "") {
-      setError(false);
-    } else {
       setOpen(false);
-      window.location.reload();
       armazenar("subNome", User.substr(0, 1));
       armazenar("nome", User);
-    }
-  };
+    };
 
   return (
     <ModalStyled>
@@ -47,7 +42,7 @@ export function ModalUser() {
             É um prazer imenso em te receber, espero que esse sistema <br/> possa te
             ajudar!
           </DialogContentText>
-          {Error ? (
+          {/*Error ? (
             <TextField
               style={{ width: "100%" }}
               autoFocus
@@ -74,7 +69,7 @@ export function ModalUser() {
               variant="standard"
               onChange={(e) => setUser(e.target.value)}
             />
-          )}
+          )*/}
         </DialogContent>
         <DialogActions
           style={{

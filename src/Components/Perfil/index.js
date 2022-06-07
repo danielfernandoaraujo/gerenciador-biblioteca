@@ -51,7 +51,7 @@ export default function AccountMenu(props) {
       <Menu
         anchorEl={anchorEl}
         id="account-menu"
-        open={open}
+        open={open} 
         onClose={handleClose}
         onClick={handleClose}
         PaperProps={{

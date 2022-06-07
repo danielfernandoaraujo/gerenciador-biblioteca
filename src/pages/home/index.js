@@ -11,10 +11,7 @@ import { Widget } from "../../Components/wigets";
 
 export function Home() {
   const page = "home";
-
-  const user = localStorage.getItem("nome");
-  const userSub = localStorage.getItem("subNome");
-
+ 
   return (
     <HomeStyled>
       <Aviso />
@@ -22,7 +19,7 @@ export function Home() {
       <Sidebar page={page} />
 
       <div className="main">
-        <Header user={user} userSub={userSub} />
+        <Header />
         <div className="content">
           <div className="widget">
             <Widget type={"alunos"} />
