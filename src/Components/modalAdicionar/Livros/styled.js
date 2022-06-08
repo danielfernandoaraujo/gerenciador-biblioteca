@@ -13,14 +13,22 @@ export  const Content = styled.div`
     }
     .input{
         display: flex ;
-        align-items: center ;
+        align-items: flex-start;
         justify-content: center ;
-        .left{
+        .rigth{
+            flex:1 ;
             display: flex ;
             flex-direction: column ;
             margin-top: 15px ;
+        }
+        .left{
+            flex:1 ;
+            display: flex ;
+            
+            flex-direction: column ;
+            margin-top: 15px ;
             height: 100% ;
-            width: 100% ;
+            width: 100% ; 
             
         }
 
@@ -30,4 +38,16 @@ export  const Content = styled.div`
         width: 100% ;
         background-color:#2154bf;
     }
+    .msg-erro {
+    position: absolute;
+    height: 100%;
+    width: 72%;
+    top: 105%;
+    left: 14%;
+
+    .alert {
+      animation: flipInX;
+      animation-duration: 0.7s;
+    }
+  }
 `

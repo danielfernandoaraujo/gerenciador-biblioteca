@@ -12,7 +12,7 @@ export const HomeStyled = styled.div`
         background-color: white ;
         display: flex ;
         flex-direction: column ;
-        .content{
+        .top{
             flex: 10 ;
             display: flex ;
             flex-direction: column ;
@@ -22,9 +22,15 @@ export const HomeStyled = styled.div`
                 display: flex ;
             
             }
-            .info{
-                flex: 7 ;
+        .bottom{
+            flex: 7 ;
+            .actions{
+                
             }
+            .pendings{
+
+            }
+        }
         }
     }
    

@@ -6,22 +6,57 @@ import { columns, rows } from "./info.js";
 import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Alunos";
+import LivroModalUpdate from "../../modalAtualizar/Livros";
 
 
 export default function LivroTable() {
-  //Abrir modal de update
-
+//variaveis
+  const [Livros, setLivros] = React.useState([]);
+  const [Rows, setRows] = React.useState('');
+//Buscar os Arrays na API
+  React.useEffect(() => {
+    async function loadLivros() {
+      const response = await api.get("Livros");
+      setLivros(response.data);
+    }
+    if (Livros !== "") {
+      setRows(Livros.map(createRows));
+    } else {
+    }
+    console.log(Livros);
+    loadLivros();
+  }, [Livros]);
+//Organizar os Arrays
+  function createRows(elemento) {
+    let ArrLivros = {
+      id: elemento._id,
+      codigo_livro: elemento.codigo_livro,
+      titulo_livro: elemento.titulo_livro,
+      estoque_livro: elemento.estoque_livro,
+    };
+    return ArrLivros;
+  }
+//Deletar a linha
+  async function handleDelete(id) {
+    if(window.confirm("Deseja realmente excluir este usuário?")) {
+      await api.delete('livros/'+id) ;
+    }
+  }
+//Abrir modal de update
   const [data, setData] = React.useState('');
   const [open, setOpen] = React.useState(false);
   const handleOpen = (id) =>{
     setOpen(true)
     setData(id);
   } ;
+//Fechar modal de update
   const handleClose = () => setOpen(false);
-
-   //Criar tema para trocar a cor dos botões
-
-   const theme = createTheme({
+//Receber informação do componente filho
+  const childToParent = (childData) => {
+    setOpen(childData);
+  };
+//Criar tema para trocar a cor dos botões
+  const theme = createTheme({
     status: {
       danger: "#e53e3e",
     },
@@ -57,7 +92,8 @@ export default function LivroTable() {
     {
       field: "actions",
       headerName: "Ações",
-      width: 230,
+      width: 200,
+      type: 'number',
       renderCell: (params) => {
         return (
           <CellAction>
@@ -66,14 +102,14 @@ export default function LivroTable() {
                 <Button 
                 color="primary" 
                 style={{ fontWeight: "bold" }}
-                //onClick={() => handleOpen(params.row.id)}
+                onClick={() => handleOpen(params.row.id)}
                 >
                   Editar
                 </Button>
                 <Button 
                 color="secondary" 
                 style={{ fontWeight: "bold" }}
-                // onClick={() =>handleDelete(params.row.id)}
+                onClick={() =>handleDelete(params.row.id)}
                 >
                   Excluir
                 </Button>
@@ -90,18 +126,21 @@ export default function LivroTable() {
   
       <ModalStyled>
           <Modal
-            //open={open}
-            //onClose={handleClose}
+            open={open}
+            onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
             <Box sx={style} className="box">
-              {/* <AlunoModalUpdate parentToChild={data} /> */}
+              <LivroModalUpdate 
+              parentToChild={data}
+              childToParent={childToParent}
+              />
             </Box>
         </Modal>
       </ModalStyled>
       <DataGrid
-        rows={rows}
+        rows={Rows}
         columns={columns.concat(actionColumn)}
         pageSize={8}
         rowsPerPageOptions={[5]}

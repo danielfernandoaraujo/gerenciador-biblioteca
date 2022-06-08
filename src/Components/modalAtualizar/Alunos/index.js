@@ -39,15 +39,14 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
       alert(err);
     }
   };
-  //Variaveis
-
+//Variaveis
   const [Erro, setErro] = React.useState(false);
   const [Nome, setNome] = React.useState("");
   const [Turma, setTurma] = React.useState("");
   const [Email, setEmail] = React.useState("");
   const [Telefone, setTelefone] = React.useState("");
   const [idAluno, setIdAluno] = React.useState(parentToChild);
-
+//Receber valores para completar os inputs
   React.useEffect(() => {
     async function getUsuario() {
       var response = await api.get("/alunos.detalhes/" + idAluno);

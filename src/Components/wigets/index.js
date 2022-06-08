@@ -11,6 +11,7 @@ import { CircularProgress } from "@mui/material";
 export function Widget({ type }) {
   let data;
   const [AlunosArr, setAlunosArr] = useState([])
+  const [LivrosArr, setLivrosArr] = useState([])
 
   useEffect(()=>{
     async function getNumber(){
@@ -19,6 +20,15 @@ export function Widget({ type }) {
     }
     getNumber()
   }, [AlunosArr])
+
+  useEffect(()=>{
+    async function getNumber(){
+      const response = await api.get('livros')
+      setLivrosArr(response.data)
+    }
+    getNumber()
+  }, [LivrosArr])
+
 
   switch (type) {
     case "alunos":
@@ -42,7 +52,7 @@ export function Widget({ type }) {
     case "livros":
       data = {
         title: "LIVROS",
-        number: 0,
+        number: LivrosArr.length || <CircularProgress />,
         link: "Ver livros",
         to: "/livros",
         icon: (

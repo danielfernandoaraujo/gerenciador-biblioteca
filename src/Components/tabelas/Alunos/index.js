@@ -1,19 +1,26 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { CellAction } from "./styled";
-import { Box, Button, ButtonGroup, Skeleton, createTheme, Modal, ThemeProvider, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Skeleton,
+  createTheme,
+  Modal,
+  ThemeProvider,
+  CircularProgress,
+} from "@mui/material";
 import { columns } from "./info.js";
 import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Alunos";
 
-
 export default function AlunoTable() {
+//Variaveis
   const [Alunos, setAlunos] = React.useState([]);
-  const [Rows, setRows] = React.useState('');
-
-  //Buscar os Arrays na API
-
+  const [Rows, setRows] = React.useState("");
+//Buscar os Arrays na API
   React.useEffect(() => {
     async function loadAlunos() {
       const response = await api.get("Alunos");
@@ -26,9 +33,7 @@ export default function AlunoTable() {
     console.log(Alunos);
     loadAlunos();
   }, [Alunos]);
-
-  //Organizar os Arrays
-
+//Organizar os Arrays
   function createRows(elemento) {
     let ArrAlunos = {
       id: elemento._id,
@@ -39,31 +44,26 @@ export default function AlunoTable() {
     };
     return ArrAlunos;
   }
-
-  //Deletar a linha
-
+//Deletar a linha
   async function handleDelete(id) {
-    if(window.confirm("Deseja realmente excluir este usuário?")) {
-      await api.delete('alunos/'+id) ;
+    if (window.confirm("Deseja realmente excluir este usuário?")) {
+      await api.delete("alunos/" + id);
     }
   }
-
-  //Abrir modal de update
-  const [data, setData] = React.useState('');
+//Abrir modal de update
+  const [data, setData] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  const handleOpen = (id) =>{
-    setOpen(true)
+  const handleOpen = (id) => {
+    setOpen(true);
     setData(id);
-  } ;
+  };
+//Fechar modal de update
   const handleClose = () => setOpen(false);
-
+//Receber informação do componente filho
   const childToParent = (childData) => {
-    setOpen(childData)
-  }
-    
-
-  //Criar tema para trocar a cor dos botões
-
+    setOpen(childData);
+  };
+//Criar tema para trocar a cor dos botões
   const theme = createTheme({
     status: {
       danger: "#e53e3e",
@@ -79,9 +79,7 @@ export default function AlunoTable() {
       },
     },
   });
-
-  //Estilo do Modal
-
+//Estilo do Modal
   const style = {
     position: "absolute",
     top: "50%",
@@ -93,31 +91,29 @@ export default function AlunoTable() {
     p: 4,
     borderRadius: "8px",
   };
-
-
-  //Coluna de Ações
-
+//Coluna de Ações
   const actionColumn = [
     {
       field: "actions",
       headerName: "Ações",
       width: 200,
+      type: 'number',
       renderCell: (params) => {
         return (
-          <CellAction >
+          <CellAction>
             <ThemeProvider theme={theme}>
-              <ButtonGroup disableElevation variant="outlined" >
-                <Button 
-                color="primary" 
-                style={{ fontWeight: "bold" }}
-                onClick={() => handleOpen(params.row.id)}
+              <ButtonGroup disableElevation variant="outlined">
+                <Button
+                  color="primary"
+                  style={{ fontWeight: "bold" }}
+                  onClick={() => handleOpen(params.row.id)}
                 >
                   Editar
                 </Button>
-                <Button 
-                color="secondary" 
-                style={{ fontWeight: "bold" }}
-                onClick={() =>handleDelete(params.row.id)}
+                <Button
+                  color="secondary"
+                  style={{ fontWeight: "bold" }}
+                  onClick={() => handleDelete(params.row.id)}
                 >
                   Excluir
                 </Button>
@@ -128,20 +124,21 @@ export default function AlunoTable() {
       },
     },
   ];
-
   return (
     <div style={{ height: 500, width: "auto" }}>
-  
       <ModalStyled>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style} className="box">
-              <AlunoModalUpdate parentToChild={data} childToParent={childToParent}/>
-            </Box>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="box">
+            <AlunoModalUpdate
+              parentToChild={data}
+              childToParent={childToParent}
+            />
+          </Box>
         </Modal>
       </ModalStyled>
       <DataGrid

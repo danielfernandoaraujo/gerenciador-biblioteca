@@ -125,7 +125,7 @@ export function Login() {
           </div>
         </div>
       </form>
-      <div className="creditos">
+      <div className="credits">
         <div className="icons">
           <a className="icon" href="https://github.com/danielfernandoaraujo">
             <AiOutlineGithub size={25} />

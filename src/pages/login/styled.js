@@ -160,7 +160,7 @@ export const LoginPage = styled.div`
       width: 85vw;
     }
   }
-  .creditos {
+  .credits {
     display: flex;
     flex-direction: column;
     color: #e9e9e9;

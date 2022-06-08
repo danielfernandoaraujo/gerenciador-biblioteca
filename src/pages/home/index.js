@@ -20,14 +20,21 @@ export function Home() {
 
       <div className="main">
         <Header />
-        <div className="content">
+        <div className="top">
           <div className="widget">
             <Widget type={"alunos"} />
             <Widget type={"livros"} />
             <Widget type={"emprestimos"} />
             <Widget type={"pendentes"} />
           </div>
-          <div className="info"></div>
+          <div className="bottom">
+            <div className="actions">
+              
+            </div>
+            <div className="pendings">
+
+            </div>
+          </div>
         </div>
       </div>
     </HomeStyled>

@@ -9,14 +9,9 @@ import { TextMaskCustom } from "./mask";
 import api from "../../../services/api";
 
 export default function AlunoModal({ childToParent }) {
-  const open = false;
-
-  //Firebase Cloud
-  //Adicionar um documento
-
-  const handleAdd = async (e) => {
+//Função para adicionar 
+const handleAdd = async (e) => {
     e.preventDefault();
-
     try {
       if (Nome || Turma || Email !== "") {
         await api.post('/alunos', {
@@ -25,7 +20,7 @@ export default function AlunoModal({ childToParent }) {
           email: Email,
           telefone: Telefone
         })
-        childToParent(open);
+        childToParent(false);
       } else {
         setErro(true);
       }
@@ -33,22 +28,18 @@ export default function AlunoModal({ childToParent }) {
       alert(err);
     }
   };
-
-  //Valor da mascara do input
+//Valor da mascara do input telefone
   const [values, setValues] = React.useState({
     textmask: "(79) 9",
     numberformat: "1320",
-  });
-
-  //Variaveis
-
+});
+//Variaveis
   const [Erro, setErro] = React.useState(false);
   const [Nome, setNome] = React.useState("");
   const [Turma, setTurma] = React.useState("");
   const [Email, setEmail] = React.useState("");
   const [Telefone, setTelefone] = React.useState("");
-
-  //Pegar o valor de turma
+//Função para adicionar telefone
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -56,21 +47,19 @@ export default function AlunoModal({ childToParent }) {
     });
     setTelefone(event.target.value);
   };
-
+//Função para adicionar turma
   const Change = (event) => {
     setTurma(event.target.value);
   };
-
-  //Pegar valor de Nome
+//Função para adicionar Nome
   const handleAddName = (e) => {
     setNome(e.target.value);
   };
-
-  //Pegar valor de Email
+//Função para adicionar Email
   const handleAddEmail = (e) => {
     setEmail(e.target.value);
   };
-
+//
   return (
     <Content>
       <Typography
