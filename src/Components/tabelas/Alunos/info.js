@@ -1,15 +1,15 @@
  export const columns = [
     { field: 'id', headerName: 'ID', width: 10 },
-    { field: 'nome', headerName: 'Nome', width: 290 },
-    { field: 'turma', headerName: 'Turma', width: 70, type: 'number' },
+    { field: 'nome', headerName: 'Nome', width: 350 },
+    { field: 'turma', headerName: 'Turma', width: 60, type: 'number' },
     {
       field: 'telefone',
       headerName: 'Telefone',
-      width: 150,
+      width: 135,
     },
     {
       field: 'email',
       headerName: 'Email',
-      width: 250,
+      width: 210,
     },
   ];

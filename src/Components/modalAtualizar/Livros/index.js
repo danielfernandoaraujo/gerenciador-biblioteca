@@ -47,7 +47,7 @@ const handleAddCodigo = (e) => {
 };
 // Função para adicionar Titulo
 const handleAddTitulo = (e) => {
-  setTitulo(e.target.value);
+  setTitulo(e.target.value.toUpperCase());
 };
 // Função para adicionar Estoque
 const handleAddEstoque = (e) => {

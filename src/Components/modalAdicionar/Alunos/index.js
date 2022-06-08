@@ -53,7 +53,7 @@ const handleAdd = async (e) => {
   };
 //Função para adicionar Nome
   const handleAddName = (e) => {
-    setNome(e.target.value);
+    setNome(e.target.value.toUpperCase());
   };
 //Função para adicionar Email
   const handleAddEmail = (e) => {
