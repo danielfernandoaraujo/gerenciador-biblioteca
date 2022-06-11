@@ -53,7 +53,7 @@ const handleAdd = async (e) => {
   };
 //Função para adicionar Nome
   const handleAddName = (e) => {
-    setNome(e.target.value.toUpperCase());
+    setNome(e.target.value);
   };
 //Função para adicionar Email
   const handleAddEmail = (e) => {
@@ -73,14 +73,14 @@ const handleAdd = async (e) => {
       <div className="input">
         <div className="right">
           <TextField
-            sx={{ width: "100%", marginBottom: "8px" }}
+            sx={{ width: "100%" }}
             autoComplete="off"
             id="standard-basic"
             label="Nome"
             variant="standard"
             onChange={handleAddName}
           />
-          <FormControl variant="standard" sx={{ width: "100%" }}>
+          <FormControl variant="standard" sx={{ width: "100%", marginTop: '20px' }}>
             <InputLabel id="demo-simple-select-standard-label">
               Turma
             </InputLabel>
@@ -101,7 +101,7 @@ const handleAdd = async (e) => {
           </FormControl>
         </div>
         <div className="left">
-          <FormControl variant="standard" sx={{ marginBottom: "9px" }}>
+          <FormControl variant="standard" sx={{ }}>
             <InputLabel htmlFor="formatted-text-mask-input">
               Telefone
             </InputLabel>
@@ -115,6 +115,7 @@ const handleAdd = async (e) => {
             />
           </FormControl>
           <TextField
+            sx={{ marginTop: '20px' }}
             autoComplete="off"
             id="standard-basic"
             label="Email"

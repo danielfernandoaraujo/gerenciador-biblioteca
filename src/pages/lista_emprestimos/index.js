@@ -16,7 +16,7 @@ export function Emprestimos() {
   }
   return (
     <EmprestimosStyled>
-      <Aviso />
+      {/* <Aviso /> */}
 
       <Sidebar page={page} />
 

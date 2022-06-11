@@ -35,7 +35,7 @@ const handleAdd = async (e) => {
   };
 // Função para adicionar Titulo
   const handleAddTitulo = (e) => {
-    setTitulo(e.target.value.toUpperCase());
+    setTitulo(e.target.value);
   };
 // Função para adicionar Estoque
   const handleAddEstoque = (e) => {
@@ -64,7 +64,7 @@ const handleAdd = async (e) => {
             onChange={handleAddCodigo}
           />
           <TextField
-            style={{ width: "95%" }}
+            style={{ width: "95%", marginTop: '20px'  }}
             autoComplete="off"
             id="standard-basic"
             label="Estoque"

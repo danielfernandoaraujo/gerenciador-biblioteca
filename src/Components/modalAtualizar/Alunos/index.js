@@ -68,7 +68,7 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
 
   //Pegar valor de Nome
   const handleAddName = (e) => {
-    setNome(e.target.value.toUpperCase());
+    setNome(e.target.value);
   };
 
   //Pegar valor de Email

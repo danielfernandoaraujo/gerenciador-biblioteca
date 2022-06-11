@@ -57,13 +57,6 @@ export function Login() {
             </div>
             <div className="inputs">
               <div className="input">
-                {/* <label>
-                                    Email de acesso
-                                        </label> */}
-                {/* <input type="email" 
-                                    placeholder={"Digite o email"}
-                                    onChange={(e)=>setemail(e.target.value)}
-                                    /> */}
                 {error ? (
                   <TextField
                     error
@@ -84,13 +77,6 @@ export function Login() {
                 )}
               </div>
               <div className="input">
-                {/* <label className="label">
-                                    Senha de acesso
-                                        </label> */}
-                {/* <input type="password" 
-                                        placeholder="Digite a senha"
-                                    onChange={(e)=>setpassword(e.target.value)}
-                                    /> */}
                 {error ? (
                   <TextField
                     error
