@@ -1,6 +1,7 @@
 import { stringify } from "@firebase/util";
 import { Autocomplete, Button, TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import { format, formatISO, parseISO } from "date-fns";
 import { useEffect, useState } from "react";
 import api from "../../../services/api";
 import { top100Films } from "./info";
@@ -25,7 +26,6 @@ export default function EmprestimoModal({ childToParent }) {
         } 
         if (Alunos !== "") {
           setAlunosRows(Alunos.map(createRowsAlunos));
-        } else {
         }
         console.log(Alunos);
         loadAlunos();
@@ -50,7 +50,6 @@ export default function EmprestimoModal({ childToParent }) {
         }
         if (Livros !== "") {
           setLivrosRows(Livros.map(createRowsLivros));
-        } else {
         }
         console.log(Livros);
         loadLivros();
@@ -77,7 +76,6 @@ export default function EmprestimoModal({ childToParent }) {
   //Inserir o valor na tabela de Emprestimos
     //Variaveis dos inputs
       const [dataDevolução, setdataDevolução] = useState([])
-      const Devolução = dataDevolução.toString()
       const [nomeAluno, setnomeAluno] = useState([])
       const [nomeLivro, setnomeLivro] = useState([])
       const [Erro, setErro] = useState(false);
@@ -91,9 +89,7 @@ export default function EmprestimoModal({ childToParent }) {
               nome_aluno: nomeAluno,
               nome_livro: nomeLivro,
               data_prazo: dataDevolução,
-              data_atual: '1',
             })
-            
             //await api.put('/livros',{
               //titulo_livro: nomeLivro,
               //estoque_livro: -1

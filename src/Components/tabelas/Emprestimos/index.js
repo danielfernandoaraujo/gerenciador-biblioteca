@@ -1,27 +1,79 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { CellAction } from "./styled";
-import { Box, Button, ButtonGroup, createTheme, Modal, ThemeProvider } from "@mui/material";
-import { columns, rows } from "./info.js";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Skeleton,
+  createTheme,
+  Modal,
+  ThemeProvider,
+  CircularProgress,
+} from "@mui/material";
+import { columns } from "./info.js";
 import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
-import AlunoModalUpdate from "../../modalAtualizar/Alunos";
+import AlunoModalUpdate from "../../modalAtualizar/Emprestimos";
+import { format, formatISO } from "date-fns";
 
-export default function EmprestimoTable() {
- 
-  //Abrir modal de update
+export default function AlunoTable() {
+//Variaveis
+  const [Emprestimos, setAlunos] = React.useState([]);
+  const [Rows, setRows] = React.useState("");
+//Buscar os Arrays na API
+  React.useEffect(() => {
+    async function loadAlunos() {
+      const response = await api.get("Emprestimos");
+      setAlunos(response.data);
+    }
+    if (Emprestimos !== "") {
+      setRows(Emprestimos.map(createRows));
+    } else {
+    }
+    console.log(Emprestimos);
+    loadAlunos();
+  }, [Emprestimos]);
+//Organizar os Arrays
+  function createRows(elemento) {
 
-  const [data, setData] = React.useState('');
+    function dataFormatada(e){
+      let data = new Date(e.data_prazo),
+          dia  = (data.getDate()+1).toString().padStart(2, '0'),
+          mes  = (data.getMonth()+1).toString().padStart(2, '0'),
+          ano  = data.getFullYear();
+      return `${dia}/${mes}/${ano}`;
+    }
+
+    let ArrEmprestimos = {
+      id: elemento._id,
+      nome_aluno: elemento.nome_aluno,
+      nome_livro: elemento.nome_livro,
+      data_prazo: dataFormatada(elemento)
+    };
+    return ArrEmprestimos;
+  }
+//Deletar a linha
+  async function handleDelete(id) {
+    if (window.confirm("Deseja realmente excluir este usuário?")) {
+      await api.delete("alunos/" + id);
+    }
+  }
+//Abrir modal de update
+  const [data, setData] = React.useState("");
   const [open, setOpen] = React.useState(false);
-  const handleOpen = (id) =>{
-    setOpen(true)
+  const handleOpen = (id) => {
+    setOpen(true);
     setData(id);
-  } ;
+  };
+//Fechar modal de update
   const handleClose = () => setOpen(false);
-
-   //Criar tema para trocar a cor dos botões
-
-   const theme = createTheme({
+//Receber informação do componente filho
+  const childToParent = (childData) => {
+    setOpen(childData);
+  };
+//Criar tema para trocar a cor dos botões
+  const theme = createTheme({
     status: {
       danger: "#e53e3e",
     },
@@ -36,9 +88,7 @@ export default function EmprestimoTable() {
       },
     },
   });
-
-  //Estilo do Modal
-
+//Estilo do Modal
   const style = {
     position: "absolute",
     top: "50%",
@@ -50,30 +100,29 @@ export default function EmprestimoTable() {
     p: 4,
     borderRadius: "8px",
   };
-
-  //Coluna de Ações
-
+//Coluna de Ações
   const actionColumn = [
     {
       field: "actions",
       headerName: "Ações",
-      width: 230,
+      width: 200,
+      type: 'number',
       renderCell: (params) => {
         return (
           <CellAction>
             <ThemeProvider theme={theme}>
               <ButtonGroup disableElevation variant="outlined">
-                <Button 
-                color="primary" 
-                style={{ fontWeight: "bold" }}
-                //onClick={() => handleOpen(params.row.id)}
+                <Button
+                  color="primary"
+                  style={{ fontWeight: "bold" }}
+                  onClick={() => handleOpen(params.row.id)}
                 >
                   Editar
                 </Button>
-                <Button 
-                color="secondary" 
-                style={{ fontWeight: "bold" }}
-                // onClick={() =>handleDelete(params.row.id)}
+                <Button
+                  color="secondary"
+                  style={{ fontWeight: "bold" }}
+                  onClick={() => handleDelete(params.row.id)}
                 >
                   Excluir
                 </Button>
@@ -84,24 +133,25 @@ export default function EmprestimoTable() {
       },
     },
   ];
-
   return (
     <div style={{ height: 500, width: "auto" }}>
-  
       <ModalStyled>
-          <Modal
-            //open={open}
-            //onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style} className="box">
-              {/* <AlunoModalUpdate parentToChild={data} /> */}
-            </Box>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style} className="box">
+            <AlunoModalUpdate
+              parentToChild={data}
+              childToParent={childToParent}
+            />
+          </Box>
         </Modal>
       </ModalStyled>
       <DataGrid
-        rows={rows}
+        rows={Rows}
         columns={columns.concat(actionColumn)}
         pageSize={8}
         rowsPerPageOptions={[5]}
