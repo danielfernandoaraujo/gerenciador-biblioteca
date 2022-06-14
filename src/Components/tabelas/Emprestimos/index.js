@@ -15,7 +15,7 @@ import { columns } from "./info.js";
 import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Emprestimos";
-import { format, formatISO } from "date-fns";
+import { add, format, formatISO } from "date-fns";
 
 export default function AlunoTable() {
 //Variaveis
@@ -37,19 +37,11 @@ export default function AlunoTable() {
 //Organizar os Arrays
   function createRows(elemento) {
 
-    function dataFormatada(e){
-      let data = new Date(e.data_prazo),
-          dia  = (data.getDate()+1).toString().padStart(2, '0'),
-          mes  = (data.getMonth()+1).toString().padStart(2, '0'),
-          ano  = data.getFullYear();
-      return `${dia}/${mes}/${ano}`;
-    }
-
     let ArrEmprestimos = {
       id: elemento._id,
       nome_aluno: elemento.nome_aluno,
       nome_livro: elemento.nome_livro,
-      data_prazo: dataFormatada(elemento)
+      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy')
     };
     return ArrEmprestimos;
   }
