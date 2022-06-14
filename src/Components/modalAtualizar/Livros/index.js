@@ -15,8 +15,8 @@ const [idLivro, setIdLivro] = useState(parentToChild);
 const handleAdd = async (e) => {
   e.preventDefault();
   try {
-    if (Codigo || Titulo || Estoque !== "" &&
-      Estoque || Codigo !== Number) {
+    if (Codigo && Titulo && Estoque !== "" &&
+      Estoque && Codigo !== Number) {
       await api.put('/livros', {
           _id: idLivro,
           codigo_livro: Codigo,
@@ -62,7 +62,7 @@ return (
       component="h2"
       className="title"
     >
-      Adicionar Livro
+      Atualizar Livro
     </Typography>
    { Codigo || Titulo || Estoque !== "" ?
     <div className="input">
@@ -78,7 +78,7 @@ return (
           onChange={handleAddCodigo}
         />
         <TextField
-          style={{ width: "95%" }}
+          style={{ width: "95%", marginTop: '20px'  }}
           autoComplete="off"
           id="standard-basic"
           label="Estoque"

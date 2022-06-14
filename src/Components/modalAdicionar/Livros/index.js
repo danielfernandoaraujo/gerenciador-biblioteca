@@ -14,8 +14,8 @@ export default function LivroModal({ childToParent }) {
 const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      if (Codigo || Titulo || Estoque !== "" &&
-        Estoque || Codigo !== Number) {
+      if (Codigo && Titulo && Estoque !== "" &&
+        Estoque && Codigo !== Number) {
         await api.post('/Livros', {
             codigo_livro: Codigo,
             titulo_livro: Titulo,

@@ -5,8 +5,8 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   flex-direction: column;
+  
   .title {
     text-align: left;
     color: #3e3e3e;
@@ -25,12 +25,6 @@ export const Content = styled.div`
       margin-top: 15px;
       height: 100%;
       width: 100%;
-      .turma-input{
-        display: flex ;
-        justify-content: space-between ;
-        width: 100% ;
-        flex-direction: row ;
-      }
     }
     .left {
       display: flex;

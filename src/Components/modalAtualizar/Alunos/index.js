@@ -23,7 +23,7 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      if (Nome || Turma || Email !== "") {
+      if (Nome && Turma && Email !== "") {
         await api.put("/alunos", {
           _id: idAluno,
           nome: Nome,

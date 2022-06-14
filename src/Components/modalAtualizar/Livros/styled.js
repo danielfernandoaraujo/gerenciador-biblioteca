@@ -15,6 +15,7 @@ export  const Content = styled.div`
         display: flex ;
         align-items: flex-start;
         justify-content: center ;
+        padding: 15px 0 15px 0;
         .rigth{
             flex:1 ;
             display: flex ;

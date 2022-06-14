@@ -38,7 +38,7 @@ export default function LivroTable() {
   }
 //Deletar a linha
   async function handleDelete(id) {
-    if(window.confirm("Deseja realmente excluir este usuário?")) {
+    if(window.confirm("Deseja realmente excluir este livro?")) {
       await api.delete('livros/'+id) ;
     }
   }

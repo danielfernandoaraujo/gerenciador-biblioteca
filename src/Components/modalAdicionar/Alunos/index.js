@@ -13,7 +13,7 @@ export default function AlunoModal({ childToParent }) {
 const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      if (Nome || Turma || Email !== "") {
+      if (Nome && Turma && Email !== "") {
         await api.post('/alunos', {
           nome: Nome,
           turma: Turma,

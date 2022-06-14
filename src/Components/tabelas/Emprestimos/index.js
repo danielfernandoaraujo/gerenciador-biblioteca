@@ -16,6 +16,7 @@ import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Emprestimos";
 import { add, format, formatISO } from "date-fns";
+import EmprestimoModalUpdate from "../../modalAtualizar/Emprestimos";
 
 export default function AlunoTable() {
 //Variaveis
@@ -47,8 +48,8 @@ export default function AlunoTable() {
   }
 //Deletar a linha
   async function handleDelete(id) {
-    if (window.confirm("Deseja realmente excluir este usuário?")) {
-      await api.delete("alunos/" + id);
+    if (window.confirm("Deseja realmente excluir este emprestimo?")) {
+      await api.delete("emprestimos/" + id);
     }
   }
 //Abrir modal de update
@@ -135,7 +136,7 @@ export default function AlunoTable() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style} className="box">
-            <AlunoModalUpdate
+            <EmprestimoModalUpdate
               parentToChild={data}
               childToParent={childToParent}
             />

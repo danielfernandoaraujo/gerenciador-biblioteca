@@ -12,6 +12,7 @@ export function Widget({ type }) {
   let data;
   const [AlunosArr, setAlunosArr] = useState([])
   const [LivrosArr, setLivrosArr] = useState([])
+  const [EmprestimosArr, setEmprestimosArr] = useState([])
 
   useEffect(()=>{
     async function getNumber(){
@@ -28,6 +29,14 @@ export function Widget({ type }) {
     }
     getNumber()
   }, [LivrosArr])
+
+  useEffect(()=>{
+    async function getNumber(){
+      const response = await api.get('emprestimos')
+      setEmprestimosArr(response.data)
+    }
+    getNumber()
+  }, [EmprestimosArr])
 
 
   switch (type) {
@@ -70,7 +79,7 @@ export function Widget({ type }) {
     case "emprestimos":
       data = {
         title: "EMPRESTIMOS",
-        number: 0,
+        number: EmprestimosArr.length || <CircularProgress />,
         link: "Ver empréstimos",
         to: "/emprestimos",
         icon: (

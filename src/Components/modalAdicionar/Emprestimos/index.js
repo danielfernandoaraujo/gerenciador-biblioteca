@@ -1,5 +1,5 @@
 import { stringify } from "@firebase/util";
-import { Autocomplete, Button, TextField } from "@mui/material";
+import { Alert, Autocomplete, Button, TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { format, formatISO, parseISO } from "date-fns";
 import { useEffect, useState } from "react";
@@ -83,17 +83,13 @@ export default function EmprestimoModal({ childToParent }) {
       const handleAdd = async (e) => {
         e.preventDefault();
         try {
-          childToParent(false);
-          if (nomeAluno || nomeLivro || dataDevolução !== "") {
+          if (nomeAluno && nomeLivro && dataDevolução !== "") {
             await api.post('/emprestimos', {
               nome_aluno: nomeAluno,
               nome_livro: nomeLivro,
               data_prazo: dataDevolução,
             })
-            //await api.put('/livros',{
-              //titulo_livro: nomeLivro,
-              //estoque_livro: -1
-            //})
+            childToParent(false);
           } else {
             setErro(true);
           }
@@ -159,6 +155,13 @@ export default function EmprestimoModal({ childToParent }) {
                     >
                         Confirmar
                     </Button>
+                    <div className="msg-erro">
+                      {Erro && (
+                        <Alert severity="error" className="alert">
+                          Algum campo não foi preenchido!
+                        </Alert>
+                      )}
+                    </div>
     </Content>
   );
 
