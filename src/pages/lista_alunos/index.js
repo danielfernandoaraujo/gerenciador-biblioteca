@@ -15,7 +15,7 @@ export function Alunos() {
   }
   return (
     <AlunosStyled>
-      {/* <Aviso /> */}
+      <Aviso />
 
       <Sidebar page={page} />
 

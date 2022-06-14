@@ -16,7 +16,7 @@ export function Livros() {
   }
   return (
     <LivrosStyled>
-      {/* <Aviso /> */}
+      <Aviso />
 
       <Sidebar page={page} />
 

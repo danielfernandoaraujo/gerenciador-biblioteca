@@ -98,11 +98,12 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
               variant="standard"
               onChange={handleAddName}
             />
-            <FormControl variant="standard" sx={{ width: "100%" }}>
+            <FormControl variant="standard" sx={{ width: "100%", marginTop: '20px'}}>
               <InputLabel id="demo-simple-select-standard-label">
                 Turma
               </InputLabel>
               <Select
+              
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 value={Turma}
@@ -133,6 +134,7 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
               />
             </FormControl>
             <TextField
+              sx={{ marginTop: '20px' }}
               autoComplete="off"
               id="standard-basic"
               label="Email"

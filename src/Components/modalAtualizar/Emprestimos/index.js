@@ -101,9 +101,8 @@ export default function EmprestimoModalUpdate({ parentToChild, childToParent }) 
       //Receber valores para completar os inputs
     useEffect(() => {
     async function getUsuario() {
-      var response = await api.get("/emprestimos.detalhes/" + idEmprestimos);
+      let response = await api.get("/emprestimos.detalhes/" + idEmprestimos);
       setnomeAluno(response.data.nome_aluno);
-      //setnomeLivro(response.data.nome_livro);
       setdataDevolução(format(add(new Date(response.data.data_prazo), {days:1}), 'yyyy-MM-dd'));
     }
     getUsuario();
@@ -116,7 +115,7 @@ export default function EmprestimoModalUpdate({ parentToChild, childToParent }) 
   return (
     <Content>
     <Typography id="modal-modal-title" variant="h5" component="h2" className='title'>
-                    Adicionar empréstimo
+                    Adicionar empréstimo {nomeLivro}
                     </Typography>
                     <div className='input'>
                         <div className='rigth'>

@@ -9,17 +9,17 @@ import { TextMaskCustom } from "./mask";
 import api from "../../../services/api";
 
 export default function AlunoModal({ childToParent }) {
-//Função para adicionar 
-const handleAdd = async (e) => {
+  //Função para adicionar
+  const handleAdd = async (e) => {
     e.preventDefault();
     try {
       if (Nome && Turma && Email !== "") {
-        await api.post('/alunos', {
+        await api.post("/alunos", {
           nome: Nome,
           turma: Turma,
           email: Email,
-          telefone: Telefone
-        })
+          telefone: Telefone,
+        });
         childToParent(false);
       } else {
         setErro(true);
@@ -28,18 +28,18 @@ const handleAdd = async (e) => {
       alert(err);
     }
   };
-//Valor da mascara do input telefone
+  //Valor da mascara do input telefone
   const [values, setValues] = React.useState({
     textmask: "(79) 9",
     numberformat: "1320",
-});
-//Variaveis
+  });
+  //Variaveis
   const [Erro, setErro] = React.useState(false);
   const [Nome, setNome] = React.useState("");
   const [Turma, setTurma] = React.useState("");
   const [Email, setEmail] = React.useState("");
   const [Telefone, setTelefone] = React.useState("");
-//Função para adicionar telefone
+  //Função para adicionar telefone
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -47,19 +47,19 @@ const handleAdd = async (e) => {
     });
     setTelefone(event.target.value);
   };
-//Função para adicionar turma
+  //Função para adicionar turma
   const Change = (event) => {
     setTurma(event.target.value);
   };
-//Função para adicionar Nome
+  //Função para adicionar Nome
   const handleAddName = (e) => {
     setNome(e.target.value);
   };
-//Função para adicionar Email
+  //Função para adicionar Email
   const handleAddEmail = (e) => {
     setEmail(e.target.value);
   };
-//
+  //
   return (
     <Content>
       <Typography
@@ -80,7 +80,10 @@ const handleAdd = async (e) => {
             variant="standard"
             onChange={handleAddName}
           />
-          <FormControl variant="standard" sx={{ width: "100%", marginTop: '20px' }}>
+          <FormControl
+            variant="standard"
+            sx={{ width: "100%", marginTop: "20px" }}
+          >
             <InputLabel id="demo-simple-select-standard-label">
               Turma
             </InputLabel>
@@ -101,7 +104,7 @@ const handleAdd = async (e) => {
           </FormControl>
         </div>
         <div className="left">
-          <FormControl variant="standard" sx={{ }}>
+          <FormControl variant="standard" sx={{}}>
             <InputLabel htmlFor="formatted-text-mask-input">
               Telefone
             </InputLabel>
@@ -115,7 +118,7 @@ const handleAdd = async (e) => {
             />
           </FormControl>
           <TextField
-            sx={{ marginTop: '20px' }}
+            sx={{ marginTop: "20px" }}
             autoComplete="off"
             id="standard-basic"
             label="Email"
