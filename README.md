@@ -35,6 +35,6 @@ Senha: admin123
 
 - [x] Login e Autenticação.
 - [x] Pagina inicial
-- [ ] Adicionar alunos.
-- [ ] Adicionar livros.
-- [ ] Adicionar emprestimos de livros.
+- [x] Adicionar alunos.
+- [x] Adicionar livros.
+- [x] Adicionar emprestimos de livros.
