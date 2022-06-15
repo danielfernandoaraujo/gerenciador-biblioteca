@@ -14,7 +14,7 @@ export function Home() {
  
   return (
     <HomeStyled>
-      {/* <Aviso /> */}
+      <Aviso />
 
       <Sidebar page={page} />
 
