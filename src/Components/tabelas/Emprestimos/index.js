@@ -17,16 +17,17 @@ import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Emprestimos";
 import { add, format, formatISO } from "date-fns";
 import EmprestimoModalUpdate from "../../modalAtualizar/Emprestimos";
+import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 
 export default function AlunoTable() {
 //Variaveis
-  const [Emprestimos, setAlunos] = React.useState([]);
+  const [Emprestimos, setEmprestimos] = React.useState([]);
   const [Rows, setRows] = React.useState("");
 //Buscar os Arrays na API
   React.useEffect(() => {
     async function loadAlunos() {
       const response = await api.get("Emprestimos");
-      setAlunos(response.data);
+      setEmprestimos(response.data);
     }
     if (Emprestimos !== "") {
       setRows(Emprestimos.map(createRows));
@@ -66,7 +67,23 @@ export default function AlunoTable() {
     setOpen(childData);
   };
 //Criar tema para trocar a cor dos botões
-  const theme = createTheme({
+  const themeAction = createTheme({
+    status: {
+      danger: "#e53e3e",
+    },
+    palette: {
+      primary: {
+        main: "#2154bf",
+        darker: "#053e85",
+      },
+      secondary: {
+        main: "#ce0c4b",
+        contrastText: "#fff",
+      },
+    },
+  });
+  //Criar tema para trocar a cor dos botões de Status
+  const themeStatus = createTheme({
     status: {
       danger: "#e53e3e",
     },
@@ -103,22 +120,59 @@ export default function AlunoTable() {
       renderCell: (params) => {
         return (
           <CellAction>
-            <ThemeProvider theme={theme}>
-              <ButtonGroup disableElevation variant="outlined">
+            <ThemeProvider theme={themeAction}>
+              <ButtonGroup disableElevation variant="outlined" size="large">
                 <Button
                   color="primary"
                   style={{ fontWeight: "bold" }}
+                  variant="contained"
                   onClick={() => handleOpen(params.row.id)}
                 >
-                  Editar
+                 <AiTwotoneEdit/>
                 </Button>
                 <Button
                   color="secondary"
                   style={{ fontWeight: "bold" }}
+                  variant="contained"
                   onClick={() => handleDelete(params.row.id)}
                 >
-                  Excluir
+                  <AiTwotoneDelete/>
                 </Button>
+              </ButtonGroup>
+            </ThemeProvider>
+          </CellAction>
+        );
+      },
+    },
+  ];
+  //Coluna de Ações
+  const statusColumn = [
+    {
+      field: "status",
+      headerName: "Situação",
+      width: 130,
+      renderCell: (params) => {
+        let dataAtual = format(new Date(), 'dd/MM/yyyy');
+        return (
+          <CellAction style={{alignItens: "center"}}>
+            <ThemeProvider theme={themeStatus}>
+              <ButtonGroup disableElevation variant="outlined">
+              { params.row.data_prazo > dataAtual ? 
+              <Button
+                  color="success"
+                  style={{ fontWeight: "bold" }}
+                  variant="contained"
+                >
+                  em curso
+                </Button> 
+                :
+                <Button
+                  color="warning"
+                  style={{ fontWeight: "bold" }}
+                  variant="contained"
+                >
+                  Pendente
+                </Button>}
               </ButtonGroup>
             </ThemeProvider>
           </CellAction>
@@ -145,7 +199,7 @@ export default function AlunoTable() {
       </ModalStyled>
       <DataGrid
         rows={Rows}
-        columns={columns.concat(actionColumn)}
+        columns={columns.concat(statusColumn, actionColumn)}
         pageSize={8}
         rowsPerPageOptions={[5]}
       />

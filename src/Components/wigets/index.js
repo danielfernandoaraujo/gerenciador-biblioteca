@@ -7,12 +7,16 @@ import { GoBook } from "react-icons/go";
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { CircularProgress } from "@mui/material";
+import { format, add } from "date-fns";
 
 export function Widget({ type }) {
   let data;
   const [AlunosArr, setAlunosArr] = useState([])
   const [LivrosArr, setLivrosArr] = useState([])
   const [EmprestimosArr, setEmprestimosArr] = useState([])
+  const [PendentesArr, setPendentesArr] = useState([])
+  const [Pendentes, setPendentes] = useState([])
+
 
   useEffect(()=>{
     async function getNumber(){
@@ -38,6 +42,34 @@ export function Widget({ type }) {
     getNumber()
   }, [EmprestimosArr])
 
+  useEffect(() => {
+    async function loadAlunos() {
+      const response = await api.get("Emprestimos");
+      setPendentesArr(response.data);
+    }
+    if (PendentesArr !== "") {
+      let dataAtual = format(new Date, "dd/MM/yyyy");
+
+      setPendentes(PendentesArr
+        .map(createRows)
+        .filter((e) => e.data_prazo <= dataAtual)
+        );
+    } else {
+    }
+    console.log(PendentesArr);
+    loadAlunos();
+  }, [PendentesArr]);
+//Organizar os Arrays
+  function createRows(elemento) {
+
+    let ArrEmprestimos = {
+      id: elemento._id,
+      nome_aluno: elemento.nome_aluno,
+      nome_livro: elemento.nome_livro,
+      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy')
+    };
+    return ArrEmprestimos;
+  }
 
   switch (type) {
     case "alunos":
@@ -97,7 +129,7 @@ export function Widget({ type }) {
     case "pendentes":
       data = {
         title: "PENDENTES",
-        number: 0,
+        number: Pendentes.length || <CircularProgress />,
         link: "Ver pendentes",
         to: "/emprestimos",
         icon: (

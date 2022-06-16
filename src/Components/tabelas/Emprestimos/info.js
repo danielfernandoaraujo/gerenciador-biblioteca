@@ -17,6 +17,6 @@ export const columns = [
   {
     field: "data_prazo",
     headerName: "Devolução",
-    width: 150,
+    width: 140,
   },
 ];

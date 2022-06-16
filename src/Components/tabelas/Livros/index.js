@@ -7,6 +7,7 @@ import api from "../../../services/api";
 import { ModalStyled } from "../../modalUser/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Alunos";
 import LivroModalUpdate from "../../modalAtualizar/Livros";
+import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 
 
 export default function LivroTable() {
@@ -98,20 +99,22 @@ export default function LivroTable() {
         return (
           <CellAction>
             <ThemeProvider theme={theme}>
-              <ButtonGroup disableElevation variant="outlined">
+              <ButtonGroup disableElevation variant="outlined" size="large">
                 <Button 
                 color="primary" 
                 style={{ fontWeight: "bold" }}
+                variant="contained"
                 onClick={() => handleOpen(params.row.id)}
                 >
-                  Editar
+                  <AiTwotoneEdit/>
                 </Button>
                 <Button 
                 color="secondary" 
                 style={{ fontWeight: "bold" }}
+                variant="contained"
                 onClick={() =>handleDelete(params.row.id)}
                 >
-                  Excluir
+                  <AiTwotoneDelete/>
                 </Button>
               </ButtonGroup>
             </ThemeProvider>
