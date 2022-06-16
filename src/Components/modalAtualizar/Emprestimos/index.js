@@ -115,7 +115,7 @@ export default function EmprestimoModalUpdate({ parentToChild, childToParent }) 
   return (
     <Content>
     <Typography id="modal-modal-title" variant="h5" component="h2" className='title'>
-                    Adicionar empréstimo {nomeLivro}
+                    Atualizar empréstimo
                     </Typography>
                     <div className='input'>
                         <div className='rigth'>
