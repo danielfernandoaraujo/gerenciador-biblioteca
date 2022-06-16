@@ -1,9 +1,4 @@
 export const columns = [
-  { 
-    field: "id", 
-    headerName: "ID", 
-    width: 10 
-  },
   {
     field: "nome_aluno",
     headerName: "Aluno",

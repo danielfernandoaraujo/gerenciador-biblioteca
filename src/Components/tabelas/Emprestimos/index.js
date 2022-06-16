@@ -128,7 +128,7 @@ export default function AlunoTable() {
                   variant="contained"
                   onClick={() => handleOpen(params.row.id)}
                 >
-                 <AiTwotoneEdit/>
+                 <AiTwotoneEdit /> 
                 </Button>
                 <Button
                   color="secondary"
