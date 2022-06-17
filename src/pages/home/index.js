@@ -8,10 +8,11 @@ import { Modal } from "./styled";
 import { ModalUser } from "../../Components/slidebar/styled";
 import { Aviso } from "../../Components/aviso";
 import { Widget } from "../../Components/wigets";
+import { Actions } from "../../Components/actions";
 
 export function Home() {
   const page = "home";
- 
+
   return (
     <HomeStyled>
       <Aviso />
@@ -28,12 +29,18 @@ export function Home() {
             <Widget type={"pendentes"} />
           </div>
           <div className="bottom">
+            <div className="title_actions">
+              <p>
+                Ações rápidas
+              </p>
+              </div>
             <div className="actions">
-              
+              <Actions />
+              <Actions />
+              <Actions />
+              <Actions />
             </div>
-            <div className="pendings">
-
-            </div>
+            <div className="pendings"></div>
           </div>
         </div>
       </div>

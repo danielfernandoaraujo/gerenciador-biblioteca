@@ -5,12 +5,11 @@ export const WidgetStyled = styled.div`
     justify-content: space-between ;
     max-height: 20vh;
     width: 18vw ;
-    max-width: 17vw ;
-
+    max-width: 22vw ;
+    background-color: white ;
     margin: 1em ;
     border-radius: 8px ;
-    -webkit-box-shadow: 2px 4px 10px 1px rgba(0,0,0,0.47); 
-    box-shadow: 2px 4px 10px 1px rgba(201,201,201,0.47);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
     animation: flipInX;
     animation-duration: 0.7s;
     .left{

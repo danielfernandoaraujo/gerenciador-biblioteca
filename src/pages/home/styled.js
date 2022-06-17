@@ -5,13 +5,14 @@ export const HomeStyled = styled.div`
     text-align: center ;
     height: 100vh ;
     width: 100vw ;
-    background-color: #17b0ec ;
+    
         
     .main{
         flex: 6 ;
         background-color: white ;
         display: flex ;
         flex-direction: column ;
+        
         .top{
             flex: 10 ;
             display: flex ;
@@ -24,11 +25,31 @@ export const HomeStyled = styled.div`
             }
         .bottom{
             flex: 7 ;
+            display: flex;
+            align-items: center ;
+            flex-direction: column ;
+            .title_actions{
+                flex: .3 ;
+                display: flex ;
+                width: 94% ;
+                justify-content:  left;
+                align-items: center ;
+                font-size: 20px;
+                font-weight: bold;
+                opacity: 0.8 ;
+                color: #0c4acf;
+            }
             .actions{
-                
+                flex:1;
+                display: flex ;
+                height: 100% ;
+                width: 100% ;
+                justify-content: center ;
+
+            
             }
             .pendings{
-
+                flex:1 ;
             }
         }
         }
