@@ -35,10 +35,10 @@ export function Home() {
               </p>
               </div>
             <div className="actions">
-              <Actions />
-              <Actions />
-              <Actions />
-              <Actions />
+              <Actions type={"alunos"}/>
+              <Actions type={"livros"}/>
+              <Actions type={"emprestimos"}/>
+              <Actions type={"turmas"}/>
             </div>
             <div className="pendings"></div>
           </div>
