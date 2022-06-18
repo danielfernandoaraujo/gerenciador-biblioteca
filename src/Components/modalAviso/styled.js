@@ -7,5 +7,9 @@ export const ModalStyled = styled.form`
         width: 100% ;
         width: 100% ;
     }
-
+    @media(max-width: 1014px) {
+                    display: none ;
+                    
+                    
+        }
 `

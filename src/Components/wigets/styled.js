@@ -5,13 +5,13 @@ export const WidgetStyled = styled.div`
     justify-content: space-between ;
     max-height: 20vh;
     width: 18vw ;
-    max-width: 22vw ;
     background-color: white ;
     margin: 1em ;
     border-radius: 8px ;
+    border: 1px solid #e5e5e5 ;
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
     animation: flipInX;
-    animation-duration: 0.7s;
+    animation-duration: .4s;
     .left{
         display: flex ;
         flex-direction: column ;

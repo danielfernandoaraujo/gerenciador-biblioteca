@@ -50,11 +50,12 @@ export const BoxStyle = styled.div`
           margin-bottom: 10px ;
         }
     }
-    @media (max-width: 1080px) {
-      width: 100% ;
+    
+  }
+  }
+  @media (max-width: 1024px) {
+      display: none ;
     }
-  }
-  }
 `;
 
 export const ModalStyled = styled.div`

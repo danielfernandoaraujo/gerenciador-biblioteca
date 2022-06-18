@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { columns } from "./info.js";
 import api from "../../../services/api";
-import { ModalStyled } from "../../modalUser/styled";
+import { ModalStyled } from "../../modalAviso/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Alunos";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 

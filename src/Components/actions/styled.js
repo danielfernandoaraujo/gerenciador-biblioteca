@@ -6,30 +6,37 @@ export const ActionsStyled = styled.div`
     align-items: center ;
     max-height: 15vh;
     width: 18vw ;
-    max-width: 22vw ;
     background-color: white ;
     margin: 1em ;
+    border: 1px solid #e5e5e5 ;
     border-radius: 8px ;
     box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.1);
-    animation: flipInX;
-    animation-duration: 0.7s;
+    cursor: pointer ;
     .left{
         display: flex ;
         align-items: center ;
         text-align: left ;
         flex: 3 ;
-        margin: 10px ;
+        margin: .5rem ;
         font-weight: bold ;
         font-size: 20px;
-        color:${props => props.color};
+        color:${props => props.colorPrimary};
     }
     .right{
         display: flex ;
         align-items: center ;
         flex: 1 ;
+        margin: .4rem ;
         img{
-            width: 8vw ;
+            width: 6vw ;
             height: 8vh ;
         }
+    }
+    :hover{
+        background-color: ${props => props.colorHover}; ;
+        transition: .4s all;
+        .left{
+        color: white ;
+    }
     }
 `

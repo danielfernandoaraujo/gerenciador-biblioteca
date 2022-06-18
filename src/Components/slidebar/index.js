@@ -8,7 +8,7 @@ import { IoMdExit } from "react-icons/io";
 import { ImHome } from "react-icons/im";
 import { GiOpenBook } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import { ModalUser } from "../modalUser";
+import { ModalAviso } from "../modalAviso";
 
 export function Sidebar(props) {
   const { dispatch } = useContext(AuthContext);
@@ -19,7 +19,7 @@ export function Sidebar(props) {
 
   return (
     <Main>
-      {/*localStorage.getItem("nome") == null && <ModalUser />*/}
+     {/* <ModalAviso className={'modal'} /> */}
 
       <Link to={"/"} className="logo">
         {/* <img src={atheneu} /> */}

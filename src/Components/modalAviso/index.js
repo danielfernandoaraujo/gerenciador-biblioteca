@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { reload } from "firebase/auth";
 import { ModalStyled } from "./styled";
 
-export function ModalUser() {
+export function ModalAviso() {
   const [open, setOpen] = React.useState(true);
   const [User, setUser] = React.useState("");
   const [Error, setError] = React.useState(true);
@@ -18,14 +18,8 @@ export function ModalUser() {
     setOpen(true);
   };
 
-  const armazenar = (chave, valor) => {
-    localStorage.setItem(chave, valor);
-  };
-
   const handleClose = () => {
       setOpen(false);
-      armazenar("subNome", User.substr(0, 1));
-      armazenar("nome", User);
     };
 
   return (

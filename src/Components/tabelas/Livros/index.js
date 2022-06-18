@@ -4,7 +4,7 @@ import { CellAction } from "./styled";
 import { Box, Button, ButtonGroup, createTheme, Modal, ThemeProvider } from "@mui/material";
 import { columns, rows } from "./info.js";
 import api from "../../../services/api";
-import { ModalStyled } from "../../modalUser/styled";
+import { ModalStyled } from "../../modalAviso/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Alunos";
 import LivroModalUpdate from "../../modalAtualizar/Livros";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";

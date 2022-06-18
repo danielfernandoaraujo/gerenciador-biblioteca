@@ -109,6 +109,11 @@ export const Main = styled.div`
       }
     }
   }
+  @media(max-width: 1024px) {
+                    display: none ;
+                    
+                    
+        }
 `;
 
 export const ModalDesconectarStyled = styled.div`

@@ -16,6 +16,11 @@ export const EmprestimosStyled = styled.div`
         .content{
             flex: 10 ;
         }
+        @media(max-width: 1024px) {
+                    display: none ;
+                    
+                    
+        }
     }
    
 `

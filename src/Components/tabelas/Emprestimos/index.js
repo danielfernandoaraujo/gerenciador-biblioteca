@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { columns } from "./info.js";
 import api from "../../../services/api";
-import { ModalStyled } from "../../modalUser/styled";
+import { ModalStyled } from "../../modalAviso/styled";
 import AlunoModalUpdate from "../../modalAtualizar/Emprestimos";
 import { add, format, formatISO } from "date-fns";
 import EmprestimoModalUpdate from "../../modalAtualizar/Emprestimos";
