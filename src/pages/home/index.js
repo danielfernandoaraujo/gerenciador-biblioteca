@@ -1,14 +1,14 @@
 import { HomeStyled } from "./styled";
-import { AuthContext } from "../../context/AuthContext";
-import { useContext, useState } from "react";
-import { auth } from "../../services/fire";
 import { Sidebar } from "../../Components/slidebar";
 import { Header } from "../../Components/header";
-import { Modal } from "./styled";
-import { ModalUser } from "../../Components/slidebar/styled";
 import { Aviso } from "../../Components/aviso";
 import { Widget } from "../../Components/wigets";
 import { Actions } from "../../Components/actions";
+import { Modal } from "@mui/material";
+import { Box } from "@mui/system";
+import AlunoModal from "../../Components/modalAdicionar/Alunos";
+import LivroModal from "../../Components/modalAdicionar/Livros";
+import { useState } from "react";
 
 export function Home() {
   const page = "home";

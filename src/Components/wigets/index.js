@@ -19,34 +19,30 @@ export function Widget({ type }) {
 
 
   useEffect(()=>{
-    async function getNumber(){
+    async function getAlunos(){
       const response = await api.get('alunos')
       setAlunosArr(response.data)
     }
-    getNumber()
+    getAlunos()
   }, [AlunosArr])
 
   useEffect(()=>{
-    async function getNumber(){
+    async function getLivros(){
       const response = await api.get('livros')
       setLivrosArr(response.data)
     }
-    getNumber()
+    getLivros()
   }, [LivrosArr])
 
   useEffect(()=>{
-    async function getNumber(){
+    async function getEmprestimos(){
       const response = await api.get('emprestimos')
       setEmprestimosArr(response.data)
-    }
-    getNumber()
-  }, [EmprestimosArr])
-
-  useEffect(() => {
-    async function loadAlunos() {
-      const response = await api.get("Emprestimos");
       setPendentesArr(response.data);
     }
+
+    getEmprestimos()
+
     if (PendentesArr !== "") {
       let dataAtual = format(new Date, "dd/MM/yyyy");
 
@@ -57,8 +53,7 @@ export function Widget({ type }) {
     } else {
     }
     console.log(PendentesArr);
-    loadAlunos();
-  }, [PendentesArr]);
+  }, [EmprestimosArr]);
 //Organizar os Arrays
   function createRows(elemento) {
 

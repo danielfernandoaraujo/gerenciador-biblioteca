@@ -59,7 +59,7 @@ export default function AlunoTable() {
     setData(id);
   };
 //Fechar modal de update
-  const handleClose = () => setOpen(false);
+  const handleClose = () => alert('false');
 //Receber informação do componente filho
   const childToParent = (childData) => {
     setOpen(childData);
