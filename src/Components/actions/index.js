@@ -10,6 +10,7 @@ import AlunoModal from "../modalAdicionar/Alunos";
 import LivroModal from "../modalAdicionar/Livros";
 import { useState } from "react";
 import EmprestimoModal from "../modalAdicionar/Emprestimos";
+import { TurmaModal } from "../modalAdicionar/Turma";
 
 export function Actions({ type }) {
   let data;
@@ -59,7 +60,7 @@ export function Actions({ type }) {
         colorPrimary: "#e50000",
         colorHover: "#ea3333",
         openModal :(
-          ()=>{console.log('test')}
+          ()=>{if(!OpenTurma){setOpenTurma(true)}}
         ),
       };
       break;
@@ -83,18 +84,19 @@ export function Actions({ type }) {
   const [OpenAluno, setOpenAluno] = useState(false);
   const [OpenLivro, setOpenLivro] = useState(false);
   const [OpenEmprestimo, setOpenEmprestimo] = useState(false);
+  const [OpenTurma, setOpenTurma] = useState(false);
 
   const handleCloseAluno = () => setOpenAluno(false);
   const handleCloseLivro = () => setOpenLivro(false);
   const handleCloseEmprestimo = () => setOpenEmprestimo(false);
+  const handleCloseTurma = () => setOpenTurma(false);
 
   const childToParent = (childdata) => {
     setOpenAluno(childdata);
     setOpenLivro(childdata);
     setOpenEmprestimo(childdata);
+    setOpenTurma(childdata);
   };
-
-  
 
   return (
     <ActionsStyled colorPrimary={data.colorPrimary} colorHover={data.colorHover} onClick={data.openModal}>
@@ -129,6 +131,17 @@ export function Actions({ type }) {
         >
           <Box sx={style}>
             <EmprestimoModal childToParent={childToParent} />
+          </Box>
+        </Modal>
+
+        <Modal
+          open={OpenTurma}
+          onClose={handleCloseTurma}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <TurmaModal childToParent={childToParent} />
           </Box>
         </Modal>
 

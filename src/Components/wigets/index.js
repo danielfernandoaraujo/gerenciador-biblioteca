@@ -52,7 +52,6 @@ export function Widget({ type }) {
         );
     } else {
     }
-    console.log(PendentesArr);
   }, [EmprestimosArr]);
 //Organizar os Arrays
   function createRows(elemento) {

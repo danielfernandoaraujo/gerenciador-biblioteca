@@ -55,7 +55,6 @@ export default function EmprestimoModalUpdate({
     if (Livros !== "") {
       setLivrosRows(Livros.map(createRowsLivros));
     }
-    console.log(Livros);
     loadLivros();
   }, [Livros]);
   //Organizar os Arrays

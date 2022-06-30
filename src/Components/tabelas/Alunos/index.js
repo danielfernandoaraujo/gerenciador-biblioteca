@@ -31,7 +31,6 @@ export default function AlunoTable() {
       setRows(Alunos.map(createRows));
     } else {
     }
-    console.log(Alunos);
     loadAlunos();
   }, [Alunos]);
 //Organizar os Arrays
@@ -128,7 +127,7 @@ export default function AlunoTable() {
     },
   ];
   return (
-    <div style={{ height: 500, width: "auto" }}>
+    <div style={{ height: 500, width: 'auto' }}>
       <ModalStyled>
         <Modal
           open={open}

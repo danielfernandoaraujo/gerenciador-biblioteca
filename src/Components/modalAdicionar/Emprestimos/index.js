@@ -27,7 +27,6 @@ export default function EmprestimoModal({ childToParent }) {
         if (Alunos !== "") {
           setAlunosRows(Alunos.map(createRowsAlunos));
         }
-        console.log(Alunos);
         loadAlunos();
       }, [Alunos]);
     //Organizar os Arrays

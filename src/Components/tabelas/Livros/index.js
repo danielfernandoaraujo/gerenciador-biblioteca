@@ -24,7 +24,6 @@ export default function LivroTable() {
       setRows(Livros.map(createRows));
     } else {
     }
-    console.log(Livros);
     loadLivros();
   }, [Livros]);
 //Organizar os Arrays

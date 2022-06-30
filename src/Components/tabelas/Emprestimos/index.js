@@ -33,7 +33,6 @@ export default function AlunoTable() {
       setRows(Emprestimos.map(createRows));
     } else {
     }
-    console.log(Emprestimos);
     loadAlunos();
   }, [Emprestimos]);
 //Organizar os Arrays
