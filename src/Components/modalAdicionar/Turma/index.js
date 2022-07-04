@@ -34,9 +34,8 @@ export function TurmaModal() {
       setRows(Turma.map(createRows));
     } else {
     }
-    console.log(Rows);
     loadTurma();
-  });
+  }, [Turma]);
 //Organizar os Arrays
   function createRows(elemento) {
     let ArrTurma = {
@@ -61,6 +60,29 @@ export function TurmaModal() {
       },
     },
   });
+  //
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 'auto',
+      },
+    },
+  };
+  //Informação dos inputs
+  const [TurmaInput, setTurmaInput] = useState([]);
+  const [Sala, setSala] = useState([]);
+  const TurmaFormatada = TurmaInput + Sala;
+  //Adicionar Turma
+  function handleTurma(e){
+    setTurmaInput(e.target.value)
+  }
+  //Adicionar Sala
+  function handleSala(e){
+    setSala(e.target.value)
+  }
   //Coluna de Ações
   const actionColumn = [
     {
@@ -96,7 +118,7 @@ export function TurmaModal() {
         component="h2"
         className="title"
       >
-        Adicionar Turma
+        Adicionar Turma 
       </Typography>
       <div className="main">
         <div className="add">
@@ -111,6 +133,8 @@ export function TurmaModal() {
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
               label="Turma"
+              value={TurmaInput}
+              onChange={handleTurma}
             >
               <MenuItem value="">
                 <em>Nenhuma</em>
@@ -120,12 +144,51 @@ export function TurmaModal() {
               <MenuItem value={"3º"}>3º</MenuItem>
             </Select>
           </FormControl>
-          <TextField
-            id="standard-basic"
-            label="Sala"
+          <FormControl
             variant="standard"
-            autoComplete="off"
-          />
+            sx={{ width: "80%", marginRight: "10px" }}
+          >
+            <InputLabel id="demo-simple-select-standard-label">
+              Sala
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              label="Turma"
+              value={Sala}
+              onChange={handleSala}
+              MenuProps={MenuProps}
+            >
+              <MenuItem value="">
+                <em>Nenhuma</em>
+              </MenuItem>
+                <MenuItem value={"A"}>A</MenuItem>
+                <MenuItem value={"B"}>B</MenuItem>
+                <MenuItem value={"C"}>C</MenuItem>
+                <MenuItem value={"D"}>D</MenuItem>
+                <MenuItem value={"E"}>E</MenuItem>
+                <MenuItem value={"F"}>F</MenuItem>
+                <MenuItem value={"G"}>G</MenuItem>
+                <MenuItem value={"H"}>H</MenuItem>
+                <MenuItem value={"I"}>I</MenuItem>
+                <MenuItem value={"J"}>J</MenuItem>
+                <MenuItem value={"K"}>K</MenuItem>
+                <MenuItem value={"L"}>L</MenuItem>
+                <MenuItem value={"M"}>M</MenuItem>
+                <MenuItem value={"N"}>N</MenuItem>
+                <MenuItem value={"O"}>O</MenuItem>
+                <MenuItem value={"P"}>P</MenuItem>
+                <MenuItem value={"Q"}>Q</MenuItem>
+                <MenuItem value={"R"}>R</MenuItem>
+                <MenuItem value={"S"}>S</MenuItem>
+                <MenuItem value={"T"}>T</MenuItem>
+                <MenuItem value={"U"}>U</MenuItem>
+                <MenuItem value={"V"}>V</MenuItem>
+                <MenuItem value={"X"}>X</MenuItem>
+                <MenuItem value={"Y"}>Y</MenuItem>
+                <MenuItem value={"Z"}>Z</MenuItem>
+            </Select>
+          </FormControl>
           <Button
             variant="contained"
             disableElevation
