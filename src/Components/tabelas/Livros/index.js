@@ -144,7 +144,7 @@ export default function LivroTable() {
       <DataGrid
         rows={Rows}
         columns={columns.concat(actionColumn)}
-        pageSize={8}
+        pageSize={50}
         rowsPerPageOptions={[5]}
       />
     </div>

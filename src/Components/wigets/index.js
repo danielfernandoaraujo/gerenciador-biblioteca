@@ -44,11 +44,11 @@ export function Widget({ type }) {
     getEmprestimos()
 
     if (PendentesArr !== "") {
-      let dataAtual = format(new Date, "dd/MM/yyyy");
+      let dataAtual = new Date();
 
       setPendentes(PendentesArr
         .map(createRows)
-        .filter((e) => e.data_prazo <= dataAtual)
+        .filter((e) => e.data_prazo_formatada > dataAtual)
         );
     } else {
     }
@@ -60,7 +60,8 @@ export function Widget({ type }) {
       id: elemento._id,
       nome_aluno: elemento.nome_aluno,
       nome_livro: elemento.nome_livro,
-      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy')
+      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy'),
+      data_prazo_formatada: new Date(elemento.data_prazo)
     };
     return ArrEmprestimos;
   }

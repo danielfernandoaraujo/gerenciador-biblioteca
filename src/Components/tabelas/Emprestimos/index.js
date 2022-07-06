@@ -42,7 +42,8 @@ export default function AlunoTable() {
       id: elemento._id,
       nome_aluno: elemento.nome_aluno,
       nome_livro: elemento.nome_livro,
-      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy')
+      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy'),
+      data_prazo_formatada: new Date(elemento.data_prazo)
     };
     return ArrEmprestimos;
   }
@@ -151,12 +152,12 @@ export default function AlunoTable() {
       headerName: "Situação",
       width: 130,
       renderCell: (params) => {
-        let dataAtual = format(new Date(), 'dd/MM/yyyy');
+        let dataAtual = new Date();
         return (
           <CellAction style={{alignItens: "center"}}>
             <ThemeProvider theme={themeStatus}>
               <ButtonGroup disableElevation variant="outlined">
-              { params.row.data_prazo > dataAtual ? 
+              { params.row.data_prazo_formatada > dataAtual ? 
               <Button
                   color="success"
                   style={{ fontWeight: "bold" }}
@@ -199,7 +200,7 @@ export default function AlunoTable() {
       <DataGrid
         rows={Rows}
         columns={columns.concat(statusColumn, actionColumn)}
-        pageSize={8}
+        pageSize={50}
         rowsPerPageOptions={[5]}
       />
     </div>
