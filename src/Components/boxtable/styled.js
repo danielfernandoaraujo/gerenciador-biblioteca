@@ -30,7 +30,7 @@ export const BoxStyle = styled.div`
     width: 85%;
     .box{
       height: auto ;
-      width: 94%;
+      width: auto;
       text-align: left;
       
       border-radius: 8px;

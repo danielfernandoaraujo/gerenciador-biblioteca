@@ -124,7 +124,7 @@ export default function LivroTable() {
   ];
 
   return (
-    <div style={{ height: 500, width: "auto" }}>
+    <div style={{ height: 500, width: 1000 }}>
   
       <ModalStyled>
           <Modal

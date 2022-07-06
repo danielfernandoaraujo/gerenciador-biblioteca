@@ -1,4 +1,5 @@
 import {
+  Alert,
   Button,
   ButtonGroup,
   createTheme,
@@ -20,11 +21,11 @@ import api from "../../../services/api";
 import { useEffect, useState } from "react";
 
 export function TurmaModal() {
-//Buscar informação na API
+  //Buscar informação na API
   //Variaveis
   const [Turma, setTurma] = useState([]);
   const [Rows, setRows] = useState("");
-//Buscar os Arrays na API
+  //Buscar os Arrays na API
   useEffect(() => {
     async function loadTurma() {
       const response = await api.get("Turma");
@@ -36,13 +37,40 @@ export function TurmaModal() {
     }
     loadTurma();
   }, [Turma]);
-//Organizar os Arrays
+  //Organizar os Arrays
   function createRows(elemento) {
     let ArrTurma = {
       id: elemento._id,
-      turma_aluno: elemento.turma_aluno
+      turma_aluno: elemento.turma_aluno,
     };
     return ArrTurma;
+  }
+  //Função para adicionar
+  //Variaveis
+  const [Erro, setErro] = useState(false);
+  const [Success, setSuccess] = useState(false);
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    try {
+      if (TurmaInput && Sala && TurmaFormatada !== "") {
+        await api.post("/turma", {
+          turma_aluno: TurmaFormatada,
+        });
+        setSuccess(true);
+        setErro(false);
+      } else {
+        setErro(true);
+        setSuccess(false);
+      }
+    } catch (err) {
+      alert(err);
+    }
+  };
+  //Função para deletar
+  async function handleDelete(id) {
+    if (window.confirm("Deseja realmente excluir este usuário?")) {
+      await api.delete("turma/" + id);
+    }
   }
   //Criar tema para trocar a cor dos botões
   const theme = createTheme({
@@ -60,28 +88,28 @@ export function TurmaModal() {
       },
     },
   });
-  //
+  //Estilo do input
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
     PaperProps: {
       style: {
         maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 'auto',
+        width: "auto",
       },
     },
   };
   //Informação dos inputs
-  const [TurmaInput, setTurmaInput] = useState([]);
-  const [Sala, setSala] = useState([]);
+  const [TurmaInput, setTurmaInput] = useState();
+  const [Sala, setSala] = useState();
   const TurmaFormatada = TurmaInput + Sala;
   //Adicionar Turma
-  function handleTurma(e){
-    setTurmaInput(e.target.value)
+  function handleTurma(e) {
+    setTurmaInput(e.target.value);
   }
   //Adicionar Sala
-  function handleSala(e){
-    setSala(e.target.value)
+  function handleSala(e) {
+    setSala(e.target.value);
   }
   //Coluna de Ações
   const actionColumn = [
@@ -89,7 +117,7 @@ export function TurmaModal() {
       field: "actions",
       headerName: "Ações",
       width: 140,
-      type: 'number',
+      type: "number",
       renderCell: (params) => {
         return (
           <CellAction>
@@ -97,11 +125,11 @@ export function TurmaModal() {
               <ButtonGroup disableElevation variant="outlined" size="large">
                 <Button
                   color="secondary"
-                  style={{ fontWeight: "bold", width: '100%' }}
+                  style={{ fontWeight: "bold", width: "100%" }}
                   variant="contained"
-                  //onClick={() => handleDelete(params.row.id)}
+                  onClick={() => handleDelete(params.row.id)}
                 >
-                 <AiTwotoneDelete/>
+                  <AiTwotoneDelete />
                 </Button>
               </ButtonGroup>
             </ThemeProvider>
@@ -118,7 +146,7 @@ export function TurmaModal() {
         component="h2"
         className="title"
       >
-        Adicionar Turma 
+        Adicionar Turma
       </Typography>
       <div className="main">
         <div className="add">
@@ -148,9 +176,7 @@ export function TurmaModal() {
             variant="standard"
             sx={{ width: "80%", marginRight: "10px" }}
           >
-            <InputLabel id="demo-simple-select-standard-label">
-              Sala
-            </InputLabel>
+            <InputLabel id="demo-simple-select-standard-label">Sala</InputLabel>
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
@@ -162,37 +188,38 @@ export function TurmaModal() {
               <MenuItem value="">
                 <em>Nenhuma</em>
               </MenuItem>
-                <MenuItem value={"A"}>A</MenuItem>
-                <MenuItem value={"B"}>B</MenuItem>
-                <MenuItem value={"C"}>C</MenuItem>
-                <MenuItem value={"D"}>D</MenuItem>
-                <MenuItem value={"E"}>E</MenuItem>
-                <MenuItem value={"F"}>F</MenuItem>
-                <MenuItem value={"G"}>G</MenuItem>
-                <MenuItem value={"H"}>H</MenuItem>
-                <MenuItem value={"I"}>I</MenuItem>
-                <MenuItem value={"J"}>J</MenuItem>
-                <MenuItem value={"K"}>K</MenuItem>
-                <MenuItem value={"L"}>L</MenuItem>
-                <MenuItem value={"M"}>M</MenuItem>
-                <MenuItem value={"N"}>N</MenuItem>
-                <MenuItem value={"O"}>O</MenuItem>
-                <MenuItem value={"P"}>P</MenuItem>
-                <MenuItem value={"Q"}>Q</MenuItem>
-                <MenuItem value={"R"}>R</MenuItem>
-                <MenuItem value={"S"}>S</MenuItem>
-                <MenuItem value={"T"}>T</MenuItem>
-                <MenuItem value={"U"}>U</MenuItem>
-                <MenuItem value={"V"}>V</MenuItem>
-                <MenuItem value={"X"}>X</MenuItem>
-                <MenuItem value={"Y"}>Y</MenuItem>
-                <MenuItem value={"Z"}>Z</MenuItem>
+              <MenuItem value={"A"}>A</MenuItem>
+              <MenuItem value={"B"}>B</MenuItem>
+              <MenuItem value={"C"}>C</MenuItem>
+              <MenuItem value={"D"}>D</MenuItem>
+              <MenuItem value={"E"}>E</MenuItem>
+              <MenuItem value={"F"}>F</MenuItem>
+              <MenuItem value={"G"}>G</MenuItem>
+              <MenuItem value={"H"}>H</MenuItem>
+              <MenuItem value={"I"}>I</MenuItem>
+              <MenuItem value={"J"}>J</MenuItem>
+              <MenuItem value={"K"}>K</MenuItem>
+              <MenuItem value={"L"}>L</MenuItem>
+              <MenuItem value={"M"}>M</MenuItem>
+              <MenuItem value={"N"}>N</MenuItem>
+              <MenuItem value={"O"}>O</MenuItem>
+              <MenuItem value={"P"}>P</MenuItem>
+              <MenuItem value={"Q"}>Q</MenuItem>
+              <MenuItem value={"R"}>R</MenuItem>
+              <MenuItem value={"S"}>S</MenuItem>
+              <MenuItem value={"T"}>T</MenuItem>
+              <MenuItem value={"U"}>U</MenuItem>
+              <MenuItem value={"V"}>V</MenuItem>
+              <MenuItem value={"X"}>X</MenuItem>
+              <MenuItem value={"Y"}>Y</MenuItem>
+              <MenuItem value={"Z"}>Z</MenuItem>
             </Select>
           </FormControl>
           <Button
             variant="contained"
             disableElevation
             sx={{ marginLeft: "5px" }}
+            onClick={handleAdd}
           >
             <IoAddCircleOutline size={20} />
           </Button>
@@ -201,10 +228,27 @@ export function TurmaModal() {
           <DataGrid
             rows={Rows}
             columns={columns.concat(actionColumn)}
-            pageSize={20}
+            pageSize={50}
             rowsPerPageOptions={[5]}
+            initialState={{
+              sorting: {
+                sortModel: [{ field: "turma_aluno", sort: "asc" }],
+              },
+            }}
           />
         </div>
+      </div>
+      <div className="msg">
+        {Erro && (
+          <Alert severity="error" className="alert">
+            Algum campo não foi preenchido!
+          </Alert>
+        )}
+        {Success && (
+          <Alert severity="success" className="alert">
+            Turma adicionada com sucesso! :)
+          </Alert>
+        )}
       </div>
     </Content>
   );

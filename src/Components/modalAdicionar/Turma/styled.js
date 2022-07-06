@@ -28,4 +28,16 @@ export  const Content = styled.div`
             margin-top: 20px ;
         }
     }
+    .msg {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 101%;
+    left: 26%;
+
+    .alert {
+      animation: flipInX;
+      animation-duration: 0.7s;
+    }
+    }
 `
