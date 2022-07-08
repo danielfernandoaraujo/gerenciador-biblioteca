@@ -37,12 +37,18 @@ export default function AlunoTable() {
   }, [Emprestimos]);
 //Organizar os Arrays
   function createRows(elemento) {
+    let dataPrazo = new Date(elemento.data_prazo);
+
+    const formatDate = (date)=>{
+      let formatted_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+       return formatted_date;
+      }
 
     let ArrEmprestimos = {
       id: elemento._id,
       nome_aluno: elemento.nome_aluno,
       nome_livro: elemento.nome_livro,
-      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy'),
+      data_prazo: formatDate(dataPrazo),
       data_prazo_formatada: new Date(elemento.data_prazo)
     };
     return ArrEmprestimos;
@@ -181,7 +187,7 @@ export default function AlunoTable() {
     },
   ];
   return (
-    <div style={{ height: 500, width: 1000 }}>
+    <div style={{ height: 500, width: 1000, fontWeight: 'bold' }}>
       <ModalStyled>
         <Modal
           open={open}

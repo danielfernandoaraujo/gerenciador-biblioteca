@@ -68,7 +68,7 @@ export default function LivroTable() {
       secondary: {
         main: "#ce0c4b",
         contrastText: "#fff",
-      },
+      }
     },
   });
 
@@ -124,7 +124,7 @@ export default function LivroTable() {
   ];
 
   return (
-    <div style={{ height: 500, width: 1000 }}>
+    <div style={{ height: 500, width: 800 }}>
   
       <ModalStyled>
           <Modal

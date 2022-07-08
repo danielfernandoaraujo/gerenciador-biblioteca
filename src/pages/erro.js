@@ -37,6 +37,16 @@ export function Erro404(){
         #btn{
             margin-top: 10px ;
             font-weight: bold ;
+            width: 250px ;
+            padding: 12px ;
+            border-radius: 8px ;
+            border: none ;
+            cursor: pointer ;
+            transition: .15s ;
+            :hover{
+                background-color: #b0b0b0 ;
+            }
+
         }
     `
 
@@ -49,9 +59,9 @@ export function Erro404(){
                 <img src="https://c.tenor.com/29Ok5pc0ivAAAAAd/gatinho-gato.gif"/>
             </div>
             <Link to={"/login"}>
-                <Button variant="contained" id={'btn'}>
+                <button variant="contained" id={'btn'}>
                 Voltar para o inicio
-                </Button>
+                </button>
             </Link>
         </ErrorStyle>
     )

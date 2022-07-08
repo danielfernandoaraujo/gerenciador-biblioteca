@@ -49,7 +49,7 @@ export function Boxtable() {
         </Modal>
       </ModalStyled>
       <div className="title">
-        <h1>Livros</h1>
+        <h1 style={{color:"#007FFF"}}>Livros</h1>
       </div>
       <div className="table">
         <div className="box">

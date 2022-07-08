@@ -8,11 +8,12 @@ export const columns = [
   { 
     field: "titulo_livro", 
     headerName: "Título", 
-    width: 350, 
+    width: 300, 
   },
   {
     field: "estoque_livro",
     headerName: "Estoque",
-    width: 250,
+    width: 100,
+    type: 'number'
   },
 ];

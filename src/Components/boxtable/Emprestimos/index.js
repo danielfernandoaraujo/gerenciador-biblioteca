@@ -44,7 +44,7 @@ export function Boxtable() {
         </Modal>
       </ModalStyled>
       <div className="title">
-        <h1>Emprestimos</h1>
+        <h1 style={{color:"purple"}}>Emprestimos</h1>
       </div>
       <div className="table">
         <div className="box">
