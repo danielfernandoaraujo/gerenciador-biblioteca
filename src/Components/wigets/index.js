@@ -48,7 +48,7 @@ export function Widget({ type }) {
 
       setPendentes(PendentesArr
         .map(createRows)
-        .filter((e) => e.data_prazo_formatada > dataAtual)
+        .filter((e) => e.data_prazo_formatada < dataAtual)
         );
     } else {
     }

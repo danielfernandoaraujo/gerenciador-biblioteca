@@ -14,4 +14,10 @@ export const columns = [
     headerName: "Devolução",
     width: 140,
   },
+  {
+    field: "remaining_days",
+    headerName: "Dias restantes",
+    width: 150,
+    type: 'number',
+  }
 ];

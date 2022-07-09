@@ -37,19 +37,26 @@ export default function AlunoTable() {
   }, [Emprestimos]);
 //Organizar os Arrays
   function createRows(elemento) {
+
+    function difference(date1, date2) {  
+      const date1utc = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
+      const date2utc = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
+      let day = 1000*60*60*24;
+      return(date2utc - date1utc)/day
+    }
+
+    let dataAtual = new Date();
     let dataPrazo = new Date(elemento.data_prazo);
 
-    const formatDate = (date)=>{
-      let formatted_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-       return formatted_date;
-      }
+    const days = difference(dataAtual, dataPrazo)
 
     let ArrEmprestimos = {
       id: elemento._id,
       nome_aluno: elemento.nome_aluno,
       nome_livro: elemento.nome_livro,
-      data_prazo: formatDate(dataPrazo),
-      data_prazo_formatada: new Date(elemento.data_prazo)
+      data_prazo: format(add(new Date(elemento.data_prazo), {days:1}), 'dd/MM/yyyy'),
+      data_prazo_formatada: new Date(elemento.data_prazo),
+      remaining_days: days,
     };
     return ArrEmprestimos;
   }
@@ -121,7 +128,7 @@ export default function AlunoTable() {
     {
       field: "actions",
       headerName: "Ações",
-      width: 200,
+      width: 150,
       type: 'number',
       renderCell: (params) => {
         return (
@@ -187,7 +194,7 @@ export default function AlunoTable() {
     },
   ];
   return (
-    <div style={{ height: 500, width: 1000, fontWeight: 'bold' }}>
+    <div style={{ height: 500, width: 1100, fontWeight: 'bold' }}>
       <ModalStyled>
         <Modal
           open={open}
@@ -208,6 +215,11 @@ export default function AlunoTable() {
         columns={columns.concat(statusColumn, actionColumn)}
         pageSize={50}
         rowsPerPageOptions={[5]}
+        initialState={{
+          sorting: {
+            sortModel: [{ field: "remaining_days", sort: "asc" }],
+          },
+        }}
       />
     </div>
   );
