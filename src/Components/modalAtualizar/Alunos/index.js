@@ -1,8 +1,9 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import { Content } from "./styled";
 import {
   Alert,
+  Autocomplete,
   Button,
   FormControl,
   LinearProgress,
@@ -39,15 +40,14 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
       alert(err);
     }
   };
-//Variaveis
-  const [Erro, setErro] = React.useState(false);
-  const [Nome, setNome] = React.useState("");
-  const [Turma, setTurma] = React.useState("");
-  const [Email, setEmail] = React.useState("");
-  const [Telefone, setTelefone] = React.useState("");
-  const [idAluno, setIdAluno] = React.useState(parentToChild);
-//Receber valores para completar os inputs
-  React.useEffect(() => {
+  //Variaveis
+  const [Erro, setErro] = useState(false);
+  const [Nome, setNome] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Telefone, setTelefone] = useState("");
+  const [idAluno, setIdAluno] = useState(parentToChild);
+  //Receber valores para completar os inputs
+  useEffect(() => {
     async function getUsuario() {
       var response = await api.get("/alunos.detalhes/" + idAluno);
       setNome(response.data.nome);
@@ -58,22 +58,62 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
     getUsuario();
   }, [idAluno]);
   //Pegar o valor de turma
-  const handleChange = (event) => {
+  const handleAddTelefone = (event) => {
     setTelefone(event.target.value);
   };
-
-  const Change = (event) => {
-    setTurma(event.target.value);
-  };
-
   //Pegar valor de Nome
   const handleAddName = (e) => {
     setNome(e.target.value);
   };
-
   //Pegar valor de Email
   const handleAddEmail = (e) => {
     setEmail(e.target.value);
+  };
+  //Pegar valor da Turma
+  const handleAddTurma = (e) => {
+    setTurma(e.target.value);
+  };
+  //Variaveis para o autocomplete
+  const [TurmaRows, setTurmaRows] = useState([]);
+  const [TurmaArray, setTurmaArray] = useState([]);
+  const [Turma, setTurma] = useState();
+  //Buscar o Array de Turma na API
+  useEffect(() => {
+    async function loadTurma() {
+      const response = await api.get("Turma");
+      setTurmaArray(response.data);
+    }
+    if (TurmaArray !== "") {
+      setTurmaRows(TurmaArray.map(createRowsTurma));
+    }
+    loadTurma();
+  }, [TurmaArray]);
+  //Organizar os Arrays
+  function createRowsTurma(elemento) {
+    let ArrTurma = {
+      id: elemento._id,
+      turma: elemento.turma_aluno,
+    };
+    return ArrTurma;
+  }
+  //Mapear os Arrays e inserir nos inputs
+  const listarTurma = TurmaRows.map(
+    (e) =>
+      <MenuItem value={e.turma}>
+      <em>{e.turma}</em>
+      </MenuItem>
+    
+  ) 
+  //Estilo do input
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: "auto",
+      },
+    },
   };
 
   return (
@@ -98,24 +138,24 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
               variant="standard"
               onChange={handleAddName}
             />
-            <FormControl variant="standard" sx={{ width: "100%", marginTop: '20px'}}>
+            <FormControl variant="standard" sx={{ width: "100%", marginTop: "20px"}}>
               <InputLabel id="demo-simple-select-standard-label">
                 Turma
               </InputLabel>
               <Select
-              
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 value={Turma}
-                onChange={Change}
-                label="Turma"
+                onChange={handleAddTurma}
+                label="Age"
+                MenuProps={MenuProps}
               >
                 <MenuItem value="">
-                  <em>Nenhuma</em>
+                  <em>None</em>
                 </MenuItem>
-                <MenuItem value={"1º"}>1º</MenuItem>
-                <MenuItem value={"2º"}>2º</MenuItem>
-                <MenuItem value={"3º"}>3º</MenuItem>
+
+                {listarTurma}
+                
               </Select>
             </FormControl>
           </div>
@@ -127,14 +167,14 @@ export default function AlunoModalUpdate({ parentToChild, childToParent }) {
               <Input
                 autoComplete="off"
                 value={Telefone}
-                onChange={handleChange}
+                onChange={handleAddTelefone}
                 name="textmask"
                 id="formatted-text-mask-input"
                 inputComponent={TextMaskCustom}
               />
             </FormControl>
             <TextField
-              sx={{ marginTop: '20px' }}
+              sx={{ marginTop: "20px" }}
               autoComplete="off"
               id="standard-basic"
               label="Email"

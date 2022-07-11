@@ -3,7 +3,11 @@ import {
   Alert,
   Autocomplete,
   Button,
+  FormControl,
+  InputLabel,
   LinearProgress,
+  MenuItem,
+  Select,
   TextField,
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
@@ -20,7 +24,7 @@ export default function EmprestimoModalUpdate({
   //Variaveis
   const [AlunosRows, setAlunosRows] = useState("");
   const [Alunos, setAlunos] = useState([]);
-  const [LivrosRows, setLivrosRows] = useState("");
+  const [LivrosRows, setLivrosRows] = useState([]);
   const [Livros, setLivros] = useState([]);
   //Buscar o Array de Alunos na API
   useEffect(() => {
@@ -72,10 +76,6 @@ export default function EmprestimoModalUpdate({
     options: AlunosRows,
     getOptionLabel: (option) => option.nome,
   };
-  const LivrosProps = {
-    options: LivrosRows,
-    getOptionLabel: (option) => option.titulo_livro,
-  };
   //Inserir o valor na tabela de Emprestimos
   //Variaveis dos inputs
   const [dataDevolução, setdataDevolução] = useState("");
@@ -113,11 +113,30 @@ export default function EmprestimoModalUpdate({
           "yyyy-MM-dd"
         )
       );
+      setnomeLivro(response.data.nome_livro)
     }
     getUsuario();
   }, [idEmprestimos]);
 
-  const [value, setValue] = useState(null);
+   //Mapear os Arrays e inserir nos inputs
+   const listarLivros = LivrosRows.map(
+    (e) =>
+      <MenuItem value={e.titulo_livro}>
+      <em>{e.titulo_livro}</em>
+      </MenuItem>
+  ) 
+
+  //Estilo do input
+   const ITEM_HEIGHT = 48;
+   const ITEM_PADDING_TOP = 8;
+   const MenuProps = {
+     PaperProps: {
+       style: {
+         maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+         width: "auto",
+       },
+     },
+   };
 
   return (
     <Content>
@@ -159,23 +178,26 @@ export default function EmprestimoModalUpdate({
             </div>
           </div>
           <div className="left">
-            <Autocomplete
-              style={{ width: "95%" }}
-              {...LivrosProps}
-              inputValue={nomeLivro}
-              onInputChange={(event, newInputValue) => {
-                setnomeLivro(newInputValue);
-              }}
-              id="disable-close-on-select"
-              clearOnEscape
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Nome do Livro"
-                  variant="standard"
-                />
-              )}
-            />
+          <FormControl variant="standard" sx={{ width: "100%" }}>
+              <InputLabel id="demo-simple-select-standard-label">
+                Livro
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={nomeLivro}
+                onChange={(e) => setnomeLivro(e.target.value)}
+                label="Age"
+                MenuProps={MenuProps}
+              >
+                <MenuItem value="">
+                  <em>Nenhum</em>
+                </MenuItem>
+
+                {listarLivros}
+                
+              </Select>
+            </FormControl>
           </div>
         </div>
       ) : (

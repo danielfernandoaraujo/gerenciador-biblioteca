@@ -126,7 +126,7 @@ export default function LivroTable() {
   return (
     <div style={{ height: 500, width: 800 }}>
   
-      <ModalStyled>
+      <ModalStyled> 
           <Modal
             open={open}
             onClose={handleClose}
