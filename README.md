@@ -29,12 +29,3 @@ de livros que estão em andamento.
 Email: admin@admin.com
 Senha: admin123
 ```
-
-    
-## 🚧 Projeto em produção 🚧
-
-- [x] Login e Autenticação.
-- [x] Pagina inicial
-- [x] Adicionar alunos.
-- [x] Adicionar livros.
-- [x] Adicionar emprestimos de livros.
