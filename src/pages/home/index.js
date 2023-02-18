@@ -9,6 +9,7 @@ import { Box } from "@mui/system";
 import AlunoModal from "../../Components/modalAdicionar/Alunos";
 import LivroModal from "../../Components/modalAdicionar/Livros";
 import { useState } from "react";
+import { RiHeartLine } from "react-icons/ri";
 
 export function Home() {
   const page = "home";
@@ -41,7 +42,9 @@ export function Home() {
               <Actions type={"emprestimos"}/>
               <Actions type={"turmas"}/>
             </div>
-            <div className="pendings"></div>
+            <div className="credits">
+              Desenvolvido por Daniel Fernando
+            </div>
           </div>
         </div>
       </div>
